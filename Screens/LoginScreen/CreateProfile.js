@@ -26,23 +26,23 @@ const CreateProfile = ({navigation}) => {
        </View>
 
        <Text style={{marginTop:20, textAlign:"center", fontSize:16}}>Choose Your Image</Text>
-
+ 
        <View style={styles.input}>
-       <Icons name="person-outline" size={25} color="gray" style={{marginRight:5, marginLeft:10,marginTop:8}}/>
+       <Image source={require('../../assets/Icons/man.png')} style={{marginTop:15, marginLeft:15,marginRight:15 }}/>
       <TextInput placeholder="Full Name"  />
     </View>
     <View style={styles.input}>
-       <Icons name="calendar-outline" size={25} color="gray" style={{marginRight:5, marginLeft:10,marginTop:8}}/>
+    <Image source={require('../../assets/Icons/cal.png')} style={{marginTop:15, marginLeft:15,marginRight:15 }}/>
       <TextInput placeholder="Date of Birth"  />
     </View>
     <View style={styles.input}>
-       <Icons name="location-outline" size={25} color="gray" style={{marginRight:5, marginLeft:10,marginTop:8}}/>
+    <Image source={require('../../assets/Icons/loc.png')} style={{marginTop:15, marginLeft:15,marginRight:15 }}/>
       <TextInput placeholder="Region" />
     </View>
     <View style={styles.input}>
-       <Icons name="people-outline" size={25} color="gray" style={{marginRight:5, marginLeft:10,marginTop:8}}/>
+    <Image source={require('../../assets/Icons/Gen.png')} style={{marginTop:15, marginLeft:15,marginRight:15 }}/>
       <TextInput placeholder="Gender"  />
-      <MIcons name="pencil-outline" size={25} color="gray" style={{marginTop:10, marginLeft:200 }}/>
+      <Image source={require('../../assets/Icons/pen.png')} style={{marginTop:15, marginRight:10, marginLeft:200}}/>
     </View>
 
 

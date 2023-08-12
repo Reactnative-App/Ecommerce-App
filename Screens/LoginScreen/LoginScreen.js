@@ -27,7 +27,8 @@ const LoginScreen = ({navigation}) => {
 
        <View style={{elevation:1}}>
        <Pressable style={styles.socialBtn} onPress={()=>{navigation.navigate('LoginWithEmail')}}>
-       <Icons name="mail-outline" size={20} style={{marginRight:20}} />
+       <Image source={require('../../assets/Icons/Mail.png')} style={{marginTop:6, marginRight:10, marginLeft:10}}/>
+       {/* <Icons name="mail-outline" size={20} style={{marginRight:20}} /> */}
          <Text style={{textAlign:"center"}}>Continue With Email</Text>
        </Pressable >
        <Pressable  style={styles.socialBtn}>
