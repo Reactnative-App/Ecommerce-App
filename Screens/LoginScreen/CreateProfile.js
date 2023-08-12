@@ -51,10 +51,10 @@ const CreateProfile = ({navigation}) => {
     </View>
 
     <View style={{flexDirection:"row", justifyContent:"space-around", alignItems:"center", marginTop:30,}}>
-      <Pressable style={[styles.btn,{width:70,marginRight:20,backgroundColor:"transparent"} ]} onPress={()=>{navigation.navigate('ForgotPass')}} >
-      <Text style={{color:"#000"}}>Skip</Text>
+      <Pressable style={[styles.btn,{width:90,marginRight:20,backgroundColor:"#fff"} ]} onPress={()=>{navigation.navigate('ForgotPass')}} >
+      <Text style={{color:"#000", textAlign:"center"}}>Skip</Text>
     </Pressable>
-    <Pressable style={styles.btn} >
+    <Pressable style={[styles.btn,{width:150, marginLeft:40}]} >
       <Text style={{color:"#000"}}>Go To Shopping</Text>
     </Pressable>
       

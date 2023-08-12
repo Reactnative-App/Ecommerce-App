@@ -9,6 +9,7 @@ const ForgotPassPhone = ({navigation}) => {
   return (
     <View style={{marginTop:40}}>
         <StatusBar/>
+        <ImageBackground source={require('../../assets/back.png')} style={{height:"100%", width:"100%"}}>
         <Icons name='arrow-back-outline' size={24} style={{marginLeft:20}} onPress={()=>navigation.goBack()}/>
         <ImageBackground source={require('../../assets/ForgotPass.png')} style={{height:390,marginTop:10, width:325, alignSelf:"center"}}>
             <Text style={{textAlign:"center",marginTop:20,fontWeight:"800", fontSize:40, color:"#fff"}}>OVERAY</Text>
@@ -29,6 +30,7 @@ const ForgotPassPhone = ({navigation}) => {
         <Text style={{fontSize:14, textAlign:"center", marginTop:7}}>Next</Text>
     </Pressable>
 
+        </ImageBackground>
     </View>
   )
 }
