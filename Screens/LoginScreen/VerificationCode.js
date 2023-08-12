@@ -1,6 +1,7 @@
 import { StyleSheet,TextInput,Pressable, Text, View } from 'react-native'
 import React,{useEffect, useRef, useState} from 'react'
 import Icons from 'react-native-vector-icons/Ionicons';
+import { ImageBackground } from 'react-native';
 
 const VerificationCode = ({navigation}) => {
     let e1=useRef()
@@ -23,6 +24,7 @@ const VerificationCode = ({navigation}) => {
 
   return (
     <View style={{marginTop:40}}>
+      <ImageBackground source={require('../../assets/verifyBg.png')} style={{height:"100%", width:"100%"}}>
       <Icons name='arrow-back-outline' size={24} style={{marginLeft:20}} onPress={()=>navigation.goBack()}/>
       <Text style={{fontWeight:"300", fontSize:32, marginLeft:20}}>Verification Code</Text>
       <View style={{marginTop:20,marginLeft:20}}>
@@ -76,7 +78,7 @@ const VerificationCode = ({navigation}) => {
       <Text style={{textAlign:"center", marginTop:20, fontSize:14}}>0{min}:{sec}</Text>
 
       <View style={{flexDirection:"row", justifyContent:"space-around", alignItems:"center", marginTop:30,}}>
-      <Pressable style={[styles.btn,{marginRight:20,backgroundColor:"#fff", width:100} ]} onPress={()=>{navigation.navigate('ForgotPass')}} >
+      <Pressable style={[styles.btn,{marginRight:20,backgroundColor:"#fff", width:100} ]} onPress={()=>{}} >
       <Text style={{color:"#000", fontSize:14,textAlign:"center"}}>Resend</Text>
     </Pressable>
     <Pressable style={[styles.btn, {width:150}]} onPress={()=>navigation.navigate('NewPass')} >
@@ -84,6 +86,7 @@ const VerificationCode = ({navigation}) => {
     </Pressable>
       
       </View>
+      </ImageBackground>
     </View>
   )
 }
