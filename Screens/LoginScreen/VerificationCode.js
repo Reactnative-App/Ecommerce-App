@@ -2,6 +2,7 @@ import { StyleSheet,TextInput,Pressable, Text, View } from 'react-native'
 import React,{useEffect, useRef, useState} from 'react'
 import Icons from 'react-native-vector-icons/Ionicons';
 import { ImageBackground } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 const VerificationCode = ({navigation}) => {
     let e1=useRef()

@@ -20,7 +20,7 @@ const SplashScreen = ({navigation}) => {
     
 
   return (
-   <ImageBackground source={require('../assets/Bg.png')} style={[styles.container,{height:"100%", width:"100%"}]}>
+   <ImageBackground source={require('../assets/Overay_bg.png')} style={[styles.container,{height:"100%", width:"100%"}]}>
 
     <Image source={require('../assets/Logo.png')} style={{height:141, width:226}}/>
 
