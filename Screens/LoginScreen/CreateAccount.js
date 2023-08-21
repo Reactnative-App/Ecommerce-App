@@ -18,13 +18,13 @@ const LoginScreen = ({navigation}) => {
         <View style={{backgroundColor:"#fff", height:50, width:50, marginLeft:30,borderTopLeftRadius:20,elevation:1, borderBottomLeftRadius:20,justifyContent:"center",alignItems:"center", flexDirection:"row"}}>
             <Icons name="mail-outline" size={20} />
         </View>
-        <TextInput placeholder='Email Address' style={styles.input}/>
+        <TextInput keyboardType='email' placeholder='Email Address' style={styles.input}/>
        </View>
        <View style={{flexDirection:"row",marginTop:10, }}>
         <View style={{backgroundColor:"#fff", height:50, width:50, marginLeft:30,borderTopLeftRadius:20,elevation:1, borderBottomLeftRadius:20,justifyContent:"center",alignItems:"center", flexDirection:"row"}}>
             <Icons name="call-outline" size={20} />
         </View>
-        <TextInput placeholder='Phone Number' style={styles.input}/>
+        <TextInput keyboardType='number-pad' placeholder='Phone Number' style={styles.input}/>
        </View>
        <View style={{flexDirection:"row",marginTop:10, }}>
         <View style={{backgroundColor:"#fff", height:50, width:50, marginLeft:30,borderTopLeftRadius:20,elevation:1, borderBottomLeftRadius:20,justifyContent:"center",alignItems:"center", flexDirection:"row"}}>

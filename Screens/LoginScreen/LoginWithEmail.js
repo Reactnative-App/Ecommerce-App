@@ -1,9 +1,12 @@
-import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity, Pressable, ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity, Pressable, ScrollView} from 'react-native'
+import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Icons from 'react-native-vector-icons/Ionicons';
+import Ionicons from "react-native-vector-icons/Ionicons";
+
 
 const LoginScreen = ({ navigation }) => {
+  const [showotp, setshowotp] = useState(true)
   return (
 
     <ScrollView contentContainerStyle={{ flex: 1, backgroundColor: "#FFFDF6" }}>
@@ -23,9 +26,21 @@ const LoginScreen = ({ navigation }) => {
           <Icons name="lock-closed-outline" size={20} />
 
         </View>
-        <TextInput placeholder=' Password' secureTextEntry={true} style={styles.input} />
+        <TextInput placeholder=' Password' secureTextEntry={showotp} style={styles.input} />
         <View style={{ marginTop: 10, marginRight: 100 }}>
-          <Icons name='eye-outline' size={20} style={{ marginRight: 40 }} />
+
+        
+
+
+       
+     <Pressable onPress={() => { setshowotp(!showotp) } }>
+  <View style={{padding:5}}>
+  {showotp ? 
+  <Ionicons  name="ios-eye-off-outline" size={20} color="#000" /> 
+          : 
+  <Ionicons  name="ios-eye-outline" size={20} color="#000" />
+  }</View>
+</Pressable>
         </View>
       </View>
 
