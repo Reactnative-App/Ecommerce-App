@@ -1,4 +1,4 @@
-import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity, Pressable, ScrollView} from 'react-native'
+import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity, Pressable, ScrollView, ImageBackground} from 'react-native'
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Icons from 'react-native-vector-icons/Ionicons';
@@ -12,7 +12,10 @@ const LoginScreen = ({ navigation }) => {
     <ScrollView contentContainerStyle={{ flex: 1, backgroundColor: "#FFFDF6" }}>
       <StatusBar backgroundColor='#F39184' style='light' />
 
-      <Image source={require('../../assets/Header.png')} style={{ height: 330, marginTop: 10, width: 360, borderBottomLeftRadius: 20, borderBottomRightRadius: 20 }} />
+      <ImageBackground source={require('../../assets/Header.png')} style={{ height: 330, marginTop: 10,alignSelf:"center", width: 360 }} imageStyle={{borderBottomLeftRadius:20, borderBottomRightRadius:20}}>
+      <Icons name='arrow-back-outline' size={20} style={{marginTop:30, marginLeft:30}} onPress={()=>navigation.goBack()}/>
+      </ImageBackground>
+     
       <Text style={{ fontSize: 20, marginTop: 10, fontWeight: "400", marginLeft: 20 }}>Welcome Back</Text>
 
       <View style={{ flexDirection: "row", marginTop: 10, }}>
@@ -27,14 +30,9 @@ const LoginScreen = ({ navigation }) => {
 
         </View>
         <TextInput placeholder=' Password' secureTextEntry={showotp} style={styles.input} />
-        <View style={{ marginTop: 10, marginRight: 100 }}>
-
-        
-
-
-       
+        <View style={{ marginTop: 10 }}>
      <Pressable onPress={() => { setshowotp(!showotp) } }>
-  <View style={{padding:5}}>
+  <View style={{padding:5, marginRight:-40}}>
   {showotp ? 
   <Ionicons  name="ios-eye-off-outline" size={20} color="#000" /> 
           : 

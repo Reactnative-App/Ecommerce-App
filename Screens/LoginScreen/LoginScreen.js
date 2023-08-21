@@ -2,7 +2,7 @@ import { StyleSheet,Image, Text, View, TextInput, TouchableOpacity, Pressable, S
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import Icons from 'react-native-vector-icons/Ionicons';
-import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const LoginScreen = ({ navigation }) => {
   return (
@@ -10,12 +10,11 @@ const LoginScreen = ({ navigation }) => {
     <ScrollView contentContainerStyle={{flex:1, backgroundColor:"#FFFDF6"}}>
         <StatusBar backgroundColor='#F39184' style='light'/>
     
-       <ImageBackground source={require('../../assets/Header.png')} style={{height:330,marginTop:10,width:360, borderBottomLeftRadius:20, borderBottomRightRadius:20}}>
-        <Icon name='arrow-back-outline' size={20} />
-       </ImageBackground>
-       <Text style={{fontSize:20, marginTop:10, fontWeight:"400", marginLeft:20}}>Welcome Back</Text>
+    
 
-      <Image source={require('../../assets/Header.png')} style={{ height: 330, marginTop: 10, width: 360, borderBottomLeftRadius: 20, borderBottomRightRadius: 20 }} />
+      <ImageBackground source={require('../../assets/Header.png')} imageStyle={{borderBottomRightRadius:20, borderBottomLeftRadius:20}} style={{ height: 330, marginTop: 25, width: 360}}>
+          <Icons name='arrow-back-outline' size={20} style={{marginTop:30, marginLeft:30}} onPress={()=>navigation.goBack()}/>
+      </ImageBackground>
       <Text style={{ fontSize: 20, marginTop: 10, fontWeight: "400", marginLeft: 20 }}>Welcome Back</Text>
 
       <View style={{ flexDirection: "row", marginTop: 10, }}>
