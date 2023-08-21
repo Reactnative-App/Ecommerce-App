@@ -1,4 +1,4 @@
-import { StyleSheet,Image, Text, View, TextInput, TouchableOpacity, Pressable, ScrollView } from 'react-native'
+import { StyleSheet,Image, Text, View, TextInput, TouchableOpacity, Pressable, ScrollView, ImageBackground } from 'react-native'
 import React,{useState} from 'react'
 import { StatusBar } from 'expo-status-bar';
 import Icons from 'react-native-vector-icons/Ionicons';
@@ -11,14 +11,16 @@ const LoginScreen = ({navigation}) => {
     <ScrollView contentContainerStyle={{flex:1, backgroundColor:"#FFFDF6"}}>
         <StatusBar backgroundColor='#F39184' style='light'/>
     
-       <Image source={require('../../assets/Header.png')} style={{height:330,marginTop:10,width:360, borderBottomLeftRadius:20, borderBottomRightRadius:20}}/>
+       <ImageBackground source={require('../../assets/Header.png')} style={{height:330,marginTop:10,width:360}} imageStyle={{borderBottomLeftRadius:20, borderBottomRightRadius:20}}>
+       <Icons name='arrow-back-outline' size={20} style={{marginTop:30, marginLeft:30}} onPress={()=>navigation.goBack()}/>
+       </ImageBackground>
        <Text style={{fontSize:20, marginTop:10, fontWeight:"400", marginLeft:20}}>Create Your Account</Text>
 
        <View style={{flexDirection:"row",marginTop:10, }}>
         <View style={{backgroundColor:"#fff", height:50, width:50, marginLeft:30,borderTopLeftRadius:20,elevation:1, borderBottomLeftRadius:20,justifyContent:"center",alignItems:"center", flexDirection:"row"}}>
             <Icons name="mail-outline" size={20} />
         </View>
-        <TextInput keyboardType='email' placeholder='Email Address' style={styles.input}/>
+        <TextInput  placeholder='Email Address' style={styles.input}/>
        </View>
        <View style={{flexDirection:"row",marginTop:10, }}>
         <View style={{backgroundColor:"#fff", height:50, width:50, marginLeft:30,borderTopLeftRadius:20,elevation:1, borderBottomLeftRadius:20,justifyContent:"center",alignItems:"center", flexDirection:"row"}}>
@@ -31,7 +33,7 @@ const LoginScreen = ({navigation}) => {
             <Icons name="lock-closed-outline" size={20}/>
            
         </View>
-        <View style={{width:"90%", flexDirection:"row", justifyContent:"center", alignItems:"Ce"}}>
+        <View style={{width:"90%", flexDirection:"row", justifyContent:"center"}}>
         <TextInput placeholder=' Password' secureTextEntry={true} style={styles.input} />
         <View style={{marginTop:10, marginRight:100}}>
         <Icons name='eye-outline' size={20}/>
