@@ -1,13 +1,19 @@
-import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity, Pressable, ScrollView } from 'react-native'
+import { StyleSheet,Image, Text, View, TextInput, TouchableOpacity, Pressable, ScrollView, ImageBackground } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import Icons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const LoginScreen = ({ navigation }) => {
   return (
 
-    <ScrollView contentContainerStyle={{ flex: 1, backgroundColor: "#FFFDF6" }}>
-      <StatusBar backgroundColor='#F39184' style='light' />
+    <ScrollView contentContainerStyle={{flex:1, backgroundColor:"#FFFDF6"}}>
+        <StatusBar backgroundColor='#F39184' style='light'/>
+    
+       <ImageBackground source={require('../../assets/Header.png')} style={{height:330,marginTop:10,width:360, borderBottomLeftRadius:20, borderBottomRightRadius:20}}>
+        <Icon name='arrow-back-outline' size={20} />
+       </ImageBackground>
+       <Text style={{fontSize:20, marginTop:10, fontWeight:"400", marginLeft:20}}>Welcome Back</Text>
 
       <Image source={require('../../assets/Header.png')} style={{ height: 330, marginTop: 10, width: 360, borderBottomLeftRadius: 20, borderBottomRightRadius: 20 }} />
       <Text style={{ fontSize: 20, marginTop: 10, fontWeight: "400", marginLeft: 20 }}>Welcome Back</Text>
