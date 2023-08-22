@@ -12,7 +12,7 @@ const LoginScreen = ({ navigation }) => {
     
     
 
-      <ImageBackground source={require('../../assets/Header.png')} imageStyle={{borderBottomRightRadius:20, borderBottomLeftRadius:20}} style={{ height: 330, marginTop: 25, width: 360}}>
+      <ImageBackground source={require('../../assets/Header.png')} imageStyle={{borderBottomRightRadius:20, borderBottomLeftRadius:20}} style={{ height: 330, marginTop: 25, width: 395, alignSelf:"center"}}>
           <Icons name='arrow-back-outline' size={20} style={{marginTop:30, marginLeft:30}} onPress={()=>navigation.goBack()}/>
       </ImageBackground>
       <Text style={{ fontSize: 20, marginTop: 10, fontWeight: "400", marginLeft: 20 }}>Welcome Back</Text>
