@@ -1,12 +1,29 @@
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { ImageBackground, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React,{useState}from 'react'
 import { StatusBar } from 'expo-status-bar'
 import Icons from 'react-native-vector-icons/Ionicons';
 import MIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Image } from 'react-native';
 import { TextInput } from 'react-native';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import moment from 'moment';
 
 const CreateProfile = ({navigation}) => {
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [selectedDate, setSelectedDate] = useState();
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    //console.warn("A date has been picked: ", date);
+    setSelectedDate((moment(date).format("YYYY-MM-DD")).split('T')[0])
+    hideDatePicker();
+  };
   return (
     <View style={{marginTop:70}}>
       <StatusBar backgroundColor='#FFFCF3' style='dark'/>
@@ -32,8 +49,10 @@ const CreateProfile = ({navigation}) => {
       <TextInput placeholder="Full Name"  />
     </View>
     <View style={styles.input}>
+    <TouchableOpacity onPress={()=>setDatePickerVisibility(true)}>
     <Image source={require('../../assets/Icons/cal.png')} style={{marginTop:15, marginLeft:15,marginRight:15 }}/>
-      <TextInput placeholder="Date of Birth"  />
+    </TouchableOpacity>
+      <TextInput placeholder="Date of Birth"  value={selectedDate}/>
     </View>
     <View style={styles.input}>
     <Image source={require('../../assets/Icons/loc.png')} style={{marginTop:15, marginLeft:15,marginRight:15 }}/>
@@ -60,7 +79,12 @@ const CreateProfile = ({navigation}) => {
       
       </View>
       
-
+      <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
+      />
 
       
     </ImageBackground>

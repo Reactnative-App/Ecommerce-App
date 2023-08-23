@@ -3,6 +3,7 @@
     "name": "OverayApp",
     "slug": "OverayApp",
     "version": "1.0.0",
+    "userInterfaceStyle": "automatic",
     "assetBundlePatterns": [
       "**/*"
     ]
