@@ -93,7 +93,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
-    elevation: 1
+    elevation: 10,
+    shadowColor: '#F3D743',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
   btn: {
     height: 40,
@@ -103,7 +106,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 20,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    elevation: 10,
+    shadowColor: '#F3D743',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
   socialBtn: {
     padding: 15,
@@ -115,6 +122,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    elevation: 10,
+    shadowColor: '#F3D743',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
   left: {
     marginLeft: 50,
