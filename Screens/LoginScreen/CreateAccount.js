@@ -58,7 +58,7 @@ const LoginScreen = ({ navigation }) => {
       </View>
 
       <View style={{ flexDirection: "row", width: "90%", justifyContent: "space-around", marginTop: 10 }}>
-        <TouchableOpacity style={[styles.btn, { backgroundColor: "#fff" }]} onPress={() => navigation.navigate('CreateAccount')}>
+        <TouchableOpacity style={[styles.btn, { backgroundColor: "#fff", elevation:10, shadowColor: '#F3D743',shadowOpacity: 0.25, shadowRadius: 5 }]} onPress={() => navigation.navigate('CreateAccount')}>
           <Text style={{ color: "#000", textAlign: "center", fontSize: 14 }}>Sign In</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("CreateProfile")}>
@@ -91,7 +91,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
-    elevation: 1
+    elevation: 10,
+    shadowColor: '#F3D743',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
   btn: {
     height: 40,
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 20,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   socialBtn: {
     padding: 15,
