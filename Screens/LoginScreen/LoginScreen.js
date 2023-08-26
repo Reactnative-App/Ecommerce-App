@@ -17,14 +17,16 @@ const LoginScreen = ({ navigation }) => {
       </ImageBackground>
       <Text style={{ fontSize: 32, marginTop: 10, fontWeight: "400", marginLeft: 20 }}>Welcome Back</Text>
 
-      <View style={{ flexDirection: "row", marginTop: 10, }}>
-        <View style={{ backgroundColor: "#fff", height: 50, width: 50, marginLeft: 30, borderBottomLeftRadius: 20, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
-          <Icons name="call-outline" size={18} style={{ marginLeft: 5 }} />
-          <Text style={{ color: "gray", marginLeft: 5 }}>+91</Text>
-        </View>
-        <TextInput placeholder=' Phone Number' style={styles.input} keyboardType='number-pad' />
+      <View style={styles.input}>
+        <Image source={require('../../assets/Icons/phone.png')} style={{ marginTop: 18, marginRight: 10, marginLeft: 15 }} />
+        {/* <Icons name="call-outline" size={25} color="gray" style={{marginRight:10, marginLeft:10,marginTop:10}}/> */}
+        <Text style={{ marginTop: 15, marginRight: 10, color: "gray" }}>+91   </Text>
+        <View style={styles.verticleLine}></View>
+        <TextInput placeholder="Phone Number" style={{marginLeft:10}} />
+        
       </View>
-
+ 
+      
 
       <TouchableOpacity style={styles.btn}>
         <Text style={{ color: "#000", textAlign: "center", fontSize: 14 }}>Continue With OTP</Text>
@@ -33,7 +35,7 @@ const LoginScreen = ({ navigation }) => {
       <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 24 }}>
         <View style={styles.left} />
         <View>
-          <Text style={{ width: 100, textAlign: 'center', color: '#D9D9D9', }}>Or Sign In With</Text>
+          <Text style={{ width: 100, textAlign: 'center', color: '#717171', }}>Or Sign In With</Text>
         </View>
         <View style={styles.right} />
       </View>
@@ -72,15 +74,25 @@ export default LoginScreen
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
-    width: 250,
+    marginTop: 30,
+    alignSelf: "center",
+    flexDirection: "row",
     backgroundColor: "#fff",
-    borderTopRightRadius: 20,
-    borderBottomRightRadius: 20,
-    elevation: 1,
-    textAlign: "left",
-
-  },
+    height: 50,
+    width: 325,
+    borderRadius: 40,
+    elevation: 10,
+    shadowColor: '#F3D743',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+   },
+   verticleLine:{
+    height: '60%',
+    width: 1,
+    backgroundColor: '#D9D9D9',
+    marginTop:10,
+    marginLeft:-15 
+   },
   btn: {
     height: 40,
     backgroundColor: "#F3D743",
