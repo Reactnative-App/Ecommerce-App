@@ -3,8 +3,7 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import Icons from 'react-native-vector-icons/Ionicons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
-
+import {useFonts} from 'expo-font';
 
 const LoginScreen = ({ navigation }) => {
   return (
@@ -15,7 +14,7 @@ const LoginScreen = ({ navigation }) => {
       <ImageBackground source={require('../../assets/Header.png')} imageStyle={{ borderBottomRightRadius: 20, borderBottomLeftRadius: 20 }} style={{ height: hp('41%'), marginTop: 25, width: wp('100%'), alignSelf: "center" }}>
         <Icons name='arrow-back-outline' size={20} style={{ marginTop: 30, marginLeft: 30 }} onPress={() => navigation.goBack()} />
       </ImageBackground>
-      <Text style={{ fontSize: 32, marginTop: 10, fontWeight: "400", marginLeft: 20 }}>Welcome Back</Text>
+      <Text style={{ fontSize: 32, marginTop: 10, fontWeight: "400", marginLeft: 20 ,fontFamily:"regular" }}>Welcome Back</Text>
 
       <View style={styles.input}>
         <Image source={require('../../assets/Icons/phone.png')} style={{ marginTop: 18, marginRight: 10, marginLeft: 15 }} />
