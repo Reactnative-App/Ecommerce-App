@@ -32,7 +32,7 @@ const CreateProfile = ({ navigation }) => {
     hideDatePicker();
   };
   return (
-    <View style={{ marginTop: 70, backgroundColor: "RED" }}>
+    <View style={{ marginTop: 70 }}>
       <StatusBar backgroundColor="#FFFCF3" style="dark" />
       <ImageBackground
         // source={require("../../assets/Profilebg.png")}
@@ -88,7 +88,7 @@ const CreateProfile = ({ navigation }) => {
                 <Icons
                   name="camera"
                   size={14}
-                  color="#fff\"
+                  color="#fff"
                   // style={{ backgroundColor: "#FOFOFO" }}
                 />
               </Pressable>
@@ -147,7 +147,6 @@ const CreateProfile = ({ navigation }) => {
           </View>
 
           <View></View>
-
           <View
             style={{
               flexDirection: "row",
