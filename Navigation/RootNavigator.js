@@ -13,6 +13,7 @@ import ForgotPass from '../Screens/LoginScreen/ForgotPass';
 import ForgotPassPhone from '../Screens/LoginScreen/ForgotPassPhone';
 import VerificationCode from '../Screens/LoginScreen/VerificationCode';
 import NewPass from '../Screens/LoginScreen/NewPass';
+import HomeScreen from '../Screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -57,6 +58,7 @@ const RootNavigator = () => {
          <Stack.Screen name='ForgotPass2' component={ForgotPassPhone} options={{headerShown:false}}/>
          <Stack.Screen name='VerifyCode' component={VerificationCode} options={{headerShown:false}}/>
          <Stack.Screen name='NewPass' component={NewPass} options={{headerShown:false}}/>
+         <Stack.Screen name='Home' component={HomeScreen} options={{headerShown:false}}/>
          </Stack.Navigator>
     </NavigationContainer>
     )
