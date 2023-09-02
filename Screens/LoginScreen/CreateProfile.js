@@ -35,8 +35,8 @@ const CreateProfile = ({ navigation }) => {
     <View style={{ marginTop: 70 }}>
       <StatusBar backgroundColor="#FFFCF3" style="dark" />
       <ImageBackground
-        source={require("../../assets/Profilebg.png")}
-        style={{ width: "100%", height: "100%" }}
+        // source={require("../../assets/Profilebg.png")}
+        style={{ backgroundColor: "#FBF9EF", width: "100%", height: "100%" }}
       >
         <Icons
           name="arrow-back-outline"
@@ -48,45 +48,62 @@ const CreateProfile = ({ navigation }) => {
           Setup Profile
         </Text>
         <ImageBackground
-          source={require("../../assets/Profilebg.png")}
-          style={{ height: "60%", width: "60%", alignSelf: "center" }}
+          // source={require("../../assets/Profilebg.png")}
+          style={{
+            // backgroundColor: "#F4E8AE",
+            // backgroundColor: "#FAF7EA",
+
+            height: "60%",
+            width: "60%",
+            alignSelf: "center",
+          }}
         >
-          <View
-            style={{
-              backgroundColor: "white",
-              height: 84,
-              width: 84,
-              marginTop: 20,
-              borderRadius: 84 / 2,
-              alignSelf: "center",
-            }}
-          >
-            <Pressable
-              style={{
-                backgroundColor: "#F3D743",
-                height: 25,
-                width: 25,
-                position: "absolute",
-                left: 50,
-                borderRadius: 40,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              onPress={() => console.log("Camera")}
-            >
-              <Icons name="camera" size={14} color="#fff" />
-            </Pressable>
+          <View style={{ backgroundColor: "#FAF7EA" }}>
             <View
               style={{
-                justifyContent: "center",
-                alignItems: "center",
+                backgroundColor: "white",
+                height: 84,
+                width: 84,
                 marginTop: 20,
+                borderRadius: 84 / 2,
+                alignSelf: "center",
               }}
             >
-              <Image
-                source={require("../../assets/profile_pic.png")}
-                style={{ height: 32, width: 32 }}
-              />
+              <Pressable
+                style={{
+                  backgroundColor: "#F3D743",
+                  //use bordr radious to make background color
+                  // backgroundColor: "#F0F0F0",
+
+                  height: 25,
+                  width: 25,
+                  position: "absolute",
+                  left: 50,
+                  borderRadius: 40,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                onPress={() => console.log("Camera")}
+              >
+                <Icons
+                  name="camera"
+                  size={14}
+                  color="#fff"
+                  // style={{ backgroundColor: "#FOFOFO" }}
+                />
+              </Pressable>
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: 20,
+                }}
+              >
+                <Image
+                  source={require("../../assets/profile_pic.png")}
+                  style={{ height: 32, width: 32 }}
+                />
+              </View>
             </View>
           </View>
 
@@ -130,7 +147,6 @@ const CreateProfile = ({ navigation }) => {
           </View>
 
           <View></View>
-
           <View
             style={{
               flexDirection: "row",
@@ -150,7 +166,7 @@ const CreateProfile = ({ navigation }) => {
             >
               <Text style={{ color: "#000", textAlign: "center" }}>Skip</Text>
             </Pressable>
-            <Pressable style={[styles.btn, { width: 150, marginLeft: 40 }]}>
+            <Pressable style={[styles.btn, { width: 180, marginLeft: 120 }]}>
               <Text style={{ color: "#000", textAlign: "center" }}>
                 Go To Shopping
               </Text>
@@ -176,7 +192,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
     alignSelf: "center",
     flexDirection: "row",
-    backgroundColor: "#e9edf2",
+    // backgroundColor: "#e9edf2,#FEFCF6",
+    backgroundColor: "white",
     height: 50,
     width: 325,
     borderRadius: 40,
