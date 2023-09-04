@@ -36,6 +36,9 @@ const HomeScreen = () => {
        <CategoryProducts/>
      </View>
     </View>
+    // <View>
+    //     <Text>Home</Text>
+    //   </View>
   )
 }
 
