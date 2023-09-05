@@ -5,7 +5,7 @@ import Profile from '../Screens/OnboardingScreens/Profile';
 import HomeScreen from '../Screens/HomeScreen';
 import Search from '../Screens/OnboardingScreens/Search';
 import { Ionicons } from '@expo/vector-icons';
-import { COLORS } from '../Constants/index';
+import { COLORS } from '../Constants/theme';
 
 
 const Tab = createBottomTabNavigator();

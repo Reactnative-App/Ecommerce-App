@@ -3,6 +3,7 @@ import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useRouter } from "expo-router";
 import styles from "./FeaturedProduct.style";
+import ProductCartView from "./ProductCartView";
 
 
 const productTypes = ["All Product", "Women", "Men", "Bags"];
@@ -37,7 +38,7 @@ const FeaturedProduct = () => {
       <View style={{ marginTop: 16 }}>
         <FlatList
           data={products}
-          renderItem={({ item }) => <Text>Product</Text>}
+          renderItem={({ item }) =><ProductCartView/>}
           horizontal
           contentContainerStyle={{ columnGap: 16 }}
         />
