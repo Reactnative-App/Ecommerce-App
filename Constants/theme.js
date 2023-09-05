@@ -1,4 +1,4 @@
-const COLORS = {
+export const COLORS = {
     primary: "#312651",
     secondary: "#444262",
     tertiary: "#FF7754",
@@ -10,7 +10,7 @@ const COLORS = {
     lightWhite: "#FAFAFC",
   };
 
-  const SIZES = {
+  export const SIZES = {
     xSmall: 10,
     small: 12,
     medium: 16,
@@ -18,3 +18,4 @@ const COLORS = {
     xLarge: 24,
     xxLarge: 32,
   };
+
