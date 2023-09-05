@@ -4,6 +4,8 @@ import { StatusBar } from 'expo-status-bar'
 import Icons from 'react-native-vector-icons/Ionicons';
 import QuickFood from '../components/QuickFood';
 import CategoryProducts from '../components/CategoryProducts';
+import FeaturedProduct from '../components/FeaturedProduct';
+
 
 const HomeScreen = () => {
   return (
@@ -33,6 +35,12 @@ const HomeScreen = () => {
         </TouchableOpacity>
        </View>
 
+       <View style={{ marginTop: 16 }}>
+          <Text style={styles.txt}>Featured Product</Text>
+        </View>
+
+        <FeaturedProduct />
+
        <CategoryProducts/>
      </View>
     </View>
@@ -50,5 +58,10 @@ const styles = StyleSheet.create({
         padding:10,
         width:100,
         borderRadius:50
+    },
+    txt:{
+      fontSize:24,
+      fontFamily:"regular"
     }
+  
 })
