@@ -7,15 +7,15 @@ const styles = StyleSheet.create({
         width: "100%",
         marginTop: 16,
     },
-    tab: (activeJobType, item) => ({
+    tab: (activeProdType, item) => ({
         paddingVertical: 16 / 2,
         paddingHorizontal: 16,
         borderRadius: 16,
-        backgroundColor: activeJobType === item ? '#F3D743' : '#FFFFFF',
+        backgroundColor: activeProdType === item ? '#F3D743' : '#FFFFFF',
     }),
-    tabText: (activeJobType, item) => ({
+    tabText: (activeProdType, item) => ({
         fontFamily: "regular",
-        color: activeJobType === item ? '#444262' : '#717171',
+        color: activeProdType === item ? '#444262' : '#717171',
     }),
 });
 

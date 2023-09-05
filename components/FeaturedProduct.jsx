@@ -12,7 +12,7 @@ const FeaturedProduct = () => {
   const products = [1, 2, 3, 4]
 
   const router = useRouter();
-  const [activeJobType, setActiveJobType] = useState("All Product");
+  const [activeProdType, setActiveProdType] = useState("All Product");
 
   return (
     <View style={styles.tabsContainer}>
@@ -20,13 +20,13 @@ const FeaturedProduct = () => {
         data={productTypes}
         renderItem={({ item }) => (
           <TouchableOpacity
-            style={styles.tab(activeJobType, item)}
+            style={styles.tab(activeProdType, item)}
             onPress={() => {
-              setActiveJobType(item);
+              setActiveProdType(item);
               router.push(`/search/${item}`);
             }}
           >
-            <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
+            <Text style={styles.tabText(activeProdType, item)}>{item}</Text>
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item}
