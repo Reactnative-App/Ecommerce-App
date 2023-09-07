@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Profile from '../Screens/OnboardingScreens/Profile';
 import HomeScreen from '../Screens/HomeScreen';
 import Search from '../Screens/OnboardingScreens/Search';
+import Wishlist from '../Screens/OnboardingScreens/WishList';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../Constants/theme';
 
@@ -56,6 +57,18 @@ const BottomTabNavigation = () => {
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return <Ionicons name={"search-sharp"}
+                            size={24}
+                            color={focused ? COLORS.primary : COLORS.gray2}
+                        />
+                    }
+                }}
+            />
+
+           <Tab.Screen name='Wishlist'
+                component={Wishlist}
+                options={{
+                    tabBarIcon: ({ focused }) => {
+                        return <Ionicons name={focused ? "star" : "star-outline"}
                             size={24}
                             color={focused ? COLORS.primary : COLORS.gray2}
                         />
