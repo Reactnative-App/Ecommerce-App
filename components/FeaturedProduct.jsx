@@ -5,8 +5,28 @@ import { useRouter } from "expo-router";
 import styles from "./FeaturedProduct.style";
 import ProductCartView from "./ProductCartView";
 
-
-const productTypes = ["All Product", "Women", "Men", "Bags"];
+export const categories = [
+  {
+    id: 1,
+    title: "All Product",
+  },
+  {
+    id: 2,
+    title: "Men",
+  },
+  {
+    id: 3,
+    title: "Women",
+  },
+  {
+    id: 4,
+    title: "TrackPants",
+  },
+  {
+    id: 5,
+    title: "Bags",
+  },
+]
 
 const FeaturedProduct = () => {
 
@@ -17,28 +37,30 @@ const FeaturedProduct = () => {
 
   return (
     <View style={styles.tabsContainer}>
+
       <FlatList
-        data={productTypes}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.tab(activeProdType, item)}
-            onPress={() => {
-              setActiveProdType(item);
-              router.push(`/search/${item}`);
-            }}
-          >
-            <Text style={styles.tabText(activeProdType, item)}>{item}</Text>
-          </TouchableOpacity>
-        )}
-        keyExtractor={(item) => item}
-        contentContainerStyle={{ columnGap: 12 }}
         horizontal
+        showsHorizontalScrollIndicator={false}
+        data={categories}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => {
+          isActive = item.id == activeProdType;
+          // let activeTextClass = isActive ? COLORS.main : COLORS.white;
+          return (
+            <TouchableOpacity style={styles.tab(activeProdType, item.id)}
+              onPress={() => setActiveProdType(item.id)}>
+              <Text style={styles.tabText}>{item.title}</Text>
+            </TouchableOpacity>
+          )
+        }}
+        contentContainerStyle={{ columnGap: 12 }}
       />
+
 
       <View style={{ marginTop: 16 }}>
         <FlatList
           data={products}
-          renderItem={({ item }) =><ProductCartView/>}
+          renderItem={({ item }) => <ProductCartView />}
           horizontal
           contentContainerStyle={{ columnGap: 16 }}
         />
