@@ -23,7 +23,7 @@ const NewPass = ({navigation}) => {
       <Icons name="eye-outline" size={25} color="gray" style={{marginTop:10, marginLeft:130 }}/>
     </View>
 
-    <Pressable style={[styles.btn]} onPress={()=>navigation.navigate('NewPass')} >
+    <Pressable style={[styles.btn]} onPress={()=>navigation.navigate('HomeScreen')} >
       <Text style={{color:"#000",textAlign:"center",marginTop:8, fontSize:14}}>Change Password</Text>
     </Pressable>
  </View>
