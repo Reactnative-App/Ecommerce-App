@@ -7,8 +7,6 @@ import React from 'react';
         <Text>Profile</Text>
       </View>
     )
-}
+ }
 
-export default Profile
-
-const styles = StyleSheet.create({})
+ export default Profile
