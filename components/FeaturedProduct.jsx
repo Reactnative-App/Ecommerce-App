@@ -33,7 +33,7 @@ const FeaturedProduct = () => {
   const products = [1, 2, 3, 4]
 
   const router = useRouter();
-  const [activeProdType, setActiveProdType] = useState("All Product");
+  const [activeProdType, setActiveProdType] = useState(1);
 
   return (
     <View style={styles.tabsContainer}>
@@ -61,7 +61,8 @@ const FeaturedProduct = () => {
         <FlatList
           data={products}
           renderItem={({ item }) => <ProductCartView />}
-          horizontal
+           horizontal={false}
+          numColumns={2}
           contentContainerStyle={{ columnGap: 16 }}
         />
       </View>
