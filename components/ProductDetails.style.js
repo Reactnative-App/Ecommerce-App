@@ -64,18 +64,38 @@ const styles = StyleSheet.create({
         marginTop:10,
         marginLeft:-15 
        },
-       miniHead:{
+    miniHead:{
         flexDirection:'row',
         gap:5
        },
-       descriptionWrapper:{
+    descriptionWrapper:{
         marginTop:20,
         marginHorizontal:20
        },
-       descTxt:{
+    descTxt:{
        fontFamily:'regular',
        fontSize:12
-       }
+       },
+    sizesRow:{
+        flexDirection: "row",
+        flexWrap: "wrap",
+        gap: 6,
+        marginTop: 6,
+    },
+    customSizes:{
+        flex: 1,
+        fontSize: 12,
+        fontFamily:'regular',
+        color: '#000',
+    },
+    sizeTop:{
+        marginTop:22,
+        marginHorizontal:22
+    },
+    sizeDirection:{
+        flexDirection: "row", 
+        alignItems: "center" 
+    }
 });
 
 export default styles;
