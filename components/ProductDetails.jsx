@@ -4,16 +4,11 @@ import styles from './ProductDetails.style';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 
 const ProductDetails = () => {
-    const [count, setCount] = useState(1)
 
-    const increment = () => {
-        setCount(count + 1)
-    }
-    const decrement = () => {
-        if (count > 1) {
-            setCount(count - 1)
-        }
-    }
+    const SIZES = ["S", "M", "L", "XL"];
+
+    const [size, setSize] = useState(SIZES[0]);
+    const [count, setCount] = useState(1)
 
     return (
         <View style={styles.main}>
@@ -53,13 +48,19 @@ const ProductDetails = () => {
                         </View>
 
                         <View style={styles.rating}>
-                            <TouchableOpacity onPress={() => (decrement)}>
+                            <TouchableOpacity onPress={() => {
+                                if (count > 1) {
+                                    setCount(count - 1)
+                                }
+                            }}>
                                 <SimpleLineIcons
                                     name='minus'
                                     size={20} />
                             </TouchableOpacity>
                             <Text>{count}</Text>
-                            <TouchableOpacity onPress={() => (increment)}>
+                            <TouchableOpacity onPress={() => {
+                                setCount(count + 1)
+                            }}>
                                 <SimpleLineIcons
                                     name='plus'
                                     size={20} />
@@ -76,6 +77,44 @@ const ProductDetails = () => {
                 <View style={styles.descriptionWrapper}>
 
                     <Text style={styles.descTxt}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eaque, nemo corporis voluptate quas alias sunt molestiae dolores deserunt molestias quia velit possimus autem? Aliquid numquam atque unde officiis porro.r</Text>
+                </View>
+    
+                <View style={styles.sizeTop}>
+                    <View style={styles.sizeDirection}>
+                        <Text
+                            style={styles.customSizes}>
+                            Size
+                        </Text>
+                    </View>
+
+                    <View
+                        style={styles.sizesRow}>
+                        {SIZES.map((s, i) => (
+                            <TouchableOpacity
+                                key={i}
+                                onPress={() => setSize(s)}
+                                style={{
+                                    width: 24,
+                                    height: 24,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    borderWidth: 1,
+                                    borderColor: s === size ? '#bdbdbd' : '',
+                                    borderRadius: 44,
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        color: s === size ? '#000' : '#bdbdbd',
+                                        fontFamily: 'regular',
+                                        fontSize: 10,
+                                    }}
+                                >
+                                    {s}
+                                </Text>
+                            </TouchableOpacity>
+                        ))}
+                    </View>
                 </View>
 
             </ScrollView>
