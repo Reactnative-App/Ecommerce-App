@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, Text, View, Image, FlatList } from 'react-native'
 import React from 'react'
 
-const FoodTypes = () => {
+const CategoriesTypes = () => {
     const type= [
         {
             id:"0",
@@ -27,12 +27,12 @@ const FoodTypes = () => {
         
     ]
   return (
-    <View>
+    <View style={{marginTop:10}}>
      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
          {type.map((item, index)=>{
-           return( <View style={{margin:14}} key={index}>
-            <Image source={item.image} style={{height:60, width:60 , borderRadius:25}}/>
-                <Text style={{marginTop:6, textAlign:"center"}}>{item.name}</Text>
+           return( <View style={{display:'flex',alignItems:'center',marginHorizontal:5}} key={index}>
+            <Image source={item.image} />
+                <Text style={{textAlign:"center",fontSize:10,fontFamily:'regular'}}>{item.name}</Text>
             </View>)
          })}
      </ScrollView>
@@ -40,6 +40,6 @@ const FoodTypes = () => {
   )
 }
 
-export default FoodTypes
+export default CategoriesTypes
 
 const styles = StyleSheet.create({})
