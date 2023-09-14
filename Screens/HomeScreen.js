@@ -52,6 +52,7 @@ const HomeScreen = () => {
         <TouchableOpacity style={styles.tbtn}>
             <Text>New Arrival</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity style={styles.tbtn}>
             <Text>Best Seller</Text>
         </TouchableOpacity>
