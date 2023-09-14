@@ -5,7 +5,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     tabsContainer: {
         width: "100%",
-        marginTop: 16,
+        marginTop: 20,
     },
     tab: (activeProdType, item) => ({
         paddingVertical: 16 / 2,

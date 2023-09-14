@@ -7,10 +7,9 @@ const styles = StyleSheet.create({
        width:157,
        height:200,
        marginEnd:22,
-       borderTopLeftRadius:20,
-       borderTopRightRadius:20,
-       backgroundColor:COLORS.white,
-       elevation:0.25,
+       borderRadius:20,
+       backgroundColor:'#fff',
+       elevation:5,
        shadowOpacity: 0.25,
    },
    imageContainer:{

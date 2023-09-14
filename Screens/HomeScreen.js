@@ -1,32 +1,54 @@
-import { StyleSheet, Image,Text, View, TouchableOpacity } from 'react-native'
-import React from 'react'
-import { StatusBar } from 'expo-status-bar'
-import Icons from 'react-native-vector-icons/Ionicons';
-import QuickFood from '../components/QuickFood';
-import CategoryProducts from '../components/CategoryProducts';
-import FeaturedProduct from '../components/FeaturedProduct';
-
+import {
+  Image,
+  Text,
+  View,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+import React from "react";
+// import { StatusBar } from 'expo-status-bar'
+// import Icons from 'react-native-vector-icons/Ionicons';
+import CategoriesTypes from "../components/Categories";
+import CategoryProducts from "../components/CategoryProducts";
+import FeaturedProduct from "../components/FeaturedProduct";
+// import ProductCartView from '../components/ProductCartView';
+import ArrivalProducts from "../components/ArrivalProducts";
+import Craousel from "../components/Craousel";
+import { ScrollView } from "react-native-virtualized-view";
+import { SafeAreaView } from "react-native-safe-area-context";
+import styles from "./HomeScreen.style";
+// import { TabView, SceneMap } from 'react-native-tab-view';
 
 const HomeScreen = () => {
   return (
-    <View>
-        <StatusBar style='dark'/>
-     <View style={{marginTop:50, marginLeft:10}}>
-       <View style={{flexDirection:"row",justifyContent:"space-between", marginEnd:10 }}>
-          <Image source={require('../assets/main_logo.png')} style={{height:36, width:36}}/>
-          <View style={{flexDirection:"row", margin:10}}>
-            <Icons name="search" size={18} />
-            <Icons name="notifications-outline" size={18} style={{marginLeft:10}}/>
-          </View>
-       </View>
+    <>
+      {/* <StatusBar style='dark'/> */}
+      <ScrollView>
+        <SafeAreaView>
+          <ImageBackground
+            source={require("../assets/Home_bg.png")}
+            style={{ height: "100%", width: "100%", position: "relative" }}
+          >
+            <View style={styles.appWrapper}>
+              <View style={styles.appBar}>
+                <Image source={require("../assets/overay_logo.png")} />
+                <View style={styles.iconAlig}>
+                  <TouchableOpacity>
+                    <Image source={require("../assets/Icons/searchIcon.png")} />
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image
+                      source={require("../assets/Icons/notification_Icon.png")}
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
 
-       <QuickFood/>
+              <CategoriesTypes />
 
-       <View>
-        <Image source={require('../assets/Hero_Banner.png')} style={{height:270, width:325, alignSelf:"center"}} resizeMode='contain'/>
-       </View>
+              <Craousel />
 
-       <View style={{flexDirection:"row", justifyContent:"space-around", marginTop:10}}>
+              {/* <View style={{flexDirection:"row", justifyContent:"space-around", marginTop:20}}>
         <TouchableOpacity style={styles.tbtn}>
             <Text>New Arrival</Text>
         </TouchableOpacity>
@@ -34,34 +56,45 @@ const HomeScreen = () => {
             <Text>Best Seller</Text>
         </TouchableOpacity>
        </View>
+       <View style={{height:4,width:120, backgroundColor:"orange", marginTop:4,marginStart:"3%", alignSelf:"flex-start"}}/> */}
+              <ArrivalProducts />
 
-       <View style={{ marginTop: 16 }}>
-          <Text style={styles.txt}>Featured Product</Text>
-        </View>
+              <View style={{ marginTop: 20 }}>
+                <Text style={styles.txt}>Featured Product</Text>
+              </View>
 
-        <FeaturedProduct />
+              <FeaturedProduct />
 
-       <CategoryProducts/>
-     </View>
-    </View>
-    // <View>
-    //     <Text>Home</Text>
-    //   </View>
-  )
-}
+              <CategoryProducts />
+              {/* <ProductCartView/> */}
+              <TouchableOpacity style={styles.btn}>
+                <Text style={{ color: "#fff" }}>View All Categories</Text>
+              </TouchableOpacity>
 
-export default HomeScreen
+              {/* <View>
+        <Image source={require('../assets/Home_Banner.png')} style={{height:300, width:300, alignSelf:"center"}} resizeMode='contain'/>
+       </View> */}
 
-const styles = StyleSheet.create({
-    tbtn:{
-        backgroundColor:"#e9edf2",
-        padding:10,
-        width:100,
-        borderRadius:50
-    },
-    txt:{
-      fontSize:24,
-      fontFamily:"regular"
-    }
-  
-})
+              <View style={styles.homeFooter}>
+                <View>
+                  <Text>CASH ON DELIVERY</Text>
+                </View>
+                <View style={styles.verticalLine} />
+                <View>
+                  <Text>15 DAYS EASY RETURNS</Text>
+                </View>
+                <View style={styles.verticalLine} />
+                <View>
+                  <Text>EXPRESS SHIPPING</Text>
+                </View>
+              </View>
+            </View>
+          </ImageBackground>
+        </SafeAreaView>
+      </ScrollView>
+    </>
+  );
+};
+
+export default HomeScreen;
+
