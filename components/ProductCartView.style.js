@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
        backgroundColor:'#fff',
        elevation:5,
        shadowOpacity: 0.25,
+       marginBottom:20
    },
    imageContainer:{
     flex:1,
