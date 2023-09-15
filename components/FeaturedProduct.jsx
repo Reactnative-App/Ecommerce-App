@@ -61,10 +61,9 @@ const FeaturedProduct = () => {
         <FlatList
           data={products}
           renderItem={({ item }) => <ProductCartView />}
-           horizontal={false}
+          horizontal={false}
           numColumns={2}
-          contentContainerStyle={{ columnGap: 16 }}
-          style={{gap:20}}
+          contentContainerStyle={{ columnGap: 16}}
         />
       </View>
     </View>

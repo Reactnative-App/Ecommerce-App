@@ -12,7 +12,6 @@ const ArrivalProducts = () => {
        horizontal={false}
       numColumns={2}
       contentContainerStyle={{ columnGap: 16}}
-      style={{gap:20}}
     />
   </View>
   )

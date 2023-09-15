@@ -30,7 +30,7 @@ const CategoriesTypes = () => {
     <View style={{marginTop:10}}>
      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
          {type.map((item, index)=>{
-           return( <View style={{display:'flex',alignItems:'center',marginHorizontal:5}} key={index}>
+           return( <View style={{marginHorizontal:2}} key={index}>
             <Image source={item.image} />
                 <Text style={{textAlign:"center",fontSize:10,fontFamily:'regular'}}>{item.name}</Text>
             </View>)

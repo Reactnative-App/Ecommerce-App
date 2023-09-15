@@ -33,14 +33,15 @@ const styles = StyleSheet.create({
       alignItems:"center"
   },
   btn:{
-    backgroundColor:"#000",
+      backgroundColor:"#000",
       height:40,
       width:325,
       marginTop:20,
       alignSelf:'center',
       borderRadius:25,
       justifyContent:"center",
-      alignItems:"center"
+      alignItems:"center",
+      marginBottom:20
   },
   verticalLine:{
     width:1,
@@ -48,9 +49,28 @@ const styles = StyleSheet.create({
     color:"black"
   },
   homeFooter:{
+    // marginTop:20,
     flexDirection: "row", 
-    justifyContent: "space-evenly"
-  }
+    alignItems:'center',
+    backgroundColor:'#f1f1f1',
+    height:40,
+    borderRadius:10,
+    padding:5
+  },
+  imgSizes:{
+    flexDirection: "row", 
+    alignItems:'center'
+  },
+  paddVert:{
+    paddingBottom:120,
+    backgroundColor:'#fff'
+  },
+  verticleLine:{
+    height: '100%',
+    width: 1,
+    backgroundColor: '#000',
+   },
+
 });
 
 export default styles;
