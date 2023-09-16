@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
         <View style={styles.imageContainer}>
         <Image 
         source={require('../assets/Products/Product1.png')}
+        resizeMode='contain'
          />
         </View>
 

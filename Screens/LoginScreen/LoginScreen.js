@@ -3,7 +3,7 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import Icons from 'react-native-vector-icons/Ionicons';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import {useFonts} from 'expo-font';
+
 
 const LoginScreen = ({ navigation }) => {
   return (
