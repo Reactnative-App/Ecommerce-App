@@ -24,6 +24,7 @@
     "expo-router": "^2.0.5",
     "expo-splash-screen": "~0.20.4",
     "expo-status-bar": "~1.6.0",
+    "lodash.filter": "^4.6.0",
     "moment": "^2.29.4",
     "native-base": "^3.4.28",
     "patch-package": "^8.0.0",
