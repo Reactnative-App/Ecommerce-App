@@ -20,9 +20,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./HomeScreen.style";
 // import { TabView, SceneMap } from 'react-native-tab-view';
 import TopTabNavigation from "../Navigation/TopTabNavigation";
+import { useNavigation } from '@react-navigation/native';
 
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   return (
     <>
       {/* <StatusBar style='dark'/> */}
@@ -36,7 +38,7 @@ const HomeScreen = () => {
               <View style={styles.appBar}>
                 <Image source={require("../assets/overay_logo.png")} />
                 <View style={styles.iconAlig}>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => navigation.navigate("SearchBar")}>
                     <Image source={require("../assets/Icons/searchIcon.png")} />
                   </TouchableOpacity>
                   <TouchableOpacity>
