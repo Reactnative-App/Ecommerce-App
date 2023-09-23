@@ -3,14 +3,45 @@ import { StyleSheet } from "react-native";
 // import { COLORS, SIZES } from "../Constants/theme";
 
 const styles = StyleSheet.create({
-    searchBox: {
-        width: '100%',
-        flexDirection: 'row',
-        paddingTop:60,
+    searchTop: {
+        marginHorizontal:20,
+        marginTop:50,
         flex:1,
-        paddingHorizontal: 16,
-        justifyContent: 'space-between',
     },
+    searchBox:{
+        paddingHorizontal:20,
+        paddingVertical:10,
+        borderColor:'#ccc',
+        borderWidth:1,
+        borderRadius:8
+    },
+    imageContainer:{
+        flexDirection:'row',
+        alignItems:"center",
+        marginLeft:10,
+        marginTop:10
+    },
+    image:{
+        height:50,
+        width:50,
+        borderRadius:25
+    },
+    txtName:{
+        fontSize:17,
+        fontFamily:'bold',
+        marginLeft:10,
+    },
+    txtEmail:{
+        fontSize:14,
+        fontFamily:'light',
+        marginLeft:10,
+        color:'grey'
+    },
+    ckInternet:{
+        flex: 1, 
+        justifyContent: "center",
+        alignItems: "center"
+    }
 });
 
 export default styles;
