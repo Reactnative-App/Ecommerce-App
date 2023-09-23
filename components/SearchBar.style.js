@@ -11,10 +11,32 @@ const styles = StyleSheet.create({
     searchBox:{
         paddingHorizontal:20,
         paddingVertical:10,
-        borderColor:'#ccc',
-        borderWidth:1,
-        borderRadius:8
+       
+        
     },
+    modalButtonView:{
+        flexDirection:'row',
+        justifyContent:'space-around',
+        padding:10
+    
+      },
+      btn:{
+        justifyContent:'center',
+       
+        marginTop:10,
+        width:300,
+        height:20,
+        alignSelf:'center'
+      },
+      modalView:{
+        position:'absolute',
+        bottom:2,
+        width:'100%',
+        height:100,
+        borderTopLeftRadius:20,
+        borderTopRightRadius:20,
+        backgroundColor:'#fff'
+      },
     imageContainer:{
         flexDirection:'row',
         alignItems:"center",
@@ -36,6 +58,17 @@ const styles = StyleSheet.create({
         fontFamily:'light',
         marginLeft:10,
         color:'grey'
+    },
+    row:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center'
+    },
+    txtCategory:{
+        fontSize:14,
+        fontFamily:'light',
+        marginLeft:10,
+        color:'red'
     },
     ckInternet:{
         flex: 1, 

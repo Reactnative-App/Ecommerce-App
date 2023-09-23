@@ -1,9 +1,10 @@
-import { View, TextInput, ActivityIndicator, FlatList, Image, Text } from 'react-native';
+import { View, TextInput, ActivityIndicator, FlatList, Image, Text, Modal, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import styles from './SearchBar.style';
 // import { SafeAreaView } from 'react-native-safe-area-context';
-const API_ENDPOINT = `https://randomuser.me/api/?results=30`
+const API_ENDPOINT = `https://fakestoreapi.com/products`
 import filter from 'lodash.filter'
+import  FilterIcon  from 'react-native-vector-icons/Ionicons';
 
 const SearchBar = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -11,6 +12,7 @@ const SearchBar = () => {
     const [error, setError] = useState(null);
     const [fullData, setFullData] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
+    const [modal, setModal] = useState(false)
 
     useEffect(() => {
         setIsLoading(true);
@@ -21,10 +23,10 @@ const SearchBar = () => {
         try {
             const response = await fetch(url);
             const json = await response.json();
-            setData(json.results);
+            setData(json);
 
-            console.log(json.results)
-            setFullData(json.results)
+            console.log(json)
+            setFullData(json)
             setIsLoading(false)
         } catch (error) {
             setError(error);
@@ -68,6 +70,9 @@ const SearchBar = () => {
     return (
 
         <View style={styles.searchTop}>
+            <View style={{
+                  borderColor:'#ccc',
+         borderWidth:1, borderRadius:8, flexDirection:"row", justifyContent:'space-between', alignItems:'center'}}>
             <TextInput
                 placeholder='Search'
                 clearButtonMode='always'
@@ -76,20 +81,49 @@ const SearchBar = () => {
                 style={styles.searchBox}
                 onChangeText={(query) => handleSearch(query)}
             />
+            <FilterIcon name='filter-outline' size={20} color='black' style={{marginEnd:10}} onPress={()=>setModal(!modal)} />
+
+            </View>
 
             <FlatList
                 data={data}
-                keyExtractor={(item) => item.login.username}
+                keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
                     <View style={styles.imageContainer}>
-                        <Image source={{ uri: item.picture.thumbnail }} style={styles.image} />
+                        <Image source={{ uri: item.image }} style={styles.image} />
                         <View>
-                            <Text style={styles.txtName}>{item.name.first} {item.name.last}</Text>
-                            <Text style={styles.txtEmail}>{item.email}</Text>
+                            <Text style={styles.txtName}>{item.title} </Text>
+                            <Text style={styles.txtEmail}>{item.description}</Text>
+                            <Text style={styles.txtCategory}>{item.category}</Text>
+                            <Text style={styles.txtCategory}>{item.rating.rate}</Text>
+                            <Text style={styles.txtCategory}>₹{item.price}</Text>
                         </View>
                     </View>
                 )}
             />
+
+<Modal
+    animationType='slide'
+    transparent={true}
+     visible={modal}
+     onRequestClose={()=>setModal(false)}
+    >
+    <View style={styles.modalView}>
+        <TouchableOpacity style={styles.btn}>
+            <Text>Low to High</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>
+            <Text> By Name</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>
+            <Text>By Price</Text>
+        </TouchableOpacity>
+     
+
+     
+    </View>
+    
+    </Modal>
 
         </View>
 
