@@ -19,6 +19,7 @@ import Profile from '../Screens/OnboardingScreens/Profile';
 import BottomTabNavigation from './BottomTabNavigation';
 import ProductDetails from '../components/ProductDetails';
 import SearchBar from '../components/SearchBar';
+import MenScreen from '../components/MenScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +70,7 @@ const RootNavigator = () => {
          <Stack.Screen name='ProductDetails' component={ProductDetails} options={{headerShown:false}}/>
          <Stack.Screen name='BottomNavigation' component={BottomTabNavigation} options={{headerShown:false}}/>
          <Stack.Screen name='SearchBar' component={SearchBar} options={{headerShown:false,presentation:'modal'}}/>
+         <Stack.Screen name='MenScreen' component={MenScreen} options={{headerShown:false}}/>
          </Stack.Navigator>
     </NavigationContainer>
     )

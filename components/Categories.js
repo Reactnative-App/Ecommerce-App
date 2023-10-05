@@ -1,7 +1,11 @@
-import { ScrollView, StyleSheet, Text, View, Image, FlatList } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Image, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const CategoriesTypes = () => {
+    const navigation = useNavigation();
     const type= [
         {
             id:"0",
@@ -30,10 +34,10 @@ const CategoriesTypes = () => {
     <View style={{marginTop:10}}>
      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
          {type.map((item, index)=>{
-           return( <View style={{marginHorizontal:2}} key={index}>
+           return( <TouchableOpacity onPress={() => navigation.navigate("MenScreen")} style={{marginHorizontal:2}} key={index}>
             <Image source={item.image} />
                 <Text style={{textAlign:"center",fontSize:10,fontFamily:'regular'}}>{item.name}</Text>
-            </View>)
+            </TouchableOpacity>)
          })}
      </ScrollView>
     </View>
