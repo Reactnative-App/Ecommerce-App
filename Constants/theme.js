@@ -12,6 +12,7 @@ export const COLORS = {
   white_light: "#FFFDF6",
   pink: "#F39184",
   yellow_shadow: "#F3D743",
+  black: "#000000",
 };
 
 export const SIZES = {

@@ -5,6 +5,8 @@ import {
   Text,
   TouchableOpacity,
   View,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -14,7 +16,8 @@ import { Image } from "react-native";
 import { TextInput } from "react-native";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
-
+import ARROW_SVG from "../../assets/svg/Arrow.svg";
+import { scaleSize } from "../../Constants/Mixins";
 const CreateProfile = ({ navigation }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [selectedDate, setSelectedDate] = useState();
@@ -32,22 +35,21 @@ const CreateProfile = ({ navigation }) => {
     hideDatePicker();
   };
   return (
-    <View style={{ marginTop: 70 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <StatusBar backgroundColor="#FFFCF3" style="dark" />
-      <ImageBackground
+      <ScrollView
         // source={require("../../assets/Profilebg.png")}
-        style={{ backgroundColor: "#FBF9EF", width: "100%", height: "100%" }}
+        style={{ backgroundColor: "#FBF9EF", marginTop: scaleSize(20) }}
       >
-        <Icons
-          name="arrow-back-outline"
-          size={24}
-          style={{ marginLeft: 20 }}
+        <ARROW_SVG
+          size={scaleSize(20)}
+          style={{ marginTop: scaleSize(30), marginLeft: scaleSize(30) }}
           onPress={() => navigation.goBack()}
         />
         <Text style={{ marginLeft: 30, marginTop: 10, fontSize: 20 }}>
           Setup Profile
         </Text>
-        <ImageBackground
+        <View
           // source={require("../../assets/Profilebg.png")}
           style={{
             // backgroundColor: "#F4E8AE",
@@ -65,7 +67,7 @@ const CreateProfile = ({ navigation }) => {
                 height: 84,
                 width: 84,
                 marginTop: 20,
-                borderRadius: 84 / 2,
+                borderRadius: 80,
                 alignSelf: "center",
               }}
             >
@@ -179,9 +181,9 @@ const CreateProfile = ({ navigation }) => {
             onConfirm={handleConfirm}
             onCancel={hideDatePicker}
           />
-        </ImageBackground>
-      </ImageBackground>
-    </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

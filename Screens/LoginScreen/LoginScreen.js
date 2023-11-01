@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
           }}
           style={{
             height: hp("45%"),
-            marginTop: scaleSize(25),
+            marginTop: scaleSize(10),
             width: wp("100%"),
             // alignSelf: "center",
           }}
@@ -61,7 +61,7 @@ const LoginScreen = ({ navigation }) => {
         <Text
           style={{
             fontSize: scaleFont(32),
-            marginTop: scaleSize(10),
+            marginTop: scaleSize(20),
             fontWeight: "400",
             marginLeft: scaleSize(20),
             fontFamily: "regular",
@@ -176,19 +176,26 @@ const LoginScreen = ({ navigation }) => {
           </View>
 
           <View style={{ alignSelf: "center", marginTop: 4 }}>
-            <Text style={{ fontSize: 12 }}>
+            <Text style={{ fontSize: scaleFont(12) }}>
               By creating an account or logging in, you agree With Overay®
             </Text>
             <View style={{ flexDirection: "row", marginLeft: 60 }}>
               <Text
-                style={{ fontSize: 12, fontWeight: "600", color: "#737171" }}
+                style={{
+                  fontSize: scaleFont(12),
+                  fontWeight: "600",
+                  color: "#737171",
+                }}
               >
                 Terms & Conditions
               </Text>
-              <Text style={{ fontSize: 12, textAlign: "center" }}> and</Text>
+              <Text style={{ fontSize: scaleFont(12), textAlign: "center" }}>
+                {" "}
+                and
+              </Text>
               <Text
                 style={{
-                  fontSize: 12,
+                  fontSize: scaleFont(12),
                   fontWeight: "600",
                   textAlign: "center",
                   color: "#737171",
@@ -209,7 +216,7 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   input: {
-    marginTop: scaleSize(30),
+    marginTop: scaleSize(10),
     alignSelf: "center",
     flexDirection: "row",
     backgroundColor: COLORS.white,
