@@ -5,6 +5,8 @@ import {
   Text,
   TouchableOpacity,
   View,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -14,7 +16,9 @@ import { Image } from "react-native";
 import { TextInput } from "react-native";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
-
+import ARROW_SVG from "../../assets/svg/Arrow.svg";
+import { scaleFont, scaleSize } from "../../Constants/Mixins";
+import { COLORS } from "../../Constants/theme";
 const CreateProfile = ({ navigation }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [selectedDate, setSelectedDate] = useState();
@@ -32,22 +36,27 @@ const CreateProfile = ({ navigation }) => {
     hideDatePicker();
   };
   return (
-    <View style={{ marginTop: 70 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <StatusBar backgroundColor="#FFFCF3" style="dark" />
-      <ImageBackground
+      <ScrollView
         // source={require("../../assets/Profilebg.png")}
-        style={{ backgroundColor: "#FBF9EF", width: "100%", height: "100%" }}
+        style={{ backgroundColor: "#FBF9EF", marginTop: scaleSize(20) }}
       >
-        <Icons
-          name="arrow-back-outline"
-          size={24}
-          style={{ marginLeft: 20 }}
+        <ARROW_SVG
+          size={scaleSize(20)}
+          style={{ marginTop: scaleSize(30), marginLeft: scaleSize(30) }}
           onPress={() => navigation.goBack()}
         />
-        <Text style={{ marginLeft: 30, marginTop: 10, fontSize: 20 }}>
+        <Text
+          style={{
+            marginLeft: scaleSize(30),
+            marginTop: scaleSize(10),
+            fontSize: scaleFont(20),
+          }}
+        >
           Setup Profile
         </Text>
-        <ImageBackground
+        <View
           // source={require("../../assets/Profilebg.png")}
           style={{
             // backgroundColor: "#F4E8AE",
@@ -62,11 +71,12 @@ const CreateProfile = ({ navigation }) => {
             <View
               style={{
                 backgroundColor: "white",
-                height: 84,
-                width: 84,
-                marginTop: 20,
-                borderRadius: 84 / 2,
+                height: scaleSize(84),
+                width: scaleSize(84),
+                marginTop: scaleSize(20),
+                borderRadius: scaleSize(80),
                 alignSelf: "center",
+                elevation: 8,
               }}
             >
               <Pressable
@@ -75,11 +85,11 @@ const CreateProfile = ({ navigation }) => {
                   //use bordr radious to make background color
                   // backgroundColor: "#F0F0F0",
 
-                  height: 25,
-                  width: 25,
+                  height: scaleSize(25),
+                  width: scaleSize(25),
                   position: "absolute",
-                  left: 50,
-                  borderRadius: 40,
+                  left: scaleSize(50),
+                  borderRadius: scaleSize(40),
                   justifyContent: "center",
                   alignItems: "center",
                 }}
@@ -87,8 +97,8 @@ const CreateProfile = ({ navigation }) => {
               >
                 <Icons
                   name="camera"
-                  size={14}
-                  color="#fff"
+                  size={scaleSize(14)}
+                  color={COLORS.white}
                   // style={{ backgroundColor: "#FOFOFO" }}
                 />
               </Pressable>
@@ -101,13 +111,19 @@ const CreateProfile = ({ navigation }) => {
               >
                 <Image
                   source={require("../../assets/profile_pic.png")}
-                  style={{ height: 32, width: 32 }}
+                  style={{ height: scaleSize(32), width: scaleSize(32) }}
                 />
               </View>
             </View>
           </View>
 
-          <Text style={{ marginTop: 20, textAlign: "center", fontSize: 16 }}>
+          <Text
+            style={{
+              marginTop: scaleSize(20),
+              textAlign: "center",
+              fontSize: scaleFont(16),
+            }}
+          >
             Choose Your Image
           </Text>
 
@@ -146,7 +162,6 @@ const CreateProfile = ({ navigation }) => {
             />
           </View>
 
-          <View></View>
           <View
             style={{
               flexDirection: "row",
@@ -172,16 +187,15 @@ const CreateProfile = ({ navigation }) => {
               </Text>
             </Pressable>
           </View>
-
-          <DateTimePickerModal
-            isVisible={isDatePickerVisible}
-            mode="date"
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-          />
-        </ImageBackground>
-      </ImageBackground>
-    </View>
+        </View>
+        <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={hideDatePicker}
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

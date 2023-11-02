@@ -1,43 +1,69 @@
-import { ImageBackground, StyleSheet,Image, Text, View } from 'react-native'
-import React,{useEffect} from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-
-const SplashScreen = ({navigation}) => {
-    useEffect(() => {
-    const status =  AsyncStorage.getItem("alreadyLaunched");
-    if(status == true){
-        setTimeout(() => {
-            navigation.navigate("Onboarding")
-         }, 1500);
+import {
+  ImageBackground,
+  StyleSheet,
+  Image,
+  Text,
+  View,
+  SafeAreaView,
+} from "react-native";
+import React, { useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import OVERAY_BG from "../assets/Overay_bg.png";
+import LOGO from "../assets/Logo.png";
+import { HEIGHT, WIDTH, scaleSize } from "../Constants/Mixins";
+const SplashScreen = ({ navigation }) => {
+  useEffect(() => {
+    const status = AsyncStorage.getItem("alreadyLaunched");
+    if (status == true) {
+      setTimeout(() => {
+        navigation.navigate("Onboarding");
+      }, 1500);
+    } else {
+      setTimeout(() => {
+        navigation.navigate("Login");
+      }, 1500);
     }
-    else{
-        setTimeout(() => {
-            navigation.navigate("Login")
-         }, 1500);
-    }
-     
-    }, [])
-    
+  }, []);
 
   return (
-   <ImageBackground source={require('../assets/Overay_bg.png')} style={[styles.container,{height:"100%", width:"100%"}]}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ImageBackground
+        source={OVERAY_BG}
+        style={styles.container}
+        resizeMode="cover"
+      >
+        <View style={styles.logoContainer}>
+          <Image source={LOGO} style={styles.logoStyle} resizeMode="cover" />
+        </View>
+        <View style={styles.textContainer}>
+          <Text>Your Style Store</Text>
+        </View>
+      </ImageBackground>
+    </SafeAreaView>
+  );
+};
 
-    <Image source={require('../assets/Logo.png')} style={{height:141, width:226}}/>
-
-    <View style={{position:"absolute", bottom:30}}>
-        <Text>Your Style Store</Text>
-    </View>
-
-   </ImageBackground>
-  )
-}
-
-export default SplashScreen
+export default SplashScreen;
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:"center",
-        alignItems:"center",
-    }
-})
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    height: HEIGHT,
+    width: WIDTH,
+  },
+  logoContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 2,
+  },
+  logoStyle: {
+    height: scaleSize(141),
+    width: scaleSize(226),
+  },
+  textContainer: {
+    alignItems: "flex-end",
+    flex: 0.1,
+  },
+});

@@ -4,7 +4,7 @@ import {
   View,
   TouchableOpacity,
   ImageBackground,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import React from "react";
 // import { StatusBar } from 'expo-status-bar'
@@ -20,8 +20,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./HomeScreen.style";
 // import { TabView, SceneMap } from 'react-native-tab-view';
 import TopTabNavigation from "../Navigation/TopTabNavigation";
-import { useNavigation } from '@react-navigation/native';
-
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -38,7 +37,9 @@ const HomeScreen = () => {
               <View style={styles.appBar}>
                 <Image source={require("../assets/overay_logo.png")} />
                 <View style={styles.iconAlig}>
-                  <TouchableOpacity onPress={() => navigation.navigate("SearchBar")}>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("SearchBar")}
+                  >
                     <Image source={require("../assets/Icons/searchIcon.png")} />
                   </TouchableOpacity>
                   <TouchableOpacity>
@@ -66,19 +67,36 @@ const HomeScreen = () => {
               </TouchableOpacity>
 
               <View style={styles.homeFooter}>
-
-                <View style={styles.homeFooter}><Image source={require('../assets/Icons/cash.png')} style={{ height: 24, width: 24 }} />
-                  <Text style={{ fontSize: 7, marginLeft: 5 }}>CASH ON DELIVERY</Text>
+                <View style={styles.homeFooter}>
+                  <Image
+                    source={require("../assets/Icons/cash.png")}
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Text style={{ fontSize: 7, marginLeft: 5 }}>
+                    CASH ON DELIVERY
+                  </Text>
                 </View>
                 <View style={styles.verticleLine}></View>
 
-                <View style={styles.homeFooter}><Image source={require('../assets/Icons/return.png')} style={{ height: 24, width: 24 }} />
-                  <Text style={{ fontSize: 7, marginLeft: 5 }}>15 DAYS EASY RETURNS</Text>
+                <View style={styles.homeFooter}>
+                  <Image
+                    source={require("../assets/Icons/return.png")}
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Text style={{ fontSize: 7, marginLeft: 5 }}>
+                    15 DAYS EASY RETURNS
+                  </Text>
                 </View>
                 <View style={styles.verticleLine}></View>
 
-                <View style={styles.homeFooter}><Image source={require('../assets/Icons/shipping.png')} style={{ height: 24, width: 24 }} />
-                  <Text style={{ fontSize: 7, marginLeft: 5 }}>EXPRESS SHIPPING</Text>
+                <View style={styles.homeFooter}>
+                  <Image
+                    source={require("../assets/Icons/shipping.png")}
+                    style={{ height: 24, width: 24 }}
+                  />
+                  <Text style={{ fontSize: 7, marginLeft: 5 }}>
+                    EXPRESS SHIPPING
+                  </Text>
                 </View>
               </View>
             </View>
@@ -90,4 +108,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
