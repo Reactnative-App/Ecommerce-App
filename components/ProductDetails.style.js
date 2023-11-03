@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-
+import { WIDTH, scaleFont, scaleSize } from "../Constants/Mixins";
 import { COLORS, SIZES } from "../Constants/theme";
 
 const styles = StyleSheet.create({
@@ -95,6 +95,28 @@ const styles = StyleSheet.create({
     sizeDirection:{
         flexDirection: "row", 
         alignItems: "center" 
+    },
+    horizontal:{
+        marginTop:22,
+        width:"100%",
+        borderBottomColor: COLORS.lightgrey,
+        borderBottomWidth: 1,
+    },
+    descTab:{
+        flex: 1,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+        marginTop: scaleSize(20),
+    },
+    descTxt:{
+        marginRight:scaleSize(10),
+        fontFamily:'regular',
+        fontSize:scaleFont(14),
+    },
+    textContainer:{
+        flex: 1,
+        marginHorizontal: 12,
     }
 });
 

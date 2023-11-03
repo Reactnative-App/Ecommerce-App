@@ -20,6 +20,8 @@ import BottomTabNavigation from "./BottomTabNavigation";
 import ProductDetails from "../components/ProductDetails";
 import SearchBar from "../components/SearchBar";
 import MenScreen from "../components/MenScreen";
+import Description from "../components/Description";
+import Reviews from "../components/Reviews";
 
 const Stack = createNativeStackNavigator();
 
@@ -142,6 +144,16 @@ const RootNavigator = () => {
           <Stack.Screen
             name="ProductDetails"
             component={ProductDetails}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Description"
+            component={Description}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Reviews"
+            component={Reviews}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
