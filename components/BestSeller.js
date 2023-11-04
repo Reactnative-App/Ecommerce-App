@@ -1,14 +1,12 @@
 import {View,Text,StyleSheet} from 'react-native';
 import React from 'react';
 
- const Profile = () =>{
+ const BestSeller = () =>{
     return(
       <View>
-        <Text>Profile</Text>
+        <Text>Best Seller</Text>
       </View>
     )
-}
+ }
 
-export default Profile
-
-const styles = StyleSheet.create({})
+ export default BestSeller

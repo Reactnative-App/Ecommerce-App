@@ -1,12 +1,14 @@
 export const COLORS = {
+  main: "#F3D743",
   primary: "#312651",
   secondary: "#444262",
   tertiary: "#FF7754",
+  lightgrey:"#bdbdbd",
 
   gray: "#83829A",
   gray2: "#C1C0C8",
 
-  // white: "#F3F4F8",
+  txtGray: "#717171",
   lightWhite: "#FAFAFC",
   white: "#FFFFFF",
   white_light: "#FFFDF6",

@@ -1,7 +1,11 @@
-import { ScrollView, StyleSheet, Text, View, Image, FlatList } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Image, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
-const FoodTypes = () => {
+
+
+const CategoriesTypes = () => {
+    const navigation = useNavigation();
     const type= [
         {
             id:"0",
@@ -27,19 +31,19 @@ const FoodTypes = () => {
         
     ]
   return (
-    <View>
+    <View style={{marginTop:10}}>
      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
          {type.map((item, index)=>{
-           return( <View style={{margin:14}} key={index}>
-            <Image source={item.image} style={{height:60, width:60 , borderRadius:25}}/>
-                <Text style={{marginTop:6, textAlign:"center"}}>{item.name}</Text>
-            </View>)
+           return( <TouchableOpacity onPress={() => navigation.navigate("MenScreen")} style={{marginHorizontal:2}} key={index}>
+            <Image source={item.image} />
+                <Text style={{textAlign:"center",fontSize:10,fontFamily:'regular'}}>{item.name}</Text>
+            </TouchableOpacity>)
          })}
      </ScrollView>
     </View>
   )
 }
 
-export default FoodTypes
+export default CategoriesTypes
 
 const styles = StyleSheet.create({})
