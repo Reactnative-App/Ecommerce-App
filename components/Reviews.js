@@ -78,7 +78,7 @@ const REVIEW_DATA = [
     image: IMG_PROFILE,
   },
 ];
-const Reviews = () => {
+const Reviews = ({ navigation }) => {
   const ListHeaderItem = () => {
     return (
       <View style={{ marginTop: scaleSize(30) }}>
@@ -327,6 +327,7 @@ const Reviews = () => {
         </View>
 
         <TouchableOpacity
+          onPress={() => navigation.navigate("AddReviews")}
           style={{
             backgroundColor: COLORS.white,
             marginHorizontal: scaleSize(20),

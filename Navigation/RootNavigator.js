@@ -22,6 +22,8 @@ import SearchBar from "../components/SearchBar";
 import MenScreen from "../components/MenScreen";
 import Description from "../components/Description";
 import Reviews from "../components/Reviews";
+import AddReviews from "../components/AddReviews";
+import Checkout from "../components/Checkout";
 
 const Stack = createNativeStackNavigator();
 
@@ -154,6 +156,16 @@ const RootNavigator = () => {
           <Stack.Screen
             name="Reviews"
             component={Reviews}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AddReviews"
+            component={AddReviews}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Checkout"
+            component={Checkout}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
