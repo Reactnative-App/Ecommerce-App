@@ -24,6 +24,9 @@ import Description from "../components/Description";
 import Reviews from "../components/Reviews";
 import AddReviews from "../components/AddReviews";
 import Checkout from "../components/Checkout";
+import Address from "../components/Address";
+import NewAddress from "../components/NewAddress";
+import SetAddress from "../components/SetAddress";
 
 const Stack = createNativeStackNavigator();
 
@@ -166,6 +169,21 @@ const RootNavigator = () => {
           <Stack.Screen
             name="Checkout"
             component={Checkout}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Address"
+            component={Address}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="NewAddress"
+            component={NewAddress}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SetAddress"
+            component={SetAddress}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
