@@ -27,6 +27,8 @@ import Checkout from "../components/Checkout";
 import Address from "../components/Address";
 import NewAddress from "../components/NewAddress";
 import SetAddress from "../components/SetAddress";
+import PaymentMethod from "../components/PaymentMethod";
+import Account from "../components/Account";
 
 const Stack = createNativeStackNavigator();
 
@@ -184,6 +186,16 @@ const RootNavigator = () => {
           <Stack.Screen
             name="SetAddress"
             component={SetAddress}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="PaymentMethod"
+            component={PaymentMethod}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Account"
+            component={Account}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
