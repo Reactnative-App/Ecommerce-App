@@ -1,4 +1,12 @@
-import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  FlatList,
+  Pressable,
+} from "react-native";
 import React, { useState } from "react";
 import styles from "./ProductDetails.style";
 import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
@@ -13,9 +21,12 @@ import CHAT_SVG from "../assets/svg/Chat.svg";
 import STAR_SVG from "../assets/svg/Star.svg";
 import { COLORS } from "../Constants/theme";
 import * as Progress from "react-native-progress";
+import ProductCartView from "./ProductCartView";
+import BUY_SVG from "../assets/svg/Buy.svg";
 
 const ProductDetails = ({ navigation }) => {
   const SIZES = ["S", "M", "L", "XL"];
+  const products = [1, 2, 3, 4];
 
   const [size, setSize] = useState(SIZES[0]);
   const [count, setCount] = useState(1);
@@ -468,10 +479,97 @@ const ProductDetails = ({ navigation }) => {
             </View>
           </View>
 
-          <View style={{marginTop:scaleSize(20),marginHorizontal:scaleSize(20)}}>
-            <Text style={{fontFamily:'regular',fontSize:scaleFont(24)}}>Related Product</Text>
+          <View
+            style={{
+              marginTop: scaleSize(20),
+              marginHorizontal: scaleSize(20),
+            }}
+          >
+            <Text style={{ fontFamily: "regular", fontSize: scaleFont(24) }}>
+              Related Product
+            </Text>
           </View>
 
+          <View style={{ marginTop: scaleSize(20) }}>
+            <FlatList
+              data={products}
+              renderItem={({ item }) => <ProductCartView />}
+              horizontal={false}
+              numColumns={2}
+              contentContainerStyle={{ columnGap: 16 }}
+            />
+          </View>
+
+          <View>
+            <View
+              style={{
+                height: scaleSize(75),
+                width: WIDTH,
+                backgroundColor: "#FFFFFF",
+                // borderRadius: 40,
+                borderTopLeftRadius: 40,
+                borderTopRightRadius: 40,
+                alignSelf: "center",
+                alignItems: "center",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginTop: scaleSize(50),
+              }}
+            >
+              <Text
+                style={{
+                  marginHorizontal: scaleSize(20),
+                  fontFamily: "regular",
+                  fontSize: scaleFont(8),
+                  color: COLORS.txtGray,
+                  marginBottom: scaleSize(10),
+                }}
+              >
+                Total Price :
+              </Text>
+              <Text
+                style={{
+                  marginHorizontal: scaleSize(20),
+                  fontFamily: "light",
+                  fontSize: scaleFont(26),
+                  position: "absolute",
+                  top: 35,
+                }}
+              >
+                $ 40.00
+              </Text>
+
+              <Pressable
+                style={{
+                  height: scaleSize(40),
+                  width: WIDTH - scaleSize(190),
+                  backgroundColor: "#F3D743",
+                  borderRadius: 40,
+                  alignSelf: "center",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginHorizontal: scaleSize(20),
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: scaleFont(14),
+                    textAlign: "center",
+                    fontFamily: "regular",
+                  }}
+                >
+                  <BUY_SVG
+                    size={scaleSize(20)}
+                    style={{
+                      marginTop: scaleSize(30),
+                      marginLeft: scaleSize(30),
+                    }}
+                  />
+                  Add To Cart
+                </Text>
+              </Pressable>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </View>
