@@ -118,7 +118,7 @@ const Reviews = ({ navigation }) => {
                   fontSize: scaleFont(15),
                 }}
               >
-                Reviews
+                REVIEW
               </Text>
             </View>
           </View>
