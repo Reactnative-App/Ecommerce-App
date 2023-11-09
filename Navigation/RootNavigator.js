@@ -29,6 +29,7 @@ import NewAddress from "../components/NewAddress";
 import SetAddress from "../components/SetAddress";
 import PaymentMethod from "../components/PaymentMethod";
 import Account from "../components/Account";
+import Notification from "../components/Notification";
 
 const Stack = createNativeStackNavigator();
 
@@ -196,6 +197,11 @@ const RootNavigator = () => {
           <Stack.Screen
             name="Account"
             component={Account}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Notification"
+            component={Notification}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
