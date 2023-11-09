@@ -16,6 +16,7 @@ export const COLORS = {
   yellow_shadow: "#F3D743",
   black: "#000000",
   black_light: "#0F0F0F",
+  NotifyDot:"#8A4709",
 };
 
 export const SIZES = {
