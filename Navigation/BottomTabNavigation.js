@@ -1,116 +1,187 @@
-import { View, Text, StyleSheet } from "react-native";
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Profile from "../Screens/OnboardingScreens/Profile";
+import {
+  Alert,
+  Animated,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { CurvedBottomBarExpo } from "react-native-curved-bottom-bar";
+// import Ionicons from "@expo/vector-icons/Ionicons";Bottom_1
+import { NavigationContainer } from "@react-navigation/native";
+import LoginScreen from "../Screens/LoginScreen/LoginScreen";
+import ForgotPass from "../Screens/LoginScreen/ForgotPass";
+import BOTTOM_1_SVG from "../assets/svg/Bottom_1.svg";
+import BOTTOM_HOME_SVG from "../assets/svg/Bottom_Home.svg";
+import BOTTOM_BAG_SVG from "../assets/svg/Bottom_Bag.svg";
+import BOTTOM_PROFILE_SVG from "../assets/svg/Bottom_Profile.svg";
+import BOTTOM_BOOKMARK_SVG from "../assets/svg/Bottom_Bookmark.svg";
+import { scaleSize } from "../Constants/Mixins";
 import HomeScreen from "../Screens/HomeScreen";
-import Search from "../Screens/OnboardingScreens/Search";
-import Wishlist from "../Screens/OnboardingScreens/WishList";
-import { Ionicons } from "@expo/vector-icons";
-import { COLORS } from "../Constants/theme";
-import Cart from "../Screens/OnboardingScreens/Cart";
-
-const Tab = createBottomTabNavigator();
-
-const screenOptions = {
-  tabBarShowLabel: false,
-  tabBarHideOnKeyboard: true,
-  headerShown: false,
-  tabBarStyle: {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    left: 0,
-    elevation: 0,
-    height: 70,
-  },
+import Account from "../components/Account";
+const Screen1 = () => {
+  return <HomeScreen />;
 };
 
-const BottomTabNavigation = () => {
+const Screen2 = () => {
+  return <ForgotPass />;
+};
+const Screen3 = () => {
+  return <ForgotPass />;
+};
+const Screen4 = () => {
+  return <Account />;
+};
+export default function BottomTabNavigation() {
+  const _renderIcon = (routeName, selectedTab) => {
+    let icon = "";
+
+    switch (routeName) {
+      case "title1":
+        icon = <BOTTOM_1_SVG height={scaleSize(20)} width={scaleSize(20)} />;
+        break;
+      case "title2":
+        icon = <BOTTOM_BAG_SVG height={scaleSize(20)} width={scaleSize(20)} />;
+        break;
+      case "title4":
+        icon = (
+          <BOTTOM_BOOKMARK_SVG height={scaleSize(20)} width={scaleSize(20)} />
+        );
+        break;
+      case "title5":
+        icon = (
+          <BOTTOM_PROFILE_SVG height={scaleSize(20)} width={scaleSize(20)} />
+        );
+        break;
+    }
+
+    return (
+      // <Ionicons
+      //   name={icon}
+      //   size={25}
+      //   color={routeName === selectedTab ? "black" : "gray"}
+      // />
+      <View>{icon}</View>
+    );
+  };
+  const renderTabBar = ({ routeName, selectedTab, navigate }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => navigate(routeName)}
+        style={styles.tabbarItem}
+      >
+        {_renderIcon(routeName, selectedTab)}
+      </TouchableOpacity>
+    );
+  };
+
   return (
-    <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarIcon: ({ focused }) => {
-            return (
-              <Ionicons
-                name={focused ? "home" : "home-outline"}
-                size={24}
-                color={focused ? COLORS.primary : COLORS.gray2}
-              />
-            );
-          },
-        }}
-      />
+    <View style={{ flex: 1 }}>
+      <CurvedBottomBarExpo.Navigator
+        type="DOWN"
+        style={styles.bottomBar}
+        shadowStyle={styles.shawdow}
+        height={55}
+        circleWidth={20}
+        screenOptions={{ headerShown: false }}
+        bgColor="white"
+        initialRouteName="title1"
+        borderTopLeftRight
+        renderCircle={({ selectedTab, navigate }) => (
+          <Animated.View style={styles.btnCircleUp}>
+            <TouchableOpacity
+              style={[styles.button]}
+              onPress={() => Alert.alert("Click Action")}
+            >
+              {/* <Ionicons name={"apps-sharp"} color="gray" size={25} /> */}
 
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarIcon: ({ focused }) => {
-            return (
-              <Ionicons
-                name={focused ? "person" : "person-outline"}
-                size={24}
-                color={focused ? COLORS.primary : COLORS.gray2}
-              />
-            );
-          },
-        }}
-      />
-
-      <Tab.Screen
-        name="Search"
-        component={Search}
-        options={{
-          tabBarIcon: ({ focused }) => {
-            return (
-              <Ionicons
-                name={"search-sharp"}
-                size={24}
-                color={focused ? COLORS.primary : COLORS.gray2}
-              />
-            );
-          },
-        }}
-      />
-
-      <Tab.Screen
-        name="Wishlist"
-        component={Wishlist}
-        options={{
-          tabBarIcon: ({ focused }) => {
-            return (
-              <Ionicons
-                name={focused ? "star" : "star-outline"}
-                size={24}
-                color={focused ? COLORS.primary : COLORS.gray2}
-              />
-            );
-          },
-        }}
-      />
-
-      <Tab.Screen
-        name="Cart"
-        component={Cart}
-        options={{
-          tabBarIcon: ({ focused }) => {
-            return (
-              <Ionicons
-                name={focused ? "cart" : "cart-outline"}
-                size={24}
-                color={focused ? COLORS.primary : COLORS.gray2}
-              />
-            );
-          },
-        }}
-      />
-    </Tab.Navigator>
+              <BOTTOM_HOME_SVG height={scaleSize(20)} width={scaleSize(20)} />
+            </TouchableOpacity>
+          </Animated.View>
+        )}
+        tabBar={renderTabBar}
+      >
+        <CurvedBottomBarExpo.Screen
+          name="title1"
+          position="LEFT"
+          component={() => <Screen1 />}
+        />
+        <CurvedBottomBarExpo.Screen
+          name="title2"
+          component={() => <Screen2 />}
+          position="LEFT"
+        />
+        <CurvedBottomBarExpo.Screen
+          name="title4"
+          component={() => <Screen3 />}
+          position="RIGHT"
+        />
+        <CurvedBottomBarExpo.Screen
+          name="title5"
+          component={() => <Screen4 />}
+          position="RIGHT"
+        />
+      </CurvedBottomBarExpo.Navigator>
+    </View>
   );
-};
+}
 
-export default BottomTabNavigation;
-
-const styles = StyleSheet.create({});
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  shawdow: {
+    shadowColor: "#DDDDDD",
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 5,
+  },
+  button: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  bottomBar: {},
+  btnCircleUp: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#000000",
+    bottom: 30,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 1,
+  },
+  imgCircle: {
+    width: 30,
+    height: 30,
+    tintColor: "gray",
+  },
+  tabbarItem: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  img: {
+    width: 30,
+    height: 30,
+  },
+  screen1: {
+    flex: 1,
+    backgroundColor: "#BFEFFF",
+  },
+  screen2: {
+    flex: 1,
+    backgroundColor: "#FFEBCD",
+  },
+});
