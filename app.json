@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "OverayApp",
-    "slug": "OverayApp",
+    "slug": "overayapp",
     "version": "1.0.0",
     "userInterfaceStyle": "automatic",
     "assetBundlePatterns": [
@@ -9,8 +9,10 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "40f74ef6-a830-479a-aabf-de6d14ac89a2"
+        "projectId": "715f25f5-083e-49d8-b53e-00c85fc956d2"
       }
-    }
+    },
+    "owner": "abhijit_kumar"
   }
 }
+
