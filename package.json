@@ -17,6 +17,7 @@
     "@react-navigation/material-top-tabs": "^6.6.3",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
+    "axios": "^1.6.2",
     "expo": "~49.0.5",
     "expo-barcode-scanner": "^12.7.0",
     "expo-checkbox": "~2.4.0",

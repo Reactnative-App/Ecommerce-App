@@ -26,7 +26,19 @@ import GOOGLE from "../../assets/google.png";
 import FACEBOOK from "../../assets/facebook.png";
 import PHONE from "../../assets/Icons/phone.png";
 import ARROW_SVG from "../../assets/svg/Arrow.svg";
+import { UserLoginAuth } from "../../config/Services";
+
 const LoginScreen = ({ navigation }) => {
+  const loginData = async () => {
+    try {
+      const response = await UserLoginAuth();
+      if (response.status == 200) {
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ backgroundColor: COLORS.white_light }}>
