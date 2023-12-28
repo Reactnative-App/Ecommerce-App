@@ -10,7 +10,7 @@
     "plugins": ["@react-native-google-signin/google-signin"],
     "android": {
       "package": "com.overayapp",
-      "googleServicesFile": "./google-services.json"
+      "googleServicesFile": "./android/app/google-services.json"
     },
     "extra": {
       "eas": {

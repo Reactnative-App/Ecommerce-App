@@ -186,7 +186,7 @@ const LoginScreen = ({ navigation }) => {
               {/* <Icons name="mail-outline" size={20} style={{marginRight:20}} /> */}
               <Text style={{ textAlign: "center" }}>Continue With Email</Text>
             </Pressable>
-            <Pressable style={styles.socialBtn} onPress={()=>{signIn}}>
+            <Pressable style={styles.socialBtn} onPress={()=>{signIn()}}>
               <Image
                 source={GOOGLE}
                 style={{
