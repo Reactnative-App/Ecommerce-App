@@ -7,6 +7,11 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": ["@react-native-google-signin/google-signin"],
+    "android": {
+      "package": "com.overayapp",
+      "googleServicesFile": "./google-services.json"
+    },
     "extra": {
       "eas": {
         "projectId": "715f25f5-083e-49d8-b53e-00c85fc956d2"
