@@ -148,8 +148,8 @@ const LoginScreen = ({ navigation }) => {
         >
           <TouchableOpacity
             style={[styles.btn, { backgroundColor: COLORS.white }]}
-            // onPress={() => navigation.navigate("CreateAccount")}
-            onPress={() => loginData()} 
+            onPress={() => navigation.navigate("CreateAccount")}
+            // onPress={() => loginData()} 
           >
             <Text
               style={{

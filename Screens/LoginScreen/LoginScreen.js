@@ -26,32 +26,34 @@ import GOOGLE from "../../assets/google.png";
 import FACEBOOK from "../../assets/facebook.png";
 import PHONE from "../../assets/Icons/phone.png";
 import ARROW_SVG from "../../assets/svg/Arrow.svg";
-import { UserLoginAuth } from "../../config/Services";
-import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+// import { UserLoginAuth } from "../../config/Services";
+// import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
 
 const LoginScreen = ({ navigation }) => {
   const [usrInfo,setuserInfo]=useState(null)
-  useEffect(()=>{
-    GoogleSignin.configure({webClientId:'87099456490-t87r3pq1qijkbaeaa07ihbov8e9du3kg.apps.googleusercontent.com'});
-  }, []);
-  const signIn = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const usrInfo = await GoogleSignin.signIn();
-      setuserInfo({ usrInfo });
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (e.g. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
-  };
+  // useEffect(()=>{
+  //   GoogleSignin.configure({webClientId:'87099456490-t87r3pq1qijkbaeaa07ihbov8e9du3kg.apps.googleusercontent.com'});
+  // }, []);
+  // const signIn = async () => {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const usrInfo = await GoogleSignin.signIn();
+  //     setuserInfo({ usrInfo });
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       // user cancelled the login flow
+  //     } else if (error.code === statusCodes.IN_PROGRESS) {
+  //       // operation (e.g. sign in) is in progress already
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       // play services not available or outdated
+  //     } else {
+  //       // some other error happened
+  //     }
+  //   }
+  // };
   const loginData = async () => {
     try {
       const response = await UserLoginAuth();
@@ -62,6 +64,29 @@ const LoginScreen = ({ navigation }) => {
       console.log(error);
     }
   };
+
+  async function onFacebookButtonPress() {
+    // Attempt login with permissions
+    const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+  
+    if (result.isCancelled) {
+      throw 'User cancelled the login process';
+    }
+  
+    // Once signed in, get the users AccessToken
+    const data = await AccessToken.getCurrentAccessToken();
+  
+    if (!data) {
+      throw 'Something went wrong obtaining access token';
+    }
+  
+    // Create a Firebase credential with the AccessToken
+    const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+  
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(facebookCredential);
+  }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ backgroundColor: COLORS.white_light }}>
@@ -197,7 +222,7 @@ const LoginScreen = ({ navigation }) => {
               />
               <Text>Sign In With Google</Text>
             </Pressable>
-            <Pressable style={styles.socialBtn}>
+            <Pressable style={styles.socialBtn} onPress={() => onFacebookButtonPress()}>
               <Image
                 source={FACEBOOK}
                 style={{
