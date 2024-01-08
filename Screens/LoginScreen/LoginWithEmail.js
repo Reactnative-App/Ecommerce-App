@@ -24,8 +24,27 @@ import ARROW_SVG from "../../assets/svg/Arrow.svg";
 import MAIL_SVG from "../../assets/svg/Mail.svg";
 import LOCK_SVG from "../../assets/svg/Lock.svg";
 import { COLORS } from "../../Constants/theme";
+import { UserLoginAuth } from "../../config/Services";
+
 const LoginScreen = ({ navigation }) => {
   const [showotp, setshowotp] = useState(true);
+  const loginData = async () => {
+    const data= {
+      "phoneNo":"6393455368",
+      "password":"qwerty",
+      "role":"admin",
+      "email":"yash2@gmail.com"
+  }
+    try {
+      const response = await UserLoginAuth(data);
+      console.log(response);
+      // if (response.status == 200) {
+        
+      // }
+    } catch (error) {
+      console.log(error,"adsnd");
+    }
+  };
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white_light }}>
       <ScrollView>
@@ -130,6 +149,7 @@ const LoginScreen = ({ navigation }) => {
           <TouchableOpacity
             style={[styles.btn, { backgroundColor: COLORS.white }]}
             onPress={() => navigation.navigate("CreateAccount")}
+            // onPress={() => loginData()} 
           >
             <Text
               style={{

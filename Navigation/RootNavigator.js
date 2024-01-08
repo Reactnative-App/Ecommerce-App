@@ -22,6 +22,19 @@ import SearchBar from "../components/SearchBar";
 import MenScreen from "../components/MenScreen";
 import Description from "../components/Description";
 import Reviews from "../components/Reviews";
+import AddReviews from "../components/AddReviews";
+import Checkout from "../components/Checkout";
+import Address from "../components/Address";
+import NewAddress from "../components/NewAddress";
+import SetAddress from "../components/SetAddress";
+import PaymentMethod from "../components/PaymentMethod";
+import Account from "../components/Account";
+import Notification from "../components/Notification";
+import AddNewCard from "../components/AddNewCard";
+import MyQRscan from "../components/MyQRscan";
+import Scanner from "../components/Scanner";
+import OrderSucess from "../components/OrderSucess";
+import SearchScreen from "../components/SearchScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +54,8 @@ const RootNavigator = () => {
   if (isFirstLaunch == null) {
     return null;
   } else if (isFirstLaunch == true) {
+    return null;
+  } else {
     return (
       <NavigationContainer>
         <Stack.Navigator>
@@ -59,21 +74,14 @@ const RootNavigator = () => {
             component={LoginScreen}
             options={{ headerShown: false }}
           />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  } else {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
           <Stack.Screen
-            name="Splash"
-            component={SplashScreen}
+            name="Search"
+            component={Search}
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Login"
-            component={LoginScreen}
+            name="OrderSucess"
+            component={OrderSucess}
             options={{ headerShown: false }}
           />
           <Stack.Screen
@@ -122,8 +130,8 @@ const RootNavigator = () => {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Search"
-            component={Search}
+            name="SearchScreen"
+            component={SearchScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen
@@ -154,6 +162,61 @@ const RootNavigator = () => {
           <Stack.Screen
             name="Reviews"
             component={Reviews}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AddReviews"
+            component={AddReviews}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Checkout"
+            component={Checkout}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Address"
+            component={Address}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="NewAddress"
+            component={NewAddress}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SetAddress"
+            component={SetAddress}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="PaymentMethod"
+            component={PaymentMethod}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Account"
+            component={Account}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Notification"
+            component={Notification}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AddNewCard"
+            component={AddNewCard}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="MyQRscan"
+            component={MyQRscan}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Scanner"
+            component={Scanner}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

@@ -37,6 +37,21 @@ const styles = StyleSheet.create({
         marginTop:scaleSize(20),
         fontFamily:'regular',
         fontSize:scaleFont(10)
+    },
+    horizontal:{
+        marginTop:scaleSize(22),
+        marginHorizontal:scaleSize(22),
+        borderBottomColor: COLORS.lightgrey,
+        borderBottomWidth: 0.5,
+    },
+    listTxt:{
+        fontSize:scaleFont(10),
+        fontFamily:'regular',
+        color:COLORS.txtGray
+    },
+    material:{
+        fontFamily:'regular',
+        fontSize:scaleFont(14),
     }
 });
 
