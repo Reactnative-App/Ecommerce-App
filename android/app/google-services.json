@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "306005371495",
+    "project_id": "khelo-india-games-7a303",
+    "storage_bucket": "khelo-india-games-7a303.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306005371495:android:f8ab913bf0f8dfc148c2c2",
+        "android_client_info": {
+          "package_name": "com.overayapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306005371495-rgpgptq6cpjkva6ku67n62dggtq0bhpt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.overayapp",
+            "certificate_hash": "5b3ffab952ea875d1d1edcd8f6ec28492dcafc34"
+          }
+        },
+        {
+          "client_id": "306005371495-c97fbuj09nakmbu3i0ljts6q91gpfr7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKYmPp0jVhe0FOvtJ8H0uZf-KBWUrKQOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306005371495-c97fbuj09nakmbu3i0ljts6q91gpfr7k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "306005371495-2bpv4elrt61b859v6jueoqf9lta9d5as.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.overayapp",
+                "app_store_id": "1665110083"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
