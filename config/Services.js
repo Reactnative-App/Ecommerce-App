@@ -16,3 +16,6 @@ export const verify_otp_Login = async (data) =>
 
 export const user_logout = async (data) =>
   axios.get(Api.USER_LOGOUT, { headers: { token: data } });
+
+
+  export const getCategory = async (data) => { return (axios.get(Api.GET_CATEGORY, data))};

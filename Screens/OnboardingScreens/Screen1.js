@@ -18,7 +18,7 @@ const Screen1 = ({navigation}) => {
               <View style={{marginTop:5,padding:10, marginLeft:20}}>
                 <Text style={{fontSize:25}}>Dress Like</Text>
                 <Text style={{fontSize:25}}>You Are Still</Text>
-                <Text style={{fontSize:25}}> A Teen</Text>
+                <Text style={{fontSize:25}}>A Teen</Text>
               </View>
               <Text style={{width:"70%", color:"gray", marginLeft:20}}> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</Text>
                    <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate("Login")}>
