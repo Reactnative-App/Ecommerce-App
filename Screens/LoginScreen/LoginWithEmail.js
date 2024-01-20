@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 // import {StatusBar} from 'expo-status-bar';
-import Icons from 'react-native-vector-icons/Ionicons';
+//import Icons from 'react-native-vector-icons/Ionicons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {SafeAreaView} from 'react-native';
 import HEADER_IMG from '../../assets/Header.png';
@@ -73,6 +73,8 @@ const LoginScreen = ({navigation}) => {
             marginTop: scaleSize(20),
             fontWeight: '400',
             marginLeft: scaleSize(20),
+            fontFamily: 'Blinker-Light',
+            color:'#000',
           }}>
           Welcome Back
         </Text>
@@ -81,45 +83,55 @@ const LoginScreen = ({navigation}) => {
           <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
             <MAIL_SVG size={scaleSize(20)} />
           </View>
-          <TextInput placeholder="Email Address" style={{flex: 1}} />
+          <TextInput
+        placeholder="Email address"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+      />
         </View>
 
         <View style={styles.inputBoxStyle}>
-          <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
-            <LOCK_SVG size={scaleSize(20)} />
+      <View style={{ alignSelf: 'center', margin: scaleSize(15) }}>
+        {/* Assuming LOCK_SVG is your custom component */}
+        <LOCK_SVG size={scaleSize(20)} />
+      </View>
+
+      <TextInput
+        placeholder="Password"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+        secureTextEntry={showotp}
+      />
+
+      <View style={{ marginTop: scaleSize(10) }}>
+        <Pressable
+          onPress={() => {
+            setshowotp(!showotp);
+          }}
+        >
+          <View
+            style={{
+              margin: scaleSize(5),
+              marginRight: scaleSize(15),
+            }}
+          >
+            {showotp ? (
+              <Ionicons
+                name="eye-off"
+                size={scaleSize(20)}
+                color="#000"
+              />
+            ) : (
+              <Ionicons
+                name="eye"
+                size={scaleSize(20)}
+                color="#000"
+              />
+            )}
           </View>
-          <TextInput
-            placeholder=" Password"
-            secureTextEntry={showotp}
-            style={{flex: 1}}
-          />
-          <View style={{marginTop: scaleSize(10)}}>
-            <Pressable
-              onPress={() => {
-                setshowotp(!showotp);
-              }}>
-              <View
-                style={{
-                  margin: scaleSize(5),
-                  marginRight: scaleSize(15),
-                }}>
-                {showotp ? (
-                  <Ionicons
-                    name="ios-eye-off-outline"
-                    size={scaleSize(20)}
-                    color="#000"
-                  />
-                ) : (
-                  <Ionicons
-                    name="ios-eye-outline"
-                    size={scaleSize(20)}
-                    color="#000"
-                  />
-                )}
-              </View>
-            </Pressable>
-          </View>
-        </View>
+        </Pressable>
+      </View>
+    </View>
 
         <Text
           style={{
@@ -128,7 +140,7 @@ const LoginScreen = ({navigation}) => {
             marginRight: scaleSize(20),
             fontWeight: '600',
             color: '#EED443',
-            fontSize: scaleFont(20),
+            fontSize: scaleFont(14),
             fontFamily: 'regular',
           }}>
           Forgot Password
@@ -149,8 +161,8 @@ const LoginScreen = ({navigation}) => {
               style={{
                 color: COLORS.black,
                 textAlign: 'center',
-                fontSize: scaleFont(18),
-                fontFamily: 'regular',
+                fontSize: scaleFont(14),
+                fontFamily: 'Blinker-Regular',
               }}>
               Sign Up
             </Text>
@@ -160,8 +172,8 @@ const LoginScreen = ({navigation}) => {
               style={{
                 color: COLORS.black,
                 textAlign: 'center',
-                fontSize: scaleFont(18),
-                fontFamily: 'regular',
+                fontSize: scaleFont(14),
+                fontFamily: 'Blinker-Regular',
               }}>
               Sign In
             </Text>
@@ -180,7 +192,7 @@ const LoginScreen = ({navigation}) => {
                 width: scaleSize(100),
                 textAlign: 'center',
                 color: '#D9D9D9',
-                fontSize: scaleFont(18),
+                fontSize: scaleFont(12),
                 fontFamily: 'regular',
               }}>
               Or Sign In With
@@ -203,8 +215,8 @@ const LoginScreen = ({navigation}) => {
               style={{
                 color: COLORS.black,
                 textAlign: 'center',
-                fontSize: scaleFont(18),
-                fontFamily: 'regular',
+                fontSize: scaleFont(14),
+                fontFamily: 'Blinker-Regular',
               }}>
               Sign In With Google
             </Text>
@@ -214,7 +226,7 @@ const LoginScreen = ({navigation}) => {
         <View style={{marginTop: scaleSize(15)}}>
           <Text
             style={{
-              fontSize: scaleFont(14),
+              fontSize: scaleFont(12),
               color: '#737171',
               textAlign: 'center',
             }}>
@@ -223,7 +235,7 @@ const LoginScreen = ({navigation}) => {
 
           <Text
             style={{
-              fontSize: scaleFont(14),
+              fontSize: scaleFont(12),
               fontWeight: '600',
               color: '#737171',
               textAlign: 'center',
@@ -235,7 +247,7 @@ const LoginScreen = ({navigation}) => {
             </Text>
             <Text
               style={{
-                fontSize: scaleFont(14),
+                fontSize: scaleFont(12),
                 fontWeight: '600',
                 alignSelf: 'center',
                 color: '#737171',
@@ -256,7 +268,7 @@ const styles = StyleSheet.create({
   btn: {
     height: scaleSize(40),
     backgroundColor: '#F3D743',
-    width: scaleSize(155),
+    width: scaleSize(157),
     marginLeft: scaleSize(30),
     marginTop: scaleSize(20),
     borderRadius: scaleSize(20),
@@ -281,6 +293,7 @@ const styles = StyleSheet.create({
     shadowColor: '#F3D743',
     shadowOpacity: 0.25,
     shadowRadius: 5,
+    borderRadius:18
   },
   left: {
     marginLeft: scaleSize(50),
@@ -296,7 +309,7 @@ const styles = StyleSheet.create({
   },
   inputBoxStyle: {
     flexDirection: 'row',
-    marginTop: scaleSize(10),
+    marginTop: scaleSize(20),
     elevation: 10,
     shadowColor: '#F3D743',
     shadowOpacity: 0.25,

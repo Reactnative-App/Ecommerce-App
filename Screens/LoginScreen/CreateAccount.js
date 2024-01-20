@@ -12,9 +12,9 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 // import {StatusBar} from 'expo-status-bar';
-import Icons from 'react-native-vector-icons/Ionicons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-// import CheckBox from 'expo-checkbox';
+// import Icons from 'react-native-vector-icons/Ionicons';
+ import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import HEADER_IMG from '../../assets/Header.png';
 import ARROW_SVG from '../../assets/svg/Arrow.svg';
 import {
@@ -26,9 +26,19 @@ import MAIL_SVG from '../../assets/svg/Mail.svg';
 import LOCK_SVG from '../../assets/svg/Lock.svg';
 import CALL_SVG from '../../assets/svg/Call.svg';
 import {COLORS} from '../../Constants/theme';
+import CheckBox from '@react-native-community/checkbox';
+import PhoneInput from 'react-native-phone-number-input';
+
 const LoginScreen = ({navigation}) => {
+  const [checked, setChecked] = useState(false);
+
+  const toggleCheckbox = () => {
+     setChecked(!checked);
+  };
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [isSelected, setSelection] = useState(false);
   const [showotp, setshowotp] = useState(true);
+  
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white_light}}>
       <ScrollView>
@@ -57,6 +67,8 @@ const LoginScreen = ({navigation}) => {
             marginTop: scaleSize(20),
             fontWeight: '400',
             marginLeft: scaleSize(20),
+            fontFamily: 'Blinker-Light',
+            color:'#000',
           }}>
           Create Your Account
         </Text>
@@ -65,28 +77,36 @@ const LoginScreen = ({navigation}) => {
           <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
             <MAIL_SVG size={scaleSize(20)} />
           </View>
-          <TextInput placeholder="Email Address" style={{flex: 1}} />
+          <TextInput
+        placeholder="Email address"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+      />
         </View>
         <View style={styles.inputBoxStyle}>
           <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
             <CALL_SVG size={scaleSize(20)} />
           </View>
           <TextInput
-            keyboardType="number-pad"
-            placeholder="Phone Number"
-            maxLength={10}
-            style={{flex: 1}}
-          />
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'black' }}
+        placeholderTextColor={'gray'}
+        placeholder=" Phone number"
+        keyboardType="phone-pad"
+        value={phoneNumber}
+        onChangeText={(text) => setPhoneNumber(text)}
+        maxLength={10}
+      />
         </View>
         <View style={styles.inputBoxStyle}>
           <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
             <LOCK_SVG size={scaleSize(20)} />
           </View>
           <TextInput
-            placeholder=" Password"
-            secureTextEntry={showotp}
-            style={{flex: 1}}
-          />
+        placeholder=" Password"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+        secureTextEntry={showotp}
+      />
           <View style={{marginTop: scaleSize(10)}}>
             <Pressable
               onPress={() => {
@@ -98,18 +118,18 @@ const LoginScreen = ({navigation}) => {
                   marginRight: scaleSize(15),
                 }}>
                 {showotp ? (
-                  <Ionicons
-                    name="ios-eye-off-outline"
-                    size={scaleSize(20)}
-                    color="#000"
-                  />
-                ) : (
-                  <Ionicons
-                    name="ios-eye-outline"
-                    size={scaleSize(20)}
-                    color="#000"
-                  />
-                )}
+              <Ionicons
+                name="eye-off"
+                size={scaleSize(20)}
+                color="#000"
+              />
+            ) : (
+              <Ionicons
+                name="eye"
+                size={scaleSize(20)}
+                color="#000"
+              />
+            )}
               </View>
             </Pressable>
           </View>
@@ -123,23 +143,36 @@ const LoginScreen = ({navigation}) => {
             justifyContent: 'space-around',
             alignItems: 'center',
           }}>
-          {/* <CheckBox
-            style={styles.check}
-            value={isSelected}
-            onValueChange={setSelection}
-            color={isSelected ? '#EED443' : ''}
-          /> */}
+
+
+
+<TouchableOpacity style={styles.checkboxContainer} onPress={toggleCheckbox}>
+      <CheckBox
+        checked={checked}
+        onPress={toggleCheckbox}
+        containerStyle={styles.checkbox}
+        checkedIcon={
+          <View style={styles.checkedContainer}>
+            <Icon name="check" size={10} color="#ffffff" /> {/* Adjust icon properties */}
+          </View>
+        }
+        uncheckedIcon={null} // Remove the default unchecked icon
+      />
+    </TouchableOpacity>
+
+
           <Text
             style={{
               marginLeft: scaleSize(10),
-              fontSize: scaleFont(18),
+              fontSize: scaleFont(12),
               fontFamily: 'regular',
+              color:'#000'
             }}>
             I agree with{' '}
             <Text
               style={{
                 color: '#EED443',
-                fontSize: scaleFont(18),
+                fontSize: scaleFont(12),
                 fontFamily: 'regular',
               }}>
               Terms of Service & Privacy Policy
@@ -170,8 +203,8 @@ const LoginScreen = ({navigation}) => {
               style={{
                 color: COLORS.black,
                 textAlign: 'center',
-                fontSize: scaleFont(18),
-                fontFamily: 'regular',
+                fontSize: scaleFont(14),
+                fontFamily: 'Blinker-Regular',
               }}>
               Sign Up
             </Text>
@@ -183,18 +216,18 @@ const LoginScreen = ({navigation}) => {
               style={{
                 color: COLORS.black,
                 textAlign: 'center',
-                fontSize: scaleFont(18),
-                fontFamily: 'regular',
+                fontSize: scaleFont(14),
+                fontFamily: 'Blinker-Regular',
               }}>
               Sign In
             </Text>
           </TouchableOpacity>
         </View>
 
-        <View style={{marginTop: scaleSize(15)}}>
+        <View style={{marginTop: scaleSize(25)}}>
           <Text
             style={{
-              fontSize: scaleFont(14),
+              fontSize: scaleFont(12),
               color: '#737171',
               textAlign: 'center',
             }}>
@@ -203,10 +236,11 @@ const LoginScreen = ({navigation}) => {
 
           <Text
             style={{
-              fontSize: scaleFont(14),
+              fontSize: scaleFont(12),
               fontWeight: '600',
               color: '#737171',
               textAlign: 'center',
+              
             }}>
             Terms & Conditions
             <Text style={{fontSize: scaleFont(12), alignSelf: 'center'}}>
@@ -284,4 +318,31 @@ const styles = StyleSheet.create({
     borderRadius: scaleSize(20),
     alignSelf: 'center',
   },
+  checkboxContainer: {
+   // width: 12,
+    //height: 12,
+    //borderRadius: 8,
+    borderWidth:8,
+    borderColor: 'gray',
+    alignItems: 'center',
+    // justifyContent: 'center',
+    width: 20,
+    height: 20,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+ },
+ unchecked: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: '#ffffff',
+ },
+ checked: {
+  width: 12,
+  height: 12,
+  borderRadius: 6,
+  borderWidth:8,
+  backgroundColor: '#F3D743',
+ },
 });

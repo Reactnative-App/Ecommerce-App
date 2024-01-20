@@ -49,7 +49,8 @@ const ForgotPass = ({navigation}) => {
               marginTop: scaleSize(20),
               marginLeft: scaleSize(20),
               fontSize: scaleFont(37),
-              fontFamily: 'regular',
+              fontFamily: 'Blinker-Light',
+               color:'#000',
               fontWeight: '300',
             }}>
             Password Recovery
@@ -58,7 +59,7 @@ const ForgotPass = ({navigation}) => {
             style={{
               marginTop: scaleSize(10),
               marginLeft: scaleSize(20),
-              fontSize: scaleFont(16),
+              fontSize: scaleFont(14),
               color: 'gray',
               fontFamily: 'regular',
             }}>
@@ -75,16 +76,20 @@ const ForgotPass = ({navigation}) => {
               }}
             />
             {/* <Icons name="mail-outline" size={25} color="gray" style={{marginRight:10, marginLeft:10,marginTop:10}}/> */}
-            <TextInput placeholder="Email address" />
+            <TextInput
+        placeholder="Email address"
+        style={{ flex: 1, color: 'gray' }}
+        placeholderTextColor="gray"
+      />
           </View>
           <Text
             style={{
               marginTop: scaleSize(20),
               marginLeft: scaleSize(20),
-              fontSize: scaleFont(20),
+              fontSize: scaleFont(14),
               fontWeight: '600',
               color: '#F3D743',
-              fontFamily: 'regular',
+             // fontFamily: 'semibold',
             }}>
             Use Another Method
           </Text>
@@ -94,9 +99,10 @@ const ForgotPass = ({navigation}) => {
             onPress={() => navigation.navigate('ForgotPass2')}>
             <Text
               style={{
-                fontSize: scaleFont(20),
+                fontSize: scaleFont(14),
                 textAlign: 'center',
                 fontFamily: 'regular',
+                color:'#000'
               }}>
               Next
             </Text>

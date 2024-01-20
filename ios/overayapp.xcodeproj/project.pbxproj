@@ -14,6 +14,14 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-overayapp-overayappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-overayapp-overayappTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		D0C3D1A1525844C9995D95A0 /* Blinker-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9623F78358C42628A45BED2 /* Blinker-Black.ttf */; };
+		19A7BF8EFBED4048ADC190E5 /* Blinker-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0410E32E68E242BD85ED4CC3 /* Blinker-Bold.ttf */; };
+		9DB8869D69514D8BA65EA25E /* Blinker-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE68DF79EF5D4490A0064E38 /* Blinker-ExtraBold.ttf */; };
+		0E8E7436992642F997603D56 /* Blinker-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BD509737F024D328E2F3468 /* Blinker-ExtraLight.ttf */; };
+		66A7C17D8E704F28BEA20BAF /* Blinker-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9BB4572FF849F7A8E75AA8 /* Blinker-Light.ttf */; };
+		A16F6BC3881F4CFEADC91ED5 /* Blinker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10878499CC4242938EA01A49 /* Blinker-Regular.ttf */; };
+		34700E07806E487B8A8E72FC /* Blinker-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DDBF8C457E9418580474EBF /* Blinker-SemiBold.ttf */; };
+		B105518AAE3344589EB1341A /* Blinker-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83FE44478DC94A3DA005931F /* Blinker-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = overayapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-overayapp-overayappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-overayapp-overayappTests.release.xcconfig"; path = "Target Support Files/Pods-overayapp-overayappTests/Pods-overayapp-overayappTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		A9623F78358C42628A45BED2 /* Blinker-Black.ttf */ = {isa = PBXFileReference; name = "Blinker-Black.ttf"; path = "../assets/fonts/Blinker-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0410E32E68E242BD85ED4CC3 /* Blinker-Bold.ttf */ = {isa = PBXFileReference; name = "Blinker-Bold.ttf"; path = "../assets/fonts/Blinker-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AE68DF79EF5D4490A0064E38 /* Blinker-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Blinker-ExtraBold.ttf"; path = "../assets/fonts/Blinker-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2BD509737F024D328E2F3468 /* Blinker-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Blinker-ExtraLight.ttf"; path = "../assets/fonts/Blinker-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4A9BB4572FF849F7A8E75AA8 /* Blinker-Light.ttf */ = {isa = PBXFileReference; name = "Blinker-Light.ttf"; path = "../assets/fonts/Blinker-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		10878499CC4242938EA01A49 /* Blinker-Regular.ttf */ = {isa = PBXFileReference; name = "Blinker-Regular.ttf"; path = "../assets/fonts/Blinker-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1DDBF8C457E9418580474EBF /* Blinker-SemiBold.ttf */ = {isa = PBXFileReference; name = "Blinker-SemiBold.ttf"; path = "../assets/fonts/Blinker-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		83FE44478DC94A3DA005931F /* Blinker-Thin.ttf */ = {isa = PBXFileReference; name = "Blinker-Thin.ttf"; path = "../assets/fonts/Blinker-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +138,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				82A2153976234C32B36D8C6B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +164,22 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		82A2153976234C32B36D8C6B /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				A9623F78358C42628A45BED2 /* Blinker-Black.ttf */,
+				0410E32E68E242BD85ED4CC3 /* Blinker-Bold.ttf */,
+				AE68DF79EF5D4490A0064E38 /* Blinker-ExtraBold.ttf */,
+				2BD509737F024D328E2F3468 /* Blinker-ExtraLight.ttf */,
+				4A9BB4572FF849F7A8E75AA8 /* Blinker-Light.ttf */,
+				10878499CC4242938EA01A49 /* Blinker-Regular.ttf */,
+				1DDBF8C457E9418580474EBF /* Blinker-SemiBold.ttf */,
+				83FE44478DC94A3DA005931F /* Blinker-Thin.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -243,6 +276,14 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				D0C3D1A1525844C9995D95A0 /* Blinker-Black.ttf in Resources */,
+				19A7BF8EFBED4048ADC190E5 /* Blinker-Bold.ttf in Resources */,
+				9DB8869D69514D8BA65EA25E /* Blinker-ExtraBold.ttf in Resources */,
+				0E8E7436992642F997603D56 /* Blinker-ExtraLight.ttf in Resources */,
+				66A7C17D8E704F28BEA20BAF /* Blinker-Light.ttf in Resources */,
+				A16F6BC3881F4CFEADC91ED5 /* Blinker-Regular.ttf in Resources */,
+				34700E07806E487B8A8E72FC /* Blinker-SemiBold.ttf in Resources */,
+				B105518AAE3344589EB1341A /* Blinker-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

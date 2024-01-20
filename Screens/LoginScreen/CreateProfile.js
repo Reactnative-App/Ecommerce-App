@@ -50,7 +50,9 @@ const CreateProfile = ({navigation}) => {
           style={{
             marginLeft: scaleSize(30),
             marginTop: scaleSize(10),
-            fontSize: scaleFont(20),
+            fontSize: scaleFont(32),
+            fontFamily: 'Blinker-Light',
+            color:'#000'
           }}>
           Setup Profile
         </Text>
@@ -77,7 +79,7 @@ const CreateProfile = ({navigation}) => {
               }}>
               <Pressable
                 style={{
-                  backgroundColor: '#F3D743',
+                  backgroundColor: '#F0F0F0',
                   //use bordr radious to make background color
                   // backgroundColor: "#F0F0F0",
 
@@ -115,7 +117,9 @@ const CreateProfile = ({navigation}) => {
             style={{
               marginTop: scaleSize(20),
               textAlign: 'center',
-              fontSize: scaleFont(16),
+              fontSize: scaleFont(14),
+              fontFamily: 'Blinker-Regular',
+              color:'#000'
             }}>
             Choose Your Image
           </Text>
@@ -160,19 +164,19 @@ const CreateProfile = ({navigation}) => {
               flexDirection: 'row',
               justifyContent: 'space-around',
               alignItems: 'center',
-              marginTop: 30,
+              marginTop: 130,
             }}>
             <Pressable
               style={[
                 styles.btn,
-                {width: 90, marginRight: 20, backgroundColor: '#fff'},
+                {width: 90, marginRight: 20, backgroundColor: '#fff', borderRadius:25},
               ]}
               onPress={() => {
                 navigation.navigate('ForgotPass');
               }}>
               <Text style={{color: '#000', textAlign: 'center'}}>Skip</Text>
             </Pressable>
-            <Pressable style={[styles.btn, {width: 180, marginLeft: 120}]}>
+            <Pressable style={[styles.btn, {width: 180, marginLeft: 120,borderRadius:25}]}>
               <Text style={{color: '#000', textAlign: 'center'}}>
                 Go To Shopping
               </Text>

@@ -28,12 +28,14 @@ import FACEBOOK from '../../assets/facebook.png';
 import PHONE from '../../assets/Icons/phone.png';
 import ARROW_SVG from '../../assets/svg/Arrow.svg';
 import auth from '@react-native-firebase/auth';
+import PhoneInput from 'react-native-phone-number-input';
 // import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
-import {regular} from '../../Constants/font';
+// import {regular} from '../../Constants/fonts';
 // import { UserLoginAuth } from "../../config/Services";
 // import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
 const LoginScreen = ({navigation}) => {
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [usrInfo, setuserInfo] = useState(null);
   // useEffect(()=>{
   //   GoogleSignin.configure({webClientId:'87099456490-t87r3pq1qijkbaeaa07ihbov8e9du3kg.apps.googleusercontent.com'});
@@ -55,6 +57,10 @@ const LoginScreen = ({navigation}) => {
   //     }
   //   }
   // };
+  this.state = {
+    phoneNumber: '',
+  };
+
   const loginData = async () => {
     try {
       const response = await UserLoginAuth();
@@ -92,6 +98,10 @@ const LoginScreen = ({navigation}) => {
     // Sign-in the user with the credential
     return auth().signInWithCredential(facebookCredential);
   }
+
+  handlePhoneChange = (phoneNumber) => {
+    this.setState({ phoneNumber });
+  };
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -133,37 +143,41 @@ const LoginScreen = ({navigation}) => {
             marginTop: scaleSize(20),
             fontWeight: '400',
             marginLeft: scaleSize(20),
-            // fontFamily: "regular",
-            fontFamily: regular,
+            fontFamily: 'Blinker-Light',
+            color: '#000',
           }}>
           Welcome Back
         </Text>
         <View style={{marginHorizontal: scaleSize(10), alignItems: 'center'}}>
-          <View style={styles.input}>
-            <Image
-              source={PHONE}
-              style={{
-                marginTop: scaleSize(18),
-                marginRight: scaleSize(10),
-                marginLeft: scaleSize(15),
-              }}
-            />
-            {/* <Icons name="call-outline" size={25} color="gray" style={{marginRight:10, marginLeft:10,marginTop:10}}/> */}
-            <Text
-              style={{
-                marginTop: scaleSize(15),
-                marginRight: scaleSize(10),
-                color: 'gray',
-              }}>
-              +91
-            </Text>
-            <View style={styles.verticleLine}></View>
-            <TextInput
-              placeholder="Phone Number"
-              style={{marginLeft: scaleSize(10)}}
-              maxLength={10}
-            />
-          </View>
+        <View style={styles.input}>
+      <Image
+        source={PHONE}
+        style={{
+          marginTop: scaleSize(18),
+          marginRight: scaleSize(10),
+          marginLeft: scaleSize(15),
+        }}
+      />
+      <Text
+        style={{
+          marginTop: scaleSize(15),
+          marginRight: scaleSize(10),
+          color: 'gray',
+        }}>
+        +91
+      </Text>
+      <View style={styles.verticleLine}></View>
+
+      <TextInput
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'black' }}
+        placeholderTextColor={'gray'}
+        placeholder=" Phone number"
+        keyboardType="phone-pad"
+        value={phoneNumber}
+        onChangeText={(text) => setPhoneNumber(text)}
+        maxLength={10}
+      />
+    </View>
 
           <TouchableOpacity style={styles.btn}>
             <Text
@@ -171,7 +185,7 @@ const LoginScreen = ({navigation}) => {
                 color: '#000',
                 textAlign: 'center',
                 fontSize: scaleFont(14),
-                fontFamily: 'regular',
+                fontFamily: 'Blinker-Regular',
                 fontWeight: '400',
               }}>
               Continue With OTP
@@ -190,6 +204,7 @@ const LoginScreen = ({navigation}) => {
                 style={{
                   fontSize: scaleFont(14),
                   textAlign: 'center',
+                  fontFamily: 'Blinker-Regular',
                   color: '#717171',
                 }}>
                 Or Sign In With
@@ -206,14 +221,23 @@ const LoginScreen = ({navigation}) => {
               }}>
               <Image
                 source={EMAIL}
-                style={{
+                style={{ 
+                  height: scaleSize(14),
+                  width: scaleSize(14),
                   marginTop: scaleSize(6),
-                  marginRight: scaleSize(10),
-                  marginLeft: scaleSize(10),
+                  position: 'absolute',
+                  left: "25%"
                 }}
               />
               {/* <Icons name="mail-outline" size={20} style={{marginRight:20}} /> */}
-              <Text style={{textAlign: 'center'}}>Continue With Email</Text>
+              <Text
+                style={{
+                  color: '#000',
+                  textAlign: 'center',
+                  fontFamily: 'Blinker-Regular',
+                }}>
+                Continue With Email
+              </Text>
             </Pressable>
             <Pressable
               style={styles.socialBtn}
@@ -223,30 +247,78 @@ const LoginScreen = ({navigation}) => {
               <Image
                 source={GOOGLE}
                 style={{
-                  height: scaleSize(18),
-                  width: scaleSize(18),
-                  marginRight: scaleSize(15),
+                  height: scaleSize(14),
+                  width: scaleSize(14),
+                  marginTop: scaleSize(6),
+                  position: 'absolute',
+                  left: "25%"
                 }}
               />
-              <Text>Sign In With Google</Text>
+              <Text
+                style={{
+                  color: '#000',
+                  textAlign: 'center',
+                  fontFamily: 'Blinker-Regular',
+                }}>
+                Sign In With Google
+              </Text>
             </Pressable>
-            <Pressable
+            {/* <Pressable
+  style={styles.socialBtn}
+  onPress={() => onFacebookButtonPress()}>
+  <Image
+    source={FACEBOOK}
+    style={{
+      height: scaleSize(14),
+      width: scaleSize(14),
+      marginTop: scaleSize(6),
+      position: 'absolute',
+      // left: "25%"
+    }}
+  />
+  <Text
+    style={{
+      color: '#000',
+      textAlign: 'center',
+      fontFamily: 'Blinker-Regular',
+    }}>
+    Sign In With Facebook
+  </Text>
+</Pressable> */}
+<Pressable
               style={styles.socialBtn}
-              onPress={() => onFacebookButtonPress()}>
+              onPress={() => {
+                signIn();
+              }}>
               <Image
                 source={FACEBOOK}
                 style={{
-                  height: scaleSize(18),
-                  width: scaleSize(18),
-                  marginRight: scaleSize(15),
+                  height: scaleSize(14),
+                  width: scaleSize(14),
+                  marginTop: scaleSize(6),
+                  position: 'absolute',
+                  left: "25%"
                 }}
               />
-              <Text>Sign In With Facebook</Text>
+              <Text
+                style={{
+                  color: '#000',
+                  textAlign: 'center',
+                  fontFamily: 'Blinker-Regular',
+                }}>
+                Sign In With Facebook
+              </Text>
             </Pressable>
+
           </View>
 
-          <View style={{alignSelf: 'center', marginTop: 4}}>
-            <Text style={{fontSize: scaleFont(12)}}>
+          <View style={{alignSelf: 'center', marginTop: 15}}>
+            <Text
+              style={{
+                fontSize: scaleFont(12),
+                color: 'gray',
+                fontFamily: 'Blinker-Regular',
+              }}>
               By creating an account or logging in, you agree With Overay®
             </Text>
             <View style={{flexDirection: 'row', marginLeft: 60}}>
@@ -258,7 +330,12 @@ const LoginScreen = ({navigation}) => {
                 }}>
                 Terms & Conditions
               </Text>
-              <Text style={{fontSize: scaleFont(12), textAlign: 'center'}}>
+              <Text
+                style={{
+                  fontSize: scaleFont(12),
+                  textAlign: 'center',
+                  color: 'gray',
+                }}>
                 {' '}
                 and
               </Text>
@@ -316,7 +393,7 @@ const styles = StyleSheet.create({
   socialBtn: {
     height: scaleSize(40),
     backgroundColor: '#fff',
-    width: WIDTH - scaleSize(35),
+    width: WIDTH - scaleSize(45),
     // marginLeft: 30,
     marginTop: scaleSize(20),
     borderRadius: scaleSize(20),
@@ -331,6 +408,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 5,
     fontSize: scaleFont(14),
+    
   },
   left: {
     marginLeft: scaleSize(50),
@@ -343,5 +421,9 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 1,
     backgroundColor: '#D9D9D9',
+  },
+  phoneInput: {
+    marginLeft: scaleSize(10),
+    color: '#000',
   },
 });
