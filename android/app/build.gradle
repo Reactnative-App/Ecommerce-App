@@ -109,6 +109,12 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
 
+    implementation project(path: ":@react-native-firebase_auth")
+
+    implementation project(':react-native-fbsdk-next')
+
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
