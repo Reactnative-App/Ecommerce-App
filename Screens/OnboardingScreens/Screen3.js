@@ -8,8 +8,14 @@ import { scaleSize } from '../../Constants/Mixins';
 const Screen3 = ({navigation}) => {
   return (
     <>
-    <StatusBar barStyle={'dark-content'}/>
+    
     <View style={{flex:1}}>
+
+    <StatusBar
+          barStyle={'dark-content'}
+          translucent
+          backgroundColor="transparent"
+        />
         {/* <LinearGradient
         colors={["#46CDCD", "#2E8C8C", "#1C5757"]}
         style={{ flex: 1, paddingBottom: 10 }}
@@ -37,14 +43,25 @@ export default Screen3
 
 const styles = StyleSheet.create({
     btn:{
-      marginLeft:210,
-      marginBottom:10,
-      width:120,
-      height:40,
-      padding:10,
-     marginRight:20,
-      backgroundColor:'#F3D743',
-      borderRadius:20,
-      marginTop:70 
+    //   marginLeft:210,
+    //   marginBottom:10,
+    //   width:120,
+    //   height:40,
+    //   padding:10,
+    //  marginRight:20,
+    //   backgroundColor:'#F3D743',
+    //   borderRadius:20,
+    //   marginTop:70 
+
+    position: 'fixed',
+    top: scaleSize(80),
+    left: '60%',
+    width: scaleSize(122),
+    height: scaleSize(40),
+    padding: scaleSize(10),
+    marginRight: scaleSize(20),
+    backgroundColor: '#F3D743',
+    borderRadius: scaleSize(20),
+    Bottom: scaleSize(20),
      }
 })

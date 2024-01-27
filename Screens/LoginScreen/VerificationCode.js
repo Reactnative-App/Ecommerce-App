@@ -30,8 +30,9 @@ const VerificationCode = ({navigation}) => {
     <SafeAreaView style={{flex: 1}}>
       <StatusBar barStyle={'dark-content'} />
       <ImageBackground
-        source={require('../../assets/verifyBg.png')}
-        style={{height: '100%', width: '100%'}}>
+        // source={require('../../assets/verifyBg.png')}
+        // style={{height: '100%', width: '100%'}}
+        >
         <ARROW_SVG
           size={scaleSize(20)}
           style={{marginTop: scaleSize(50), marginLeft: scaleSize(20)}}
@@ -40,16 +41,17 @@ const VerificationCode = ({navigation}) => {
         <Text
           style={{
             fontWeight: '300',
-            fontSize: scaleFont(40),
+            fontSize: scaleFont(32),
             marginLeft: scaleSize(20),
-            fontFamily: 'regular',
+            fontFamily: 'Blinker-Light',
+            color:'#000',marginTop: scaleSize(20)
           }}>
           Verification Code
         </Text>
         <View style={{marginTop: scaleSize(20), marginLeft: scaleSize(20)}}>
           <Text
             style={{
-              fontSize: scaleFont(16),
+              fontSize: scaleFont(14),
               color: 'gray',
               fontFamily: 'regular',
             }}>
@@ -57,7 +59,7 @@ const VerificationCode = ({navigation}) => {
           </Text>
           <Text
             style={{
-              fontSize: scaleFont(16),
+              fontSize: scaleFont(14),
               color: '#2d2c2c',
               fontFamily: 'regular',
             }}>
@@ -67,8 +69,8 @@ const VerificationCode = ({navigation}) => {
         <Text
           style={{
             marginTop: scaleSize(10),
-            marginLeft: scaleSize(10),
-            fontSize: scaleFont(17),
+            marginLeft: scaleSize(20),
+            fontSize: scaleFont(14),
             fontWeight: '600',
             color: '#F3D743',
             fontFamily: 'regular',
@@ -151,6 +153,7 @@ const VerificationCode = ({navigation}) => {
             marginTop: scaleSize(20),
             fontSize: scaleFont(16),
             fontFamily: 'regular',
+            color:'#000'
           }}>
           0{min}:{sec}
         </Text>
@@ -160,7 +163,7 @@ const VerificationCode = ({navigation}) => {
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
-            marginTop: scaleSize(30),
+            marginTop: scaleSize(380),
           }}>
           <Pressable
             style={[
@@ -177,7 +180,7 @@ const VerificationCode = ({navigation}) => {
                 color: '#000',
                 fontSize: scaleSize(14),
                 textAlign: 'center',
-                fontFamily: 'regular',
+                fontFamily: 'Blinker-Regular',
               }}>
               Resend
             </Text>
@@ -190,7 +193,7 @@ const VerificationCode = ({navigation}) => {
                 color: '#000',
                 textAlign: 'center',
                 fontSize: scaleFont(14),
-                fontFamily: 'regular',
+                fontFamily: 'Blinker-Regular',
               }}>
               Confirm
             </Text>
@@ -224,5 +227,6 @@ const styles = StyleSheet.create({
     padding: scaleSize(15),
     backgroundColor: '#F3D743',
     borderRadius: 20,
+    
   },
 });

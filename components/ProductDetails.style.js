@@ -18,6 +18,26 @@ const styles = StyleSheet.create({
     details:{
         marginTop:10,
     },
+    // headerContainer:{
+    //     width:"100%",
+    //     height:122
+    // },
+    headerContainer: { 
+        marginLeft:15,
+        marginTop:15,
+        marginBottom:5,
+        width: 325,
+        height: 222,
+        alignItems: 'center',
+        justifyContent: 'center',
+        
+      },
+      image: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+        borderRadius:10
+      },
     titleRow:{
         marginHorizontal:20,
         justifyContent: 'space-between',
@@ -26,8 +46,14 @@ const styles = StyleSheet.create({
         top:50
     },
     title:{
-        fontFamily:"regular",
-        fontSize:12
+        fontFamily:"Blinker-Regular",
+        fontSize: 10,
+        color:'gray'
+    },
+    title2:{
+        fontFamily:"Blinker-Regular",
+        fontSize:10,
+        color:'#000'
     },
     priceWrapper:{
         backgroundColor:COLORS.secondary,
@@ -35,8 +61,9 @@ const styles = StyleSheet.create({
     },
     price:{
         padding:10,
-        fontFamily:"regular",
-        fontSize:20
+        fontFamily:"Blinker-Regular",
+        fontSize:20,
+        color:'#000'
     },
     ratingRow:{
         paddingBottom:15,
@@ -51,11 +78,14 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'flex-start',
         alignItems:'center',
-        marginHorizontal:15
+        marginHorizontal:15,
+        color:'#000', 
+        gap: 10
     },
     txt:{
         fontSize:16,
-        fontFamily:'semibold'
+        fontFamily:'Blinker-Regular', 
+        color:'#000'
     },
     verticleLine:{
         height: '60%',
@@ -111,8 +141,9 @@ const styles = StyleSheet.create({
     },
     descTxt:{
         marginRight:scaleSize(10),
-        fontFamily:'regular',
-        fontSize:scaleFont(14),
+       // fontFamily:'regular',
+        fontSize:scaleFont(10),
+        color:'#000'
     },
     textContainer:{
         flex: 1,

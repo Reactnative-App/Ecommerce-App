@@ -39,7 +39,7 @@ import { COLORS } from '../Constants/theme';
        <View style={styles.discountBox}>
 
        <Text style={styles.disText}>Dicount{'\n'}Code</Text>
-       <Text style={styles.disNum}>25</Text>
+       <Text style={styles.disNum}>54</Text>
        </View>
        <View style={styles.offerBox}>
        <Text style={styles.offText}>Pending{'\n'}Offers</Text>

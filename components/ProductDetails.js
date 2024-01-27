@@ -6,10 +6,14 @@ import {
   TouchableOpacity,
   FlatList,
   Pressable,
+  Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
 import styles from './ProductDetails.style';
-// import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
+//import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -23,14 +27,61 @@ import {COLORS} from '../Constants/theme';
 import * as Progress from 'react-native-progress';
 import ProductCartView from './ProductCartView';
 import BUY_SVG from '../assets/svg/Buy.svg';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+const {height,width} = Dimensions.get('window')
+
+const image1 = require('../assets/Products/Product1.png');
+const image2 = require('../assets/Products/Product2.png');
+const image3 = require('../assets/Products/Product3.png');
+const image4 = require('../assets/Products/Product4.png');
+const image5 = require('../assets/Products/Product1.png');
+const image6 = require('../assets/Products/Product4.png');
+
+
 
 const ProductDetails = ({navigation}) => {
+
+ 
+
   const SIZES = ['S', 'M', 'L', 'XL'];
-  const products = [1, 2, 3, 4];
+  const products = [1, 2, 3, 4,5];
 
   const [size, setSize] = useState(SIZES[0]);
   const [count, setCount] = useState(1);
 
+
+
+  const [data, setData] = useState([
+    {
+      items: [
+        image1,
+        image2,
+        image3,
+        image4,
+        image5,
+        image6,
+      ]
+    }
+  ])
+//   const data = [
+//   { id: '1', image: require('../assets/Products/Product1.png') },
+//   { id: '2', image: require('../assets/Products/Product1.png') },
+//   { id: '3', image: require('../assets/Products/Product1.png') },
+//   { id: '4', image: require('../assets/Products/Product1.png') },
+//   { id: '5', image: require('../assets/Products/Product1.png') },
+// ];
+
+  // const renderItem = ({ item }) => (
+  //   <Image source={item.image} style={{ marginRight: 5, height:85, width:80, }} />
+  // );
+
+
+
+
+ // const { width: screenWidth } = Dimensions.get('window');
+// const containerWidth = 325;
+// const containerHeight = 222;
+//const [selectedIndex, setSelectedIndex]= useState[0]
   return (
     <View style={styles.main}>
       <ScrollView>
@@ -49,13 +100,77 @@ const ProductDetails = ({navigation}) => {
             </View>
           </TouchableOpacity>
         </View>
+          
+        <View style={{height:200}}>
+        <FlatList
+        pagingEnabled
+  horizontal
+  onScroll={e => {
+    setSelectedIndex(
+      (e.nativeEvent.contentOffset.x / width).toFixed(0),
+    );
+  }}
+  data={data[0].items}
+  showsHorizontalScrollIndicator={false}
+  renderItem={({ item, index }) => {
+    return(
+     <Image source={item} style={{ width: width, height: 200 }} />
+  )
+  }}
+  />
+{/* 
+     <View
+     style={{
+      width:width,
+      height:40,
+      position:'absolute',
+      bottom:0,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+     }}
+     />    
+    {
+  data[0].items.map((item, index) => {
+    return (
+      <View
+        
+        style={{
+          backgroundColor: selectedIndex === index ? '#8e8e8e' : '#f2f2f2',
+          height: 5,
+          width: 30,
+        }}
+      ></View>
+    );
+  })
+} */}
 
+        </View>
+
+
+        
+
+        {/* <View style={styles.headerContainer}>
+      <Image
+        source={require('../assets/Products/Product1.png')}
+        style={styles.image}
+      />
+    </View> */}
+
+        {/* <View style={{ flexDirection: 'row', gap: 5, marginLeft:15}}>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        horizontal
+      />
+    </View> */}
         <View style={styles.titleRow}>
           <View style={styles.miniHead}>
             <Text style={styles.title}>Fashion</Text>
-            {/* <Ionicons name="star" size={12} color="gold" /> */}
-            <Text>4.9</Text>
-            <Text>(10 Reviews)</Text>
+            <Ionicons name="star" size={12} color="gold" />
+            <Text style={styles.title2}>4.9</Text>
+            <Text style={styles.title}>(10 Reviews)</Text>
           </View>
           <View></View>
         </View>
@@ -64,6 +179,7 @@ const ProductDetails = ({navigation}) => {
           <View style={styles.ratingRow}>
             <View style={styles.rating}>
               <Text style={styles.txt}>Linen slim-fit t-shirt</Text>
+              
             </View>
 
             <View style={styles.rating}>
@@ -73,14 +189,14 @@ const ProductDetails = ({navigation}) => {
                     setCount(count - 1);
                   }
                 }}>
-                {/* <SimpleLineIcons name="minus" size={20} /> */}
+                <SimpleLineIcons name="minus" size={20} style={{color:'#000'}} />
               </TouchableOpacity>
-              <Text>{count}</Text>
+              <Text style={{color:'#000'}}>{count}</Text>
               <TouchableOpacity
                 onPress={() => {
                   setCount(count + 1);
                 }}>
-                <SimpleLineIcons name="plus" size={20} />
+                <SimpleLineIcons name="plus" size={20} style={{color:'#000'}} />
               </TouchableOpacity>
             </View>
           </View>

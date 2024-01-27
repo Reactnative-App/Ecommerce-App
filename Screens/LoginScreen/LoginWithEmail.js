@@ -46,9 +46,13 @@ const LoginScreen = ({navigation}) => {
     }
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white_light}}>
-      <ScrollView>
-        <StatusBar backgroundColor="#F39184" barStyle={'dark-content'} />
+    <SafeAreaView style={{flex: 1}}>
+      <View style={{backgroundColor: COLORS.white_light}}>
+        <StatusBar
+          barStyle={'light-content'}
+          translucent
+          backgroundColor="transparent"
+        />
         <ImageBackground
           source={HEADER_IMG}
           imageStyle={{
@@ -57,8 +61,8 @@ const LoginScreen = ({navigation}) => {
           }}
           style={{
             height: hp('45%'),
-            marginTop: scaleSize(10),
             width: wp('100%'),
+            
           }}>
           <ARROW_SVG
             size={scaleSize(20)}
@@ -257,7 +261,7 @@ const LoginScreen = ({navigation}) => {
             </Text>
           </Text>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
