@@ -36,7 +36,7 @@ const CategoriesTypes = () => {
          {type.map((item, index)=>{
            return( <TouchableOpacity onPress={() => navigation.navigate("MenScreen")} style={{marginHorizontal:2}} key={index}>
             <Image source={item.image} />
-                <Text style={{textAlign:"center",fontSize:10,fontFamily:'regular'}}>{item.name}</Text>
+                <Text style={{textAlign:"center",fontSize:10,fontFamily:'regular', color:'#000'}}>{item.name}</Text>
             </TouchableOpacity>)
          })}
      </ScrollView>

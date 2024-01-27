@@ -9,12 +9,17 @@ import {
   ImageBackground,StatusBar
 } from 'react-native';
 import React from 'react';
+import  {useState} from 'react';
 import Icons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 // import {StatusBar} from 'expo-status-bar';
 import {scaleFont, scaleSize} from '../../Constants/Mixins';
 import ARROW_SVG from '../../assets/svg/Arrow.svg';
-
+import LOCK_SVG from '../../assets/svg/Lock.svg';
+import {COLORS} from '../../Constants/theme';
+import {WIDTH} from '../../Constants/Mixins';
 const NewPass = ({navigation}) => {
+  const [showotp, setshowotp] = useState(true);
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar barStyle={'dark-content'} />
@@ -32,60 +37,108 @@ const NewPass = ({navigation}) => {
               style={{
                 marginLeft: scaleSize(20),
                 fontSize: scaleFont(42),
-                fontFamily: 'regular',
+                fontFamily: 'Blinker-Light',
+                color:'#000'
               }}>
               Set New Password
             </Text>
             <Text
               style={{
                 marginLeft: scaleSize(20),
-                fontSize: scaleFont(14),
+                fontSize: scaleFont(12),
                 fontWeight: '300',
                 color: 'gray',
-                fontFamily: 'regular',
+                fontFamily: 'Blinker-Regular',
               }}>
               Set a new password that must be different from the old password
             </Text>
           </View>
 
-          <View style={styles.input}>
-            <Icons
-              name="lock-closed-outline"
-              size={scaleSize(25)}
-              color="gray"
-              style={{
-                marginRight: scaleSize(5),
-                marginLeft: scaleSize(10),
-                marginTop: scaleSize(8),
-              }}
-            />
-            <TextInput placeholder="Password" style={{flex: 1}} />
-            <Icons
-              name="eye-outline"
-              size={scaleSize(25)}
-              color="gray"
-              style={{marginTop: scaleSize(10), marginRight: scaleSize(15)}}
-            />
+          <View style={styles.inputBoxStyle}>
+      <View style={{ alignSelf: 'center', margin: scaleSize(15) }}>
+        {/* Assuming LOCK_SVG is your custom component */}
+        <LOCK_SVG size={scaleSize(20)} />
+      </View>
+
+      <TextInput
+        placeholder="Password"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+        secureTextEntry={showotp}
+      />
+
+      <View style={{ marginTop: scaleSize(10) }}>
+        <Pressable
+          onPress={() => {
+            setshowotp(!showotp);
+          }}
+        >
+          <View
+            style={{
+              margin: scaleSize(5),
+              marginRight: scaleSize(15),
+            }}
+          >
+            {showotp ? (
+              <Ionicons
+                name="eye-off"
+                size={scaleSize(20)}
+                color="#000"
+              />
+            ) : (
+              <Ionicons
+                name="eye"
+                size={scaleSize(20)}
+                color="#000"
+              />
+            )}
           </View>
-          <View style={styles.input}>
-            <Icons
-              name="lock-closed-outline"
-              size={scaleSize(25)}
-              color="gray"
-              style={{
-                marginRight: scaleSize(5),
-                marginLeft: scaleSize(10),
-                marginTop: scaleSize(8),
-              }}
-            />
-            <TextInput placeholder="Confirm Password" style={{flex: 1}} />
-            <Icons
-              name="eye-outline"
-              size={scaleSize(25)}
-              color="gray"
-              style={{marginTop: scaleSize(10), marginRight: scaleSize(15)}}
-            />
+        </Pressable>
+      </View>
+    </View>
+          
+    <View style={styles.inputBoxStyle}>
+      <View style={{ alignSelf: 'center', margin: scaleSize(15) }}>
+        {/* Assuming LOCK_SVG is your custom component */}
+        <LOCK_SVG size={scaleSize(20)} />
+      </View>
+
+      <TextInput
+        placeholder="Confirm Password"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+        secureTextEntry={showotp}
+      />
+
+      <View style={{ marginTop: scaleSize(10) }}>
+        <Pressable
+          onPress={() => {
+            setshowotp(!showotp);
+          }}
+        >
+          <View
+            style={{
+              margin: scaleSize(5),
+              marginRight: scaleSize(15),
+            }}
+          >
+            {showotp ? (
+              <Ionicons
+                name="eye-off"
+                size={scaleSize(20)}
+                color="#000"
+              />
+            ) : (
+              <Ionicons
+                name="eye"
+                size={scaleSize(20)}
+                color="#000"
+              />
+            )}
           </View>
+        </Pressable>
+      </View>
+    </View>
 
           <Pressable
             style={[styles.btn]}
@@ -94,8 +147,8 @@ const NewPass = ({navigation}) => {
               style={{
                 color: '#000',
                 textAlign: 'center',
-                fontSize: scaleFont(16),
-                fontFamily: 'regular',
+                fontSize: scaleFont(14),
+                fontFamily: 'Blinker-Regular',
               }}>
               Change Password
             </Text>
@@ -128,5 +181,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30,
+  },
+  inputBoxStyle: {
+    flexDirection: 'row',
+    marginTop: scaleSize(20),
+    elevation: 10,
+    shadowColor: '#F3D743',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    backgroundColor: COLORS.white,
+    width: WIDTH - scaleSize(40),
+    borderRadius: scaleSize(20),
+    alignSelf: 'center',
   },
 });

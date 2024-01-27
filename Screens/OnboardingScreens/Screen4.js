@@ -8,8 +8,13 @@ import { scaleSize } from '../../Constants/Mixins'
 const Screen4 = ({navigation}) => {
   return (
     <>
-    <StatusBar barStyle={'dark-content'}/>
+     
     <View style={{flex:1}}>
+    <StatusBar
+          barStyle={'dark-content'}
+          translucent
+          backgroundColor="transparent"
+        />
     <ImageBackground
           source={require('../../assets/back.png')}
           style={styles.backgroundImage}
@@ -43,14 +48,25 @@ export default Screen4
 
 const styles = StyleSheet.create({
     btn:{
-      marginLeft:210,
-      marginBottom:10,
-      width:120,
-      height:40,
-      padding:10,
-     marginRight:20,
-      backgroundColor:'#F3D743',
-      borderRadius:20,
-      marginTop:100 
+    //   marginLeft:210,
+    //   marginBottom:10,
+    //   width:120,
+    //   height:40,
+    //   padding:10,
+    //  marginRight:20,
+    //   backgroundColor:'#F3D743',
+    //   borderRadius:20,
+    //   marginTop:100 
+
+    position: 'fixed',
+    top: scaleSize(110),
+    left: '60%',
+    width: scaleSize(122),
+    height: scaleSize(40),
+    padding: scaleSize(10),
+    marginRight: scaleSize(20),
+    backgroundColor: '#F3D743',
+    borderRadius: scaleSize(20),
+    Bottom: scaleSize(20),
      }
 })

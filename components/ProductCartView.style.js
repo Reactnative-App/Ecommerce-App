@@ -21,21 +21,23 @@ const styles = StyleSheet.create({
     overflow:"hidden"
    },
    details:{
-    paddingVertical:5,
+    paddingVertical:15,
     paddingLeft:15
    },
    title:{
-    fontFamily:"regular",
+    fontFamily:"Blinker-Regular",
     fontSize:10,
     color:COLORS.gray
    },
    supplier:{
-    fontFamily:"regular",
+    fontFamily:"blinker-Regular",
     fontSize:12,
+    color:'#000'
    },
    price:{
-    fontFamily:"semibold",
+    fontFamily:"Blinker-SemiBold",
     fontSize:14,
+    color:'#000'
    },
    addBtn:{
     position:"absolute",

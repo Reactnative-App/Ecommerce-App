@@ -23,7 +23,7 @@ import styles from './HomeScreen.style';
 import TopTabNavigation from '../Navigation/TopTabNavigation';
 import {useNavigation} from '@react-navigation/native';
 import ProductCartView from '../components/ProductCartView';
-import {scaleSize} from '../Constants/Mixins';
+import {scaleSize,} from '../Constants/Mixins';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -55,9 +55,10 @@ const HomeScreen = () => {
             flexDirection: 'row',
             justifyContent: 'space-around',
             marginVertical: scaleSize(20),
-          }}>
-          <Text style={{textAlign: 'center', fontSize: 20}}>New Arrival</Text>
-          <Text style={{textAlign: 'center', fontSize: 20}}>Best Seller</Text>
+          }}
+          >
+          <Text style={{textAlign: 'center', fontSize: 14, fontFamily:'Blinker-Regular', color:'#F3D743'}}>New Arrival</Text>
+          <Text style={{textAlign: 'center', fontSize: 14, fontFamily:'Blinker-Regular',color:'#000'}}>Best Seller</Text>
         </View>
       </View>
     );
@@ -70,11 +71,11 @@ const HomeScreen = () => {
         </View>
         <FeaturedProduct />
         <CategoryProducts />
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate("Login")}>
           <Text style={{color: '#fff'}}>View All Categories</Text>
         </TouchableOpacity>
         <View style={styles.homeFooter}>
-          <View style={styles.homeFooter}>
+          <View >
             <Image
               source={require('../assets/Icons/cash.png')}
               style={{height: 24, width: 24}}
@@ -83,7 +84,7 @@ const HomeScreen = () => {
           </View>
           <View style={styles.verticleLine}></View>
 
-          <View style={styles.homeFooter}>
+          <View >
             <Image
               source={require('../assets/Icons/return.png')}
               style={{height: 24, width: 24}}
@@ -94,7 +95,7 @@ const HomeScreen = () => {
           </View>
           <View style={styles.verticleLine}></View>
 
-          <View style={styles.homeFooter}>
+          <View>
             <Image
               source={require('../assets/Icons/shipping.png')}
               style={{height: 24, width: 24}}
@@ -193,6 +194,26 @@ const HomeScreen = () => {
                   </Text>
                 </View>
               </View> */}
+              {/* <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>CASH ON DELIVERY</Text>
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>15 DAYS EASY RETURNS</Text>
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>EXPRESS SHIPPING</Text>
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>CASH ON DELIVERY</Text>
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>15 DAYS EASY RETURNS</Text>
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>EXPRESS SHIPPING</Text>
+      </View>
+    </View> */}
           </View>
         </ImageBackground>
       </SafeAreaView>
@@ -200,5 +221,22 @@ const HomeScreen = () => {
     </>
   );
 };
+
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   textContainer: {
+//     marginVertical: 10,
+//   },
+//   text: {
+//     fontSize: 20,
+//     fontWeight: 'bold',
+//   },
+// });
 
 export default HomeScreen;

@@ -4,10 +4,11 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     appWrapper:{
-        marginHorizontal:30,
+        marginHorizontal:10,
         marginTop:15,
     },
-    appBar:{
+    appBar:{marginLeft:12,
+      marginRight:15,
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
@@ -18,7 +19,9 @@ const styles = StyleSheet.create({
     },
     txt:{
       fontSize:24,
-      fontFamily:"regular"
+      fontFamily:"Blinker-Regular",
+      fontSize: 24,
+      color:'#000'
     },
     centerTxt: {
       marginTop:10,
@@ -49,13 +52,14 @@ const styles = StyleSheet.create({
     color:"black"
   },
   homeFooter:{
-    // marginTop:20,
+     marginTop:20,
     flexDirection: "row", 
     alignItems:'center',
     backgroundColor:'#f1f1f1',
     height:40,
     borderRadius:10,
-    padding:5
+    padding:5,
+    // marginBottom:80
   },
   imgSizes:{
     flexDirection: "row", 
@@ -70,7 +74,32 @@ const styles = StyleSheet.create({
     width: 1,
     backgroundColor: '#000',
    },
+  //  container: {
+  //   flex: 1,
+  //   backgroundColor: '#000',
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
+  // textContainer: {
+  //   marginVertical: 10,
+  // },
+  // text: {
+  //   fontSize: 20,
+  //   fontWeight: 'bold',
+  // },
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+    alignItems: 'center',
+    justifyContent: 'center',
+ },
+ // Other styles
 
+ cashOnDeliveryText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
+ },
 });
 
 export default styles;

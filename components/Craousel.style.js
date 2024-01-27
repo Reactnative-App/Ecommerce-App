@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     cslText:{
-        fontFamily:'bold',
+        fontFamily:'Blinker-Bold',
         fontSize:30,
         color:'#fff',
         textTransform:'uppercase'
@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
         left: 8, 
         right: 0, 
         bottom:0,
-        fontFamily:'semibold',
+        fontFamily:'Blinker-Bold',
         fontSize:14,
+        color:'#000'
     },
     offText:{
         position:'absolute',
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
         left: 8, 
         right: 0, 
         bottom:0,
-        fontFamily:'semibold',
+        fontFamily:'Blinker-Bold',
         fontSize:14,
         color:'#fff'
     },
@@ -67,8 +68,9 @@ const styles = StyleSheet.create({
         left: 90, 
         right: 0, 
         bottom:0,
-        fontFamily:'light',
+        fontFamily:'Blinker-Light',
         fontSize:50, 
+        color:'#000'
     },
     offNum:{
         position:'absolute',
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
         left: 90, 
         right: 0, 
         bottom:0,
-        fontFamily:'light',
+        fontFamily:'Blinker-Light',
         fontSize:50, 
         color:'#fff'
     }

@@ -61,7 +61,8 @@ const ForgotPass = ({navigation}) => {
               marginLeft: scaleSize(20),
               fontSize: scaleFont(14),
               color: 'gray',
-              fontFamily: 'regular',
+              fontFamily: 'Blinker-Regular',
+             
             }}>
             Enter Your E-Mail to Recover Password
           </Text>
@@ -78,7 +79,7 @@ const ForgotPass = ({navigation}) => {
             {/* <Icons name="mail-outline" size={25} color="gray" style={{marginRight:10, marginLeft:10,marginTop:10}}/> */}
             <TextInput
         placeholder="Email address"
-        style={{ flex: 1, color: 'gray' }}
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
         placeholderTextColor="gray"
       />
           </View>
@@ -102,6 +103,7 @@ const ForgotPass = ({navigation}) => {
                 fontSize: scaleFont(14),
                 textAlign: 'center',
                 fontFamily: 'regular',
+                fontFamily: 'Blinker-Regular',
                 color:'#000'
               }}>
               Next

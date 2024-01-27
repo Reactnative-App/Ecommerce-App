@@ -129,7 +129,12 @@ const CreateProfile = ({navigation}) => {
               source={require('../../assets/Icons/man.png')}
               style={{marginTop: 15, marginLeft: 15, marginRight: 15}}
             />
-            <TextInput placeholder="Full Name" />
+            <TextInput
+       placeholder="Full Name"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+      />
+          
           </View>
           <View style={styles.input}>
             <TouchableOpacity onPress={() => setDatePickerVisibility(true)}>
@@ -138,24 +143,36 @@ const CreateProfile = ({navigation}) => {
                 style={{marginTop: 15, marginLeft: 15, marginRight: 15}}
               />
             </TouchableOpacity>
-            <TextInput placeholder="Date of Birth" value={selectedDate} />
+            <TextInput
+        placeholder="Date of Birth"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+      />
           </View>
           <View style={styles.input}>
             <Image
               source={require('../../assets/Icons/loc.png')}
               style={{marginTop: 15, marginLeft: 15, marginRight: 15}}
             />
-            <TextInput placeholder="Region" />
+            <TextInput
+       placeholder="Region"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+      />
           </View>
           <View style={styles.input}>
             <Image
               source={require('../../assets/Icons/Gen.png')}
               style={{marginTop: 15, marginLeft: 15, marginRight: 15}}
             />
-            <TextInput placeholder="Gender" />
+            <TextInput
+       placeholder="Gender"
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+      />
             <Image
               source={require('../../assets/Icons/pen.png')}
-              style={{marginTop: 15, marginRight: 10, marginLeft: 200}}
+              style={{alignItems:'flex-end',marginTop: 15, marginLeft: 15,marginRight: 15}}
             />
           </View>
 
@@ -174,10 +191,10 @@ const CreateProfile = ({navigation}) => {
               onPress={() => {
                 navigation.navigate('ForgotPass');
               }}>
-              <Text style={{color: '#000', textAlign: 'center'}}>Skip</Text>
+              <Text style={{color: '#000', fontFamily: 'Blinker-Regular', textAlign: 'center'}}>Skip</Text>
             </Pressable>
             <Pressable style={[styles.btn, {width: 180, marginLeft: 120,borderRadius:25}]}>
-              <Text style={{color: '#000', textAlign: 'center'}}>
+              <Text style={{color: '#000', fontFamily: 'Blinker-Regular', textAlign: 'center'}}>
                 Go To Shopping
               </Text>
             </Pressable>
