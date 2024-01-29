@@ -9,7 +9,11 @@ import { COLORS } from '../../Constants';
 const Screen2 = ({navigation}) => {
   return (
     <>
-    <StatusBar barStyle={'dark-content'}/>
+    <StatusBar
+          barStyle={'dark-content'}
+          translucent
+          backgroundColor="transparent"
+        />
     <View style={{flex:1}}>
     <ImageBackground
           source={require('../../assets/back.png')}

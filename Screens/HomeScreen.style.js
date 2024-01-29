@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     height:40,
     borderRadius:10,
     padding:5,
-    // marginBottom:80
+     marginBottom:80
   },
   imgSizes:{
     flexDirection: "row", 

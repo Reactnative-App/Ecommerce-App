@@ -14,14 +14,18 @@ import ARROW_SVG from '../../assets/svg/Arrow.svg';
 const ForgotPass = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1, marginTop: scaleSize(20)}}>
-      <StatusBar barStyle={'dark-content'} />
+      <StatusBar
+          barStyle={'dark-content'}
+          translucent
+          backgroundColor="transparent"
+        />
       <ScrollView>
         <ImageBackground
           source={require('../../assets/back.png')}
           style={{height: '100%', width: '100%'}}>
           <ARROW_SVG
             size={scaleSize(20)}
-            style={{marginTop: scaleSize(30), marginLeft: scaleSize(30)}}
+            style={{marginTop: scaleSize(30), marginLeft: scaleSize(20), marginBottom: scaleSize(20)}}
             onPress={() => navigation.goBack()}
           />
           <ImageBackground

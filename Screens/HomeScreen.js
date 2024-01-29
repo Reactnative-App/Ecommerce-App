@@ -6,6 +6,7 @@ import {
   ImageBackground,
   ScrollView,
   FlatList,
+  StatusBar
 } from 'react-native';
 import React from 'react';
 // import { StatusBar } from 'expo-status-bar'
@@ -30,6 +31,11 @@ const HomeScreen = () => {
   const ListHeader = () => {
     return (
       <View>
+        <StatusBar
+          barStyle={'dark-content'}
+          translucent
+          backgroundColor='#FFFDF3'
+        />
         <View style={styles.appBar}>
           <Image source={require('../assets/overay_logo.png')} />
           <View style={styles.iconAlig}>
@@ -75,41 +81,41 @@ const HomeScreen = () => {
           <Text style={{color: '#fff'}}>View All Categories</Text>
         </TouchableOpacity>
         <View style={styles.homeFooter}>
-          <View >
-            <Image
-              source={require('../assets/Icons/cash.png')}
-              style={{height: 24, width: 24}}
-            />
-            <Text style={{fontSize: 7, marginLeft: 5}}>CASH ON DELIVERY</Text>
-          </View>
-          <View style={styles.verticleLine}></View>
+  <View style={{ flex: 1, alignItems: 'center' }}>
+    <Image
+      source={require('../assets/Icons/cash.png')}
+      style={{ height: 24, width: 24 }}
+    />
+    <Text style={{ fontSize: 7, marginLeft: 5, color: '#000' }}>CASH ON DELIVERY</Text>
+  </View>
+  <View style={styles.verticleLine}></View>
 
-          <View >
-            <Image
-              source={require('../assets/Icons/return.png')}
-              style={{height: 24, width: 24}}
-            />
-            <Text style={{fontSize: 7, marginLeft: 5}}>
-              15 DAYS EASY RETURNS
-            </Text>
-          </View>
-          <View style={styles.verticleLine}></View>
+  <View style={{ flex: 1, alignItems: 'center' }}>
+    <Image
+      source={require('../assets/Icons/return.png')}
+      style={{ height: 24, width: 24 }}
+    />
+    <Text style={{ fontSize: 7, marginLeft: 5, color: '#000' }}>
+      15 DAYS EASY RETURNS
+    </Text>
+  </View>
+  <View style={styles.verticleLine}></View>
 
-          <View>
-            <Image
-              source={require('../assets/Icons/shipping.png')}
-              style={{height: 24, width: 24}}
-            />
-            <Text style={{fontSize: 7, marginLeft: 5}}>EXPRESS SHIPPING</Text>
-          </View>
-        </View>
+  <View style={{ flex: 1, alignItems: 'center' }}>
+    <Image
+      source={require('../assets/Icons/shipping.png')}
+      style={{ height: 24, width: 24 }}
+    />
+    <Text style={{ fontSize: 7, marginLeft: 5, color: '#000' }}>EXPRESS SHIPPING</Text>
+  </View>
+</View>
+
       </>
     );
   };
   return (
     <>
-      {/* <StatusBar style='dark'/> */}
-      {/* <ScrollView > */}
+     
       <SafeAreaView style={styles.paddVert}>
         <ImageBackground
           source={require('../assets/Home_bg.png')}
