@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     wishListHeader: {
         width: '100%',
         flexDirection: 'row',
-        paddingTop:60,
+        paddingTop:50,
         paddingHorizontal: 16,
         justifyContent: 'space-between',
     },

@@ -140,11 +140,11 @@ const LoginScreen = (props) => {
             style={{ marginTop: scaleSize(30), marginLeft: scaleSize(30) }}
             onPress={() => navigation.goBack()}
           /> */}
-          <ARROW_SVG
+          {/* <ARROW_SVG
             size={scaleSize(20)}
             style={{marginTop: scaleSize(30), marginLeft: scaleSize(30)}}
-            onPress={() => navigation.goBack()}
-          />
+            onPress={() => props.navigation.goBack()}
+          /> */}
         </ImageBackground>
 
         <Text

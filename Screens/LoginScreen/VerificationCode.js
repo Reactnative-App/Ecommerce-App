@@ -57,23 +57,25 @@ const init=async()=>{
         <ARROW_SVG
           size={scaleSize(20)}
           style={{marginTop: scaleSize(50), marginLeft: scaleSize(20)}}
-          onPress={() => navigation.goBack()}
+          onPress={() => props.navigation.goBack()}
         />
         <Text
           style={{
             fontWeight: '300',
             fontSize: scaleFont(40),
             marginLeft: scaleSize(20),
-            fontFamily: 'regular',
+            marginTop: scaleSize(20),
+            fontFamily: 'Blinker-Regular',
+            color:'#000'
           }}>
           Verification Code
         </Text>
         <View style={{marginTop: scaleSize(20), marginLeft: scaleSize(20)}}>
           <Text
             style={{
-              fontSize: scaleFont(16),
+              fontSize: scaleFont(14),
               color: 'gray',
-              fontFamily: 'regular',
+              fontFamily: 'Blinker-Regular',
             }}>
             We have sent the code Verification to your number
           </Text>
@@ -89,11 +91,11 @@ const init=async()=>{
         <Text
           style={{
             marginTop: scaleSize(10),
-            marginLeft: scaleSize(10),
-            fontSize: scaleFont(17),
+            marginLeft: scaleSize(20),
+            fontSize: scaleFont(14),
             fontWeight: '600',
             color: '#F3D743',
-            fontFamily: 'regular',
+            fontFamily: 'Blinker-SemiBold',
           }}>
           Change Phone Number
         </Text>
@@ -183,7 +185,7 @@ const init=async()=>{
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
-            marginTop: scaleSize(30),
+            marginTop: scaleSize(390),
           }}>
           <Pressable
             style={[

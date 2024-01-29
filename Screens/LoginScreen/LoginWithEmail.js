@@ -70,8 +70,8 @@ const LoginScreen = (props) => {
           }}>
           <ARROW_SVG
             size={scaleSize(20)}
-            style={{marginTop: scaleSize(30), marginLeft: scaleSize(30)}}
-            onPress={() => navigation.goBack()}
+            style={{marginTop: scaleSize(30), marginLeft: scaleSize(20)}}
+            onPress={() => props.navigation.goBack()}
           />
         </ImageBackground>
 
@@ -172,7 +172,7 @@ const LoginScreen = (props) => {
           }}>
           <TouchableOpacity
             style={[styles.btn, {backgroundColor: COLORS.white}]}
-            onPress={() => navigation.navigate('CreateAccount',{mail:null})}
+            onPress={() => props.navigation.navigate('CreateAccount',{mail:null})}
             // onPress={()=>loginData()}
           >
             <Text

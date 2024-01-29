@@ -103,7 +103,7 @@ const LoginScreen = (props) => {
           }}>
           <ARROW_SVG
             size={scaleSize(20)}
-            style={{marginTop: scaleSize(30), marginLeft: scaleSize(30)}}
+            style={{marginTop: scaleSize(30), marginLeft: scaleSize(20)}}
             onPress={() => props.navigation.goBack()}
           />
         </ImageBackground>
@@ -115,6 +115,7 @@ const LoginScreen = (props) => {
             marginHorizontal: scaleSize(20),
             fontFamily: 'Blinker-Light',
             color:'#000',
+            marginLeft: scaleSize(20)
           }}>
           Create Your Account
         </Text>
@@ -203,9 +204,9 @@ const LoginScreen = (props) => {
 <TouchableOpacity  onPress={toggleCheckbox}>
   {checked ?
  
-<MaterialIcons name="check-circle" size={scaleSize(12)} color="#F3D743" /> :
+<MaterialIcons name="check-circle" size={scaleSize(18)} color="#F3D743" /> :
 
-<MaterialIcons name="radio-button-unchecked" size={scaleSize(12)} color="#F3D743" />
+<MaterialIcons name="radio-button-unchecked" size={scaleSize(16)} color="#F3D743" />
 }
     </TouchableOpacity>
 
@@ -260,7 +261,7 @@ const LoginScreen = (props) => {
           </TouchableOpacity>
           <TouchableOpacity 
           disabled={isValidEmail(email) && password && phoneNumber && checked ? false : true}
-            style={{...styles.btn,backgroundColor: isValidEmail(email) && password && phoneNumber && checked  ? '#F3D743':'gray',}}
+            style={{...styles.btn,backgroundColor: isValidEmail(email) && password && phoneNumber && checked  ? '#F3D743':'#FAF3D0',}}
             onPress={()=>saveData()}>
             <Text
               style={{

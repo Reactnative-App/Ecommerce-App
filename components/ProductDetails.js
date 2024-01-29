@@ -81,7 +81,8 @@ const ProductDetails = ({navigation}) => {
  // const { width: screenWidth } = Dimensions.get('window');
 // const containerWidth = 325;
 // const containerHeight = 222;
-//const [selectedIndex, setSelectedIndex]= useState[0]
+const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
     <View style={styles.main}>
       <ScrollView>
@@ -101,7 +102,7 @@ const ProductDetails = ({navigation}) => {
           </TouchableOpacity>
         </View>
           
-        <View style={{height:200}}>
+        <View style={{height:200, marginTop: scaleSize(30),  marginLeft: scaleSize(10),  marginRight: scaleSize(10)}}>
         <FlatList
         pagingEnabled
   horizontal
@@ -114,7 +115,7 @@ const ProductDetails = ({navigation}) => {
   showsHorizontalScrollIndicator={false}
   renderItem={({ item, index }) => {
     return(
-     <Image source={item} style={{ width: width, height: 200 }} />
+     <Image source={item} style={{ width:WIDTH, height: 200}} />
   )
   }}
   />
@@ -632,15 +633,18 @@ const ProductDetails = ({navigation}) => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   marginHorizontal: scaleSize(20),
+                  
                 }}>
                 <Text
                   style={{
                     fontSize: scaleFont(14),
                     textAlign: 'center',
-                    fontFamily: 'regular',
+                    fontFamily: 'Blinker-Regular',
+                    color:'#000',
+                   
                   }}>
                   <BUY_SVG
-                    size={scaleSize(20)}
+                    size={scaleSize(40)}
                     style={{
                       marginTop: scaleSize(30),
                       marginLeft: scaleSize(30),
