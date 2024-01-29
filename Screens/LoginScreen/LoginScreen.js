@@ -9,6 +9,7 @@ import {
   ScrollView,
   ImageBackground,
   StatusBar,
+  Alert,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 // import {StatusBar} from 'expo-status-bar';
@@ -29,37 +30,48 @@ import PHONE from '../../assets/Icons/phone.png';
 import ARROW_SVG from '../../assets/svg/Arrow.svg';
 import auth from '@react-native-firebase/auth';
 import PhoneInput from 'react-native-phone-number-input';
-// import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+// import {LoginManager, AccessToken} from 'react-native-fbsdk-next'; 
 // import {regular} from '../../Constants/fonts';
 // import { UserLoginAuth } from "../../config/Services";
 // import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
-const LoginScreen = ({navigation}) => {
+
+const LoginScreen = (props) => {
+  useEffect(()=>{
+    GoogleSignin.configure({webClientId:'1071867006246-c74rko7ua5lqakf3atcqv72ug1khbpc7.apps.googleusercontent.com'});
+  },[]);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [usrInfo, setuserInfo] = useState(null);
-  // useEffect(()=>{
-  //   GoogleSignin.configure({webClientId:'87099456490-t87r3pq1qijkbaeaa07ihbov8e9du3kg.apps.googleusercontent.com'});
-  // }, []);
-  // const signIn = async () => {
-  //   try {
-  //     await GoogleSignin.hasPlayServices();
-  //     const usrInfo = await GoogleSignin.signIn();
-  //     setuserInfo({ usrInfo });
-  //   } catch (error) {
-  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-  //       // user cancelled the login flow
-  //     } else if (error.code === statusCodes.IN_PROGRESS) {
-  //       // operation (e.g. sign in) is in progress already
-  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-  //       // play services not available or outdated
-  //     } else {
-  //       // some other error happened
-  //     }
-  //   }
-  // };
-  this.state = {
-    phoneNumber: '',
+  const signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const usrInfos = await GoogleSignin.signIn();
+      
+      setuserInfo(usrInfos);
+
+      // console.log(usrInfo,"msg")
+      
+      props.navigation.navigate('CreateAccount',{mail:usrInfos.user.email})
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
   };
+  const otpLogin=()=>{
+    if(phoneNumber){
+    navigation.navigate('VerifyCode',{phoneNumber:phoneNumber});}
+    else{
+      Alert.alert("Please enter number")
+    }
+  }
 
   const loginData = async () => {
     try {
@@ -107,7 +119,7 @@ const LoginScreen = ({navigation}) => {
     <SafeAreaView style={{flex: 1}}>
       <ScrollView style={{backgroundColor: COLORS.white_light}}>
         <StatusBar
-          barStyle={'light-content'}
+          barStyle={'dark-content'}
           translucent
           backgroundColor="transparent"
         />
@@ -120,9 +132,7 @@ const LoginScreen = ({navigation}) => {
           }}
           style={{
             height: hp('45%'),
-            // marginTop: scaleSize(10),
             width: wp('100%'),
-            // alignSelf: "center",
           }}>
           {/* <Icons
             name="arrow-back-outline"
@@ -179,7 +189,9 @@ const LoginScreen = ({navigation}) => {
       />
     </View>
 
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity style={styles.btn}  onPress={() => {
+               otpLogin()
+              }}>
             <Text
               style={{
                 color: '#000',
@@ -217,7 +229,7 @@ const LoginScreen = ({navigation}) => {
             <Pressable
               style={styles.socialBtn}
               onPress={() => {
-                navigation.navigate('LoginWithEmail');
+                props.navigation.navigate('LoginWithEmail');
               }}>
               <Image
                 source={EMAIL}
@@ -244,6 +256,9 @@ const LoginScreen = ({navigation}) => {
               onPress={() => {
                 signIn();
               }}>
+                {usrInfo !=null && <Text style={{color:'#000'}}>{usrInfo.user.name}</Text>}
+            {usrInfo !=null && <Text style={{color:'#000'}}>{usrInfo.user.email}</Text>}
+            {/* <Text style={{color:'#000'}}>Hello</Text> */}
               <Image
                 source={GOOGLE}
                 style={{

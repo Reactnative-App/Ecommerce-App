@@ -116,7 +116,7 @@ const ForgotPassPhone = ({navigation}) => {
 
           <Pressable
             style={styles.btn}
-            onPress={() => navigation.navigate('VerifyCode')}>
+            onPress={() => navigation.navigate('VerifyCode',{phoneNumber:null})}>
             <Text
               style={{
                 fontSize: scaleFont(14),

@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "94608068441",
-    "project_id": "overay-app",
-    "storage_bucket": "overay-app.appspot.com"
+    "project_number": "1071867006246",
+    "project_id": "ecommerceapp-e73e6",
+    "storage_bucket": "ecommerceapp-e73e6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:94608068441:android:94863089763bf5574d8648",
+        "mobilesdk_app_id": "1:1071867006246:android:bfdc9f570ca262452e05e7",
         "android_client_info": {
           "package_name": "com.overayapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "94608068441-3tvlv2t5u5b81i82osjsmhmiv2rtrnja.apps.googleusercontent.com",
+          "client_id": "1071867006246-li6fnljapv6trvdtf1eisbkkpv2ik1ns.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.overayapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1071867006246-c74rko7ua5lqakf3atcqv72ug1khbpc7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA2UU39d9GApV7wX1NFrOMkqy6KrlI23eg"
+          "current_key": "AIzaSyDs6sbDXPeJ985s8f8gxvjhkB8zBMpMCQU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "94608068441-3tvlv2t5u5b81i82osjsmhmiv2rtrnja.apps.googleusercontent.com",
+              "client_id": "1071867006246-c74rko7ua5lqakf3atcqv72ug1khbpc7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
