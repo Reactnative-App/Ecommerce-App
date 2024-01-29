@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Pressable,
   ScrollView,
-  ImageBackground,StatusBar
+  ImageBackground,StatusBar, Alert
 } from 'react-native';
 import React, {useState} from 'react';
 // import {StatusBar} from 'expo-status-bar';
@@ -26,14 +26,18 @@ import LOCK_SVG from '../../assets/svg/Lock.svg';
 import {COLORS} from '../../Constants/theme';
 import {UserLoginAuth} from '../../config/Services';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = (props) => {
+  const [email,setEmail] = useState(null) 
+  const [password,setPassword] = useState(null)
   const [showotp, setshowotp] = useState(true);
   const loginData = async () => {
+    console.log(email,password)
+    if(email && password){
     const data = {
-      phoneNo: '6393455368',
-      password: 'qwerty',
-      role: 'admin',
-      email: 'yash2@gmail.com',
+      // phoneNo: '6393455368',
+      password: password,
+      // role: 'admin',
+      email: email,
     };
     try {
       const response = await UserLoginAuth(data);
@@ -44,15 +48,15 @@ const LoginScreen = ({navigation}) => {
     } catch (error) {
       console.log(error, 'adsnd');
     }
+  }
+  else{
+    Alert.alert('Please enter valid login password')
+  }
   };
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={{backgroundColor: COLORS.white_light}}>
-        <StatusBar
-          barStyle={'light-content'}
-          translucent
-          backgroundColor="transparent"
-        />
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white_light}}>
+      <ScrollView>
+        <StatusBar backgroundColor="#F39184" barStyle={'dark-content'} />
         <ImageBackground
           source={HEADER_IMG}
           imageStyle={{
@@ -61,8 +65,8 @@ const LoginScreen = ({navigation}) => {
           }}
           style={{
             height: hp('45%'),
+            marginTop: scaleSize(10),
             width: wp('100%'),
-            
           }}>
           <ARROW_SVG
             size={scaleSize(20)}
@@ -88,6 +92,8 @@ const LoginScreen = ({navigation}) => {
             <MAIL_SVG size={scaleSize(20)} />
           </View>
           <TextInput
+          value={email}
+          onChangeText={(text)=>setEmail(text)}
         placeholder="Email address"
         style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
         placeholderTextColor="gray"
@@ -101,6 +107,8 @@ const LoginScreen = ({navigation}) => {
       </View>
 
       <TextInput
+        value={password}
+        onChangeText={(text)=>setPassword(text)}
         placeholder="Password"
         style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
         placeholderTextColor="gray"
@@ -137,6 +145,11 @@ const LoginScreen = ({navigation}) => {
       </View>
     </View>
 
+    <Pressable
+                onPress={() =>
+                  props.navigation.navigate('ForgotPass')
+                }>
+
         <Text
           style={{
             alignSelf: 'flex-end',
@@ -147,8 +160,9 @@ const LoginScreen = ({navigation}) => {
             fontSize: scaleFont(14),
             fontFamily: 'regular',
           }}>
-          Forgot Password
+          Forgot Password ?
         </Text>
+        </Pressable>
 
         <View
           style={{
@@ -158,8 +172,8 @@ const LoginScreen = ({navigation}) => {
           }}>
           <TouchableOpacity
             style={[styles.btn, {backgroundColor: COLORS.white}]}
-            onPress={() => navigation.navigate('CreateAccount')}
-            // onPress={() => loginData()}
+            onPress={() => navigation.navigate('CreateAccount',{mail:null})}
+            // onPress={()=>loginData()}
           >
             <Text
               style={{
@@ -261,7 +275,7 @@ const LoginScreen = ({navigation}) => {
             </Text>
           </Text>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

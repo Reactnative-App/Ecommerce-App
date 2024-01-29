@@ -14,6 +14,7 @@ import React, {useState} from 'react';
 // import {StatusBar} from 'expo-status-bar';
 // import Icons from 'react-native-vector-icons/Ionicons';
  import Ionicons from 'react-native-vector-icons/Ionicons';
+ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import HEADER_IMG from '../../assets/Header.png';
 import ARROW_SVG from '../../assets/svg/Arrow.svg';
@@ -27,28 +28,67 @@ import LOCK_SVG from '../../assets/svg/Lock.svg';
 import CALL_SVG from '../../assets/svg/Call.svg';
 import {COLORS} from '../../Constants/theme';
 import PhoneInput from 'react-native-phone-number-input';
-import PHONE from '../../assets/Icons/phone.png';
-import CheckBox from '@react-native-community/checkbox';  
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = (props) => {
 
+  console.log(props)
 
-
-    const [toggleCheckBox, setToggleCheckBox] = useState('')
-  
-
+  const [email,setEmail] = useState(props.route.params.mail) 
+  const [password,setPassword] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [checked, setChecked] = useState(false);
+
+  const [emailError,setEmailError] = useState(false) 
+  const [passwordError,setPasswordError] = useState(false)
+  const [phoneNumberError, setPhoneNumberError] = useState(false);
+  const [disableBtn,setdisableBtn] = useState(true)
+  const isValidEmail = (str) => {
+    if (str == null || str == undefined || str == "") return false;
+    else {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(str);
+    }
+  }
+
+  const saveData = async()=>{
+    if(!isValidEmail(email)){
+      setEmailError(true)
+      // console.log(isValidEmail(email),'1')
+    }
+    else{
+      setEmailError(false)
+      // console.log(isValidEmail(email),'2') 
+    }
+    if(!password){
+      setPasswordError(true)
+    }
+    else{
+      setPasswordError(false) 
+    }
+    if(!phoneNumber){
+      setPhoneNumberError(true)
+    }
+    else{
+      setPhoneNumberError(false) 
+    }
+    if(!isValidEmail(email) || !password ||!phoneNumber){
+      return false
+    }
+    // console.warn("next")
+    props.navigation.navigate('ForgotPass')
+  }
+
+  const toggleCheckbox = () => {
+     setChecked(!checked);
+  };
   const [isSelected, setSelection] = useState(false);
   const [showotp, setshowotp] = useState(true);
   
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white_light}}>
       <ScrollView>
-      <StatusBar
-          barStyle={'light-content'}
-          translucent
-          backgroundColor="transparent"
-        />
+        <StatusBar backgroundColor="#F39184" barStyle={'dark-content'} />
 
         <ImageBackground
           source={HEADER_IMG}
@@ -58,12 +98,13 @@ const LoginScreen = ({navigation}) => {
           }}
           style={{
             height: hp('45%'),
+            marginTop: scaleSize(10),
             width: wp('100%'),
           }}>
           <ARROW_SVG
             size={scaleSize(20)}
             style={{marginTop: scaleSize(30), marginLeft: scaleSize(30)}}
-            onPress={() => navigation.goBack()}
+            onPress={() => props.navigation.goBack()}
           />
         </ImageBackground>
         <Text
@@ -71,7 +112,7 @@ const LoginScreen = ({navigation}) => {
             fontSize: scaleFont(32),
             marginTop: scaleSize(20),
             fontWeight: '400',
-            marginLeft: scaleSize(20),
+            marginHorizontal: scaleSize(20),
             fontFamily: 'Blinker-Light',
             color:'#000',
           }}>
@@ -83,49 +124,37 @@ const LoginScreen = ({navigation}) => {
             <MAIL_SVG size={scaleSize(20)} />
           </View>
           <TextInput
+                    value={email}
+                    onChangeText={(text)=>setEmail(text)}
         placeholder="Email address"
         style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
         placeholderTextColor="gray"
       />
         </View>
-
-
-        <View style={styles.inputPhone}>
-      <Image
-        source={PHONE}
-        style={{
-          marginTop: scaleSize(18),
-          marginRight: scaleSize(10),
-          marginLeft: scaleSize(15),
-        }}
-      />
-      <Text
-        style={{
-          marginTop: scaleSize(15),
-          marginRight: scaleSize(10),
-          color: 'gray',
-        }}>
-        +91
-      </Text>
-      <View style={styles.verticleLine}></View>
-
-      <TextInput
+        {emailError ? <Text style={styles.errorText}>Please enter valid email id</Text> : null}
+        <View style={styles.inputBoxStyle}>
+          <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
+            <CALL_SVG size={scaleSize(20)} />
+          </View>
+          <TextInput
+                              value={phoneNumber}
+                              onChangeText={(text)=>setPhoneNumber(text)}
         style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'black' }}
         placeholderTextColor={'gray'}
         placeholder=" Phone number"
         keyboardType="phone-pad"
-        value={phoneNumber}
-        onChangeText={(text) => setPhoneNumber(text)}
+
         maxLength={10}
       />
-    </View>
-
-
+        </View>
+        {phoneNumberError ? <Text style={styles.errorText}>Please enter valid phone number</Text> : null}
         <View style={styles.inputBoxStyle}>
           <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
             <LOCK_SVG size={scaleSize(20)} />
           </View>
           <TextInput
+                                      value={password}
+                                      onChangeText={(text)=>setPassword(text)}
         placeholder=" Password"
         style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
         placeholderTextColor="gray"
@@ -158,43 +187,7 @@ const LoginScreen = ({navigation}) => {
             </Pressable>
           </View>
         </View>
-
-
-        <View
-          style={{
-            flexDirection: "row",
-            alignSelf: "center",
-            marginTop: scaleSize(30),
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        >
-          <CheckBox
-            style={styles.check}
-            value={isSelected}
-            onValueChange={setSelection}
-            color={isSelected ? "#EED443" : ""}
-          />
-          <Text
-            style={{
-              marginLeft: scaleSize(10),
-              fontSize: scaleFont(10),
-              fontFamily: "regular",
-            }}
-          >
-            I agree with{" "}
-            <Text
-              style={{
-                color: "#EED443",
-                fontSize: scaleFont(10),
-                fontFamily: "regular",
-              }}
-            >
-              Terms of Service & Privacy Policy
-            </Text>
-          </Text>
-        </View>
-
+        {passwordError ? <Text style={styles.errorText}>Please enter valid password</Text> : null}
 
         <View
           style={{
@@ -206,6 +199,34 @@ const LoginScreen = ({navigation}) => {
           }}>
 
 
+
+<TouchableOpacity  onPress={toggleCheckbox}>
+  {checked ?
+ 
+<MaterialIcons name="check-circle" size={scaleSize(12)} color="#F3D743" /> :
+
+<MaterialIcons name="radio-button-unchecked" size={scaleSize(12)} color="#F3D743" />
+}
+    </TouchableOpacity>
+
+
+          <Text
+            style={{
+              marginLeft: scaleSize(10),
+              fontSize: scaleFont(12),
+              fontFamily: 'regular',
+              color:'#000'
+            }}>
+            I agree with{' '}
+            <Text
+              style={{
+                color: '#EED443',
+                fontSize: scaleFont(12),
+                fontFamily: 'regular',
+              }}>
+              Terms of Service & Privacy Policy
+            </Text>
+          </Text>
         </View>
 
         <View
@@ -226,7 +247,7 @@ const LoginScreen = ({navigation}) => {
                 shadowRadius: 5,
               },
             ]}
-            onPress={() => navigation.navigate('CreateAccount')}>
+            onPress={() => props.navigation.navigate('CreateProfile')}>
             <Text
               style={{
                 color: COLORS.black,
@@ -237,9 +258,10 @@ const LoginScreen = ({navigation}) => {
               Sign Up
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => navigation.navigate('CreateProfile')}>
+          <TouchableOpacity 
+          disabled={isValidEmail(email) && password && phoneNumber && checked ? false : true}
+            style={{...styles.btn,backgroundColor: isValidEmail(email) && password && phoneNumber && checked  ? '#F3D743':'gray',}}
+            onPress={()=>saveData()}>
             <Text
               style={{
                 color: COLORS.black,
@@ -306,22 +328,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 5,
   },
-  inputPhone:{
-    marginTop: scaleSize(10),
-    alignSelf: 'center',
+  errorText:{
     flexDirection: 'row',
-    backgroundColor: COLORS.white,
-    height: scaleSize(50),
-    width: WIDTH - scaleSize(35),
-    borderRadius: scaleSize(40),
-    elevation: 10,
-    shadowColor: COLORS.yellow_shadow,
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
+    marginTop: scaleSize(5),
+    marginHorizontal: scaleSize(28),
+    fontSize:scaleFont(12),
+    fontFamily:'Blinker-Regular',
+    color:'red'
   },
   btn: {
     height: 40,
-    backgroundColor: '#F3D743',
     width: 155,
     marginLeft: 30,
     marginTop: 20,
@@ -359,21 +375,31 @@ const styles = StyleSheet.create({
     borderRadius: scaleSize(20),
     alignSelf: 'center',
   },
- verticleLine: {
-  height: '60%',
-  width: 1,
-  backgroundColor: '#D9D9D9',
-  marginTop: scaleSize(10),
-  // marginLeft: -15,
-},
-// checkboxContainer:{
-//   marginTop:80
-// }
-check: {
-  height: 20,
-  width: 20,
-  borderRadius: 100,
-  borderColor: "#F3D743",
-  borderWidth: 1,
-},
+  checkboxContainer: {
+   // width: 12,
+    //height: 12,
+    //borderRadius: 8,
+    borderWidth:1,
+    // borderColor: 'gray',
+    alignItems: 'center',
+    // justifyContent: 'center',
+    // width: 20,
+    // height: 20,
+    // borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+ },
+ unchecked: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: '#ffffff',
+ },
+ checked: {
+  width: 12,
+  height: 12,
+  borderRadius: 6,
+  borderWidth:8,
+  backgroundColor: '#F3D743',
+ },
 });
