@@ -35,7 +35,10 @@ import MyQRscan from "../components/MyQRscan";
 import Scanner from "../components/Scanner";
 import OrderSucess from "../components/OrderSucess";
 import SearchScreen from "../components/SearchScreen";
-
+import Cart from "../Screens/OnboardingScreens/Cart";
+import WishList from "../Screens/OnboardingScreens/WishList";
+import EditProfile from "../components/EditProfile";
+// import EditProfile from "../components/EditProfile";
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
@@ -140,6 +143,16 @@ const RootNavigator = () => {
             options={{ headerShown: false }}
           />
           <Stack.Screen
+            name="Cart"
+            component={Cart}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="WishList"
+            component={WishList}
+            options={{ headerShown: false, presentation: "modal" }}
+          />
+          <Stack.Screen
             name="SearchBar"
             component={SearchBar}
             options={{ headerShown: false, presentation: "modal" }}
@@ -217,6 +230,11 @@ const RootNavigator = () => {
           <Stack.Screen
             name="Scanner"
             component={Scanner}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="EditProfile"
+            component={EditProfile}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

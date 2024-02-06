@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { scaleSize, scaleFont } from "../../Constants/Mixins";
 
 // import { COLORS, SIZES } from "../Constants/theme";
 
@@ -10,14 +11,14 @@ const styles = StyleSheet.create({
     },
     centerTxt: {
         fontSize: 12,
-        fontFamily: 'regular',
+        fontFamily: 'Blinker-Regular',
         paddingVertical: 16 / 2,
         paddingHorizontal: 16,
         borderRadius: 16,
         backgroundColor: '#000',
         color: '#ffffff'
     },
-    wishListHeader: {
+    ListHeader: {
         width: '100%',
         flexDirection: 'row',
         paddingTop:60,
@@ -54,14 +55,19 @@ const styles = StyleSheet.create({
         fontSize: 10,
         color: '#83829A'
     },
-    supplier: {
-        fontFamily: "regular",
+    supplier: {color:'#000',
+        fontFamily: "Blinker-Regular",
         fontSize: 12,
     },
-    price: {
-        fontFamily: "semibold",
-        fontSize: 14,
+    price: {color:'#000',
+        fontFamily: "Blinker-SemiBold",
+        fontSize: 12,
     },
+    sdHeading: {
+    marginHorizontal: scaleSize(20) ,
+    fontSize: scaleFont(24),
+    fontFamily: 'Blinker-Regular'
+  }
 });
 
 export default styles;

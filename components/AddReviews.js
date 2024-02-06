@@ -54,8 +54,8 @@ export default function AddReviews({ navigation }) {
               <Text
                 style={{
                   color: COLORS.white,
-                  fontFamily: "regular",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
                 }}
               >
                 ADD A REVIEW
@@ -85,7 +85,7 @@ export default function AddReviews({ navigation }) {
             <Text
               style={{
                 color: "#717171",
-                fontFamily: "regular",
+                fontFamily: "Blinker-Regular",
                 fontSize: scaleFont(10),
               }}
             >
@@ -94,7 +94,7 @@ export default function AddReviews({ navigation }) {
             <Text
               style={{
                 color: "#0F0F0F",
-                fontFamily: "regular",
+                fontFamily: "Blinker-Regular",
                 fontSize: scaleFont(16),
               }}
             >
@@ -118,7 +118,7 @@ export default function AddReviews({ navigation }) {
           <Text
             style={{
               color: "#717171",
-              fontFamily: "regular",
+              fontFamily: "Blinker-Regular",
               fontSize: scaleFont(12),
               textAlign: "center",
             }}
@@ -154,8 +154,8 @@ export default function AddReviews({ navigation }) {
           <Text
             style={{
               color: "#0F0F0F",
-              fontFamily: "regular",
-              fontSize: scaleFont(25),
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(24),
             }}
           >
             Add A Review
@@ -175,10 +175,15 @@ export default function AddReviews({ navigation }) {
           }}
         >
           <EDIT_SVG height={scaleSize(18)} width={scaleSize(18)} />
-          <TextInput
+          {/* <TextInput
             placeholder="Title"
-            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 }}
-          />
+            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1, color:'gray' }}
+          /> */}
+           <TextInput
+       placeholder="Title"
+        style={{margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+      />
         </View>
 
         <View
@@ -199,7 +204,7 @@ export default function AddReviews({ navigation }) {
             width={scaleSize(18)}
             style={{ marginTop: scaleSize(5) }}
           />
-          <TextInput
+          {/* <TextInput
             placeholder="Message"
             multiline
             style={{
@@ -209,14 +214,19 @@ export default function AddReviews({ navigation }) {
               flex: 1,
               alignSelf: "flex-start",
             }}
-          />
+          /> */}
+           <TextInput
+       placeholder="Message"
+        style={{margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' , alignSelf: "flex-start",}}
+        placeholderTextColor="gray"
+      />
         </View>
         <View style={{ marginHorizontal: scaleSize(25) }}>
           <Text
             style={{
               color: "#717171",
-              fontFamily: "regular",
-              fontSize: scaleFont(12),
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(10),
               marginTop: scaleSize(5),
             }}
           >
@@ -237,8 +247,8 @@ export default function AddReviews({ navigation }) {
           <Text
             style={{
               color: "#0F0F0F",
-              fontFamily: "regular",
-              fontSize: scaleFont(16),
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(14),
             }}
           >
             Submit Review

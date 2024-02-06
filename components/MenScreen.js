@@ -1,19 +1,25 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable,FlatList } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable,FlatList, StatusBar } from 'react-native';
 import React from 'react';
 import styles from './MenScreen.style';
 import ProductCartView from "./ProductCartView";
+import { scaleSize } from '../Constants/Mixins';
 
 const MenScreen = () => {
   const products = [1, 2, 3, 4]
   return (
     <View style={styles.container}>
+       <StatusBar
+          barStyle={'light-content'}
+          translucent
+          backgroundColor="transparent"
+        />
       <View style={styles.upperRow}>
         <TouchableOpacity>
-          <Image source={require('../assets/Icons/Arrow.png')} onPress={() => navigation.goBack()} />
+          <Image source={require('../assets/Icons/ArrowWht.png')} onPress={() => navigation.goBack()} />
         </TouchableOpacity>
         <TouchableOpacity>
           <View style={{ flexDirection: 'row', gap: 20, display: "flex" }}>
-            <Image source={require('../assets/Icons/searchIcon.png')} />
+            <Image source={require('../assets/Icons/Search1.png')} />
             <Image source={require('../assets/Icons/Notify.png')} />
 
           </View>
@@ -31,7 +37,7 @@ const MenScreen = () => {
         </Pressable>
 
       </View>
-      <View style={{ marginTop: 20,marginHorizontal:26 }}>
+      <View style={{ marginTop:scaleSize( 20) ,marginHorizontal:scaleSize(10) }}>
         <FlatList
           data={products}
           renderItem={({ item }) => <ProductCartView />}

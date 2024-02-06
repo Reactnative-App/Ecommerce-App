@@ -87,7 +87,8 @@ const ForgotPass = ({navigation}) => {
         placeholderTextColor="gray"
       />
           </View>
-          <Text
+          <Pressable onPress={()=> navigation.navigate('ForgotPassPhone')}>        
+              <Text
             style={{
               marginTop: scaleSize(20),
               marginLeft: scaleSize(20),
@@ -98,6 +99,7 @@ const ForgotPass = ({navigation}) => {
             }}>
             Use Another Method
           </Text>
+          </Pressable>
 
           <Pressable
             style={styles.btn}

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { scaleSize, scaleFont } from "../../Constants/Mixins";
 
 // import { COLORS, SIZES } from "../Constants/theme";
 
@@ -10,7 +11,7 @@ const styles = StyleSheet.create({
   },
   centerTxt: {
     fontSize: 12,
-    fontFamily: 'regular',
+    fontFamily: 'Blinker-Regular',
     paddingVertical: 16 / 2,
     paddingHorizontal: 16,
     borderRadius: 16,
@@ -38,9 +39,9 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   sdHeading: {
-    marginHorizontal: 20,
-    fontSize: 24,
-    fontFamily: 'regular'
+    marginHorizontal: scaleSize(20) ,
+    fontSize: scaleFont(24),
+    fontFamily: 'Blinker-Regular'
   }
 });
 

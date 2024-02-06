@@ -13,55 +13,67 @@ import {Image} from 'react-native';
 import NAVI_ARRW_SVG from '../assets/svg/navigateArrw.svg';
 import WALLET_SVG from '../assets/svg/Wallet.svg';
 import BAG_SVG from '../assets/svg/Bag.svg';
+import SETTINGS_SVG from '../assets/svg/Setting.svg';
+import CHAT_SVG from '../assets/svg/Chat.svg';
+import PAYMENT_SVG from '../assets/svg/Payment.svg';
+import BOTTOM_BOOKMARK_SVG from '../assets/svg/Bottom_Bookmark.svg';
+import LOCATION_SVG from '../assets/svg/Location.svg';
 import DISCOUNT_SVG from '../assets/svg/Discount.svg';
+import LOCK_SVG from '../assets/svg/Lock.svg';
+import PASSWORD_SVG from '../assets/svg/Password.svg';
+import LOGOUT_SVG from '../assets/svg/Logout.svg';
+import { useNavigation } from '@react-navigation/native';
+import VECTOR_SVG from '../assets/svg/Vector.svg';
 import {TouchableOpacity} from 'react-native';
+import { color } from 'react-native-elements/dist/helpers';
 const ACCOUNT_DATA = [
   {
-    icon: <BAG_SVG />,
+    icon: <SETTINGS_SVG />,
     title: 'Preferences',
   },
   {
-    icon: <BAG_SVG />,
+    icon: <CHAT_SVG />,
     title: 'Chat List',
   },
   {
-    icon: <BAG_SVG />,
+    icon: <PAYMENT_SVG />,
     title: 'Payment',
   },
   {
-    icon: <BAG_SVG />,
+    icon: <BOTTOM_BOOKMARK_SVG />,
     title: 'Wishlist',
   },
   {
-    icon: <BAG_SVG />,
+    icon: <LOCATION_SVG />,
     title: 'Addresses',
   },
 ];
 const PRIVECY_DATA = [
   {
-    icon: <BAG_SVG />,
+    icon: <LOCK_SVG />,
     title: 'Privacy Setting',
   },
   {
-    icon: <BAG_SVG />,
+    icon: <PASSWORD_SVG />,
     title: 'Change Password',
   },
 ];
 const HELP_SUPPORT_DATA = [
   {
-    icon: <BAG_SVG />,
+    icon: <SEARCH_SVG />,
     title: 'FAQ',
   },
   {
-    icon: <BAG_SVG />,
+    icon: <VECTOR_SVG />,
     title: 'Get Help',
   },
   {
-    icon: <BAG_SVG />,
+    icon: <LOGOUT_SVG />,
     title: 'Sign Out',
   },
 ];
 export default function Account() {
+  const navigation = useNavigation();
   const ListHeaderComponet = () => {
     return (
       <View>
@@ -97,7 +109,8 @@ export default function Account() {
             </View>
           </View>
 
-          <View
+      
+          <View 
             style={{
               flexDirection: 'row',
               marginHorizontal: scaleSize(25),
@@ -114,7 +127,7 @@ export default function Account() {
               resizeMode="cover"
             />
             <View style={{marginLeft: scaleSize(10), flex: 1}}>
-              <Text>Savannah Rathore</Text>
+              <Text style={{fontSize: scaleFont(16), color:'#000', fontFamily: 'Blinker-Regular'}}>Savannah Rathore</Text>
               <View
                 style={{
                   backgroundColor: COLORS.white,
@@ -125,11 +138,17 @@ export default function Account() {
                   borderRadius: scaleSize(5),
                   alignSelf: 'flex-start',
                 }}>
-                <Text>@Savannah92</Text>
+                <Text style={{fontSize: scaleFont(10), color:'gray', fontFamily: 'Blinker-Regular'}}>@Savannah92</Text>
               </View>
             </View>
+            <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
             <NAVI_ARRW_SVG height={scaleSize(20)} width={scaleSize(20)} />
+            </TouchableOpacity>
+           
           </View>
+ 
+ 
+
 
           <View
             style={{
@@ -148,7 +167,7 @@ export default function Account() {
               <Text
                 style={{
                   color: '#717171',
-                  fontFamily: 'regular',
+                  fontFamily: 'Blinker-Regular',
                   fontSize: scaleFont(12),
                 }}>
                 Wallet
@@ -160,7 +179,7 @@ export default function Account() {
               <Text
                 style={{
                   color: '#717171',
-                  fontFamily: 'regular',
+                  fontFamily: 'Blinker-Regular',
                   fontSize: scaleFont(12),
                 }}>
                 Order
@@ -172,7 +191,7 @@ export default function Account() {
               <Text
                 style={{
                   color: '#717171',
-                  fontFamily: 'regular',
+                  fontFamily: 'Blinker-Regular',
                   fontSize: scaleFont(12),
                 }}>
                 Discount
@@ -183,7 +202,7 @@ export default function Account() {
         <Text
           style={{
             color: '#717171',
-            fontFamily: 'regular',
+            fontFamily: 'Blinker-Regular',
             fontSize: scaleFont(15),
             marginLeft: scaleSize(25),
             marginTop: scaleSize(30),
@@ -212,7 +231,7 @@ export default function Account() {
           style={{
             flex: 1,
             color: '#0F0F0F',
-            fontFamily: 'regular',
+            fontFamily: 'Blinker-Regular',
             fontSize: scaleFont(15),
             marginLeft: scaleSize(10),
           }}>
@@ -225,10 +244,15 @@ export default function Account() {
   const ListFooterComponent = () => {
     return (
       <>
+       <StatusBar
+          barStyle={'dark-content'}
+          translucent
+          backgroundColor="transparent"
+        />
         <Text
           style={{
             color: '#717171',
-            fontFamily: 'regular',
+            fontFamily: 'Blinker-Regular',
             fontSize: scaleFont(15),
             marginLeft: scaleSize(25),
             marginTop: scaleSize(30),
@@ -249,7 +273,7 @@ export default function Account() {
         <Text
           style={{
             color: '#717171',
-            fontFamily: 'regular',
+            fontFamily: 'Blinker-Regular',
             fontSize: scaleFont(15),
             marginLeft: scaleSize(25),
             marginTop: scaleSize(30),
@@ -269,7 +293,7 @@ export default function Account() {
     );
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white, marginBottom:scaleSize(50)}}>
       <StatusBar barStyle={'dark-content'} translucent />
       {/* <StatusBar
         barStyle={'dark-content'}
