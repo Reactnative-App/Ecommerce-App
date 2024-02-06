@@ -19,15 +19,17 @@ import BOTTOM_BOOKMARK_SVG from '../assets/svg/Bottom_Bookmark.svg';
 import {scaleSize} from '../Constants/Mixins';
 import HomeScreen from '../Screens/HomeScreen';
 import Account from '../components/Account';
+import Cart from '../Screens/OnboardingScreens/Cart';
+import WishList from '../Screens/OnboardingScreens/WishList';
 const Screen1 = () => {
   return <HomeScreen />;
 };
 
 const Screen2 = () => {
-  return <ForgotPass />;
+  return <Cart />;
 };
 const Screen3 = () => {
-  return <ForgotPass />;
+  return <WishList />;
 };
 const Screen4 = () => {
   return <Account />;

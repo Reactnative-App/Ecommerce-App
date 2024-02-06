@@ -111,7 +111,7 @@ const Reviews = ({navigation}) => {
               <Text
                 style={{
                   color: COLORS.white,
-                  fontFamily: 'regular',
+                  fontFamily: 'Blinker-Regular',
                   fontSize: scaleFont(15),
                 }}>
                 REVIEW
@@ -197,7 +197,7 @@ const Reviews = ({navigation}) => {
                 // height={5}
               />
             </View>
-            <Text>90%</Text>
+            <Text style={{color:'#000'}}>90%</Text>
           </View>
 
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -222,7 +222,7 @@ const Reviews = ({navigation}) => {
                 // height={5}
               />
             </View>
-            <Text>10%</Text>
+            <Text style={{color:'#000'}}>10%</Text>
           </View>
 
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -247,7 +247,7 @@ const Reviews = ({navigation}) => {
                 // height={5}
               />
             </View>
-            <Text>90%</Text>
+            <Text style={{color:'#000'}}>0%</Text>
           </View>
 
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -272,7 +272,7 @@ const Reviews = ({navigation}) => {
                 // height={5}
               />
             </View>
-            <Text>90%</Text>
+            <Text style={{color:'#000'}}>0%</Text>
           </View>
 
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -297,7 +297,7 @@ const Reviews = ({navigation}) => {
                 // height={5}
               />
             </View>
-            <Text>90%</Text>
+            <Text style={{color:'#000'}}>0%</Text>
           </View>
         </View>
 
@@ -318,7 +318,7 @@ const Reviews = ({navigation}) => {
             <Text
               style={{
                 color: '#717171',
-                fontFamily: 'regular',
+                fontFamily: 'Blinker-Regular',
                 fontSize: scaleFont(15),
               }}>
               Add a review
@@ -337,8 +337,8 @@ const Reviews = ({navigation}) => {
           <Text
             style={{
               color: '#0F0F0F',
-              fontFamily: 'bold',
-              fontSize: scaleFont(20),
+              fontFamily: 'Blinker-SemiBold',
+              fontSize: scaleFont(14),
               fontWeight: '600',
             }}>
             User Reviews
@@ -357,8 +357,8 @@ const Reviews = ({navigation}) => {
             <Text
               style={{
                 color: '#0F0F0F',
-                fontFamily: 'regular',
-                fontSize: scaleFont(15),
+                fontFamily: 'Blinker-Regular',
+                fontSize: scaleFont(12),
               }}>
               Sort By
             </Text>
@@ -399,8 +399,8 @@ const Reviews = ({navigation}) => {
             <Text
               style={{
                 color: '#0F0F0F',
-                fontFamily: 'regular',
-                fontSize: scaleFont(16),
+                fontFamily: 'Blinker-Regular',
+                fontSize: scaleFont(10),
               }}>
               {item.name}
             </Text>
@@ -424,8 +424,8 @@ const Reviews = ({navigation}) => {
         <Text
           style={{
             color: '#717171',
-            fontFamily: 'regular',
-            fontSize: scaleFont(14),
+            fontFamily: 'Blinker-Regular',
+            fontSize: scaleFont(10),
             marginTop: scaleSize(10),
           }}>
           {item.comment}

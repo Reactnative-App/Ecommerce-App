@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     },
     centerTxt: {
         fontSize: scaleFont(12),
-        fontFamily: 'regular',
+        fontFamily: 'Blinker-Regular',
         paddingVertical: scaleSize(8),
         paddingHorizontal: scaleSize(16),
         borderRadius: scaleSize(16),
@@ -30,13 +30,15 @@ const styles = StyleSheet.create({
         marginHorizontal:scaleSize(22),
     },
     description:{
-        fontFamily:'regular',
-        fontSize:scaleFont(14)
+        fontFamily:'Blinker-Regular',
+        fontSize:scaleFont(14),
+        color:'#000'
     },
     descTxt:{
         marginTop:scaleSize(20),
-        fontFamily:'regular',
-        fontSize:scaleFont(10)
+        fontFamily:'Blinker-Regular',
+        fontSize:scaleFont(10),
+        color:'#000'
     },
     horizontal:{
         marginTop:scaleSize(22),
@@ -50,8 +52,9 @@ const styles = StyleSheet.create({
         color:COLORS.txtGray
     },
     material:{
-        fontFamily:'regular',
+        fontFamily:'Blinker-Regular',
         fontSize:scaleFont(14),
+        color:'#000'
     }
 });
 

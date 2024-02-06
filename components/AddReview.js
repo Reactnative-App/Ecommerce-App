@@ -43,9 +43,9 @@ const AddReview = ({ navigation }) => {
             >
               <Text
                 style={{
-                  color: COLORS.white,
-                  fontFamily: "regular",
-                  fontSize: scaleFont(15),
+                  color:'#000',
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
                 }}
               >
                 ADD A REVIEW
@@ -150,7 +150,7 @@ const AddReview = ({ navigation }) => {
       <View
         style={{ marginTop: scaleSize(10), marginHorizontal: scaleSize(20) }}
       >
-        <Text style={{ fontFamily: "regular", fontSize: scaleFont(24) }}>
+        <Text style={{ fontFamily: "regular", fontSize: scaleFont(40) }}>
           Add a Review
         </Text>
       </View>

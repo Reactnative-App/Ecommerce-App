@@ -15,9 +15,11 @@ import PRODUCT_1 from '../../assets/Products/Product1.png';
 import PRODUCT_2 from '../../assets/Products/Product2.png';
 import PRODUCT_3 from '../../assets/Products/Product3.png';
 import {COLORS, SIZES} from '../../Constants/theme';
+import NAVI_ARRW_SVG from '../../assets/svg/navigateArrw.svg';
+import TICKET_SVG from '../../assets/svg/Ticket.svg';
 // import {StatusBar} from 'expo-status-bar';
 
-const Cart = ({navigation}) => {
+const Cart = (props) => {
   const products = [1, 2, 3, 4];
   const data = [
     {
@@ -110,7 +112,7 @@ const Cart = ({navigation}) => {
                 onPress={() => navigation.goBack()}
               />
             </TouchableOpacity>
-            <Text style={styles.centerTxt}>Cart</Text>
+            <Text style={styles.centerTxt}>CART</Text>
             <Image source={require('../../assets/Icons/searchIcon.png')} />
           </View>
           <View style={styles.emptyContainer}>
@@ -120,7 +122,7 @@ const Cart = ({navigation}) => {
           <View>
             <Text style={styles.sdHeading}>You May Also Like</Text>
           </View>
-          <View style={{marginTop: 20, marginHorizontal: 26}}>
+          <View style={{marginTop: scaleSize(20), marginHorizontal: scaleSize(10)}}>
             <FlatList
               data={products}
               renderItem={({item}) => <ProductCartView />}
@@ -150,13 +152,52 @@ const Cart = ({navigation}) => {
                 marginTop: scaleSize(20),
                 marginBottom: scaleSize(10),
               }}>
-              <Text
+              {/* <Text
                 style={{
                   marginHorizontal: scaleSize(25),
                   marginVertical: scaleSize(20),
+                  fontFamily: 'Blinker-Regular',
+                  color:'#000',
+                  alignSelf:'flex-start',
+                
                 }}>
-                Voucher
-              </Text>
+                Use Voucher
+                <View style={{alignSelf:'flex-end'}}>
+                <NAVI_ARRW_SVG height={scaleSize(20)} width={scaleSize(20)}/>
+                </View>
+              </Text> */}
+
+
+
+<TouchableOpacity
+        style={{
+          marginBottom: scaleSize(10),
+          // backgroundColor: COLORS.white,
+          padding: scaleSize(15),
+          flexDirection: 'row',
+          marginHorizontal: scaleSize(15),
+          // elevation: 0.5,
+          // borderRadius: 20,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}>
+           <TICKET_SVG height={scaleSize(20)} width={scaleSize(20)}  />
+        <Text
+          style={{
+            flex: 1,
+            color: '#0F0F0F',
+            fontFamily: 'Blinker-Regular',
+            fontSize: scaleFont(15),
+            marginLeft: scaleSize(10),
+            
+          }}>
+            
+          Use Voucher
+        </Text>
+        <NAVI_ARRW_SVG height={scaleSize(20)} width={scaleSize(20)} />
+      </TouchableOpacity>
+
+
               <View
                 style={{
                   backgroundColor: COLORS.white,
@@ -177,16 +218,16 @@ const Cart = ({navigation}) => {
                   <Text
                     style={{
                       color: '#0F0F0F',
-                      fontFamily: 'regular',
-                      fontSize: scaleFont(15),
+                      fontFamily: 'Blinker-Regular',
+                      fontSize: scaleFont(12),
                     }}>
                     Subtotal:
                   </Text>
                   <Text
                     style={{
                       color: '#0F0F0F',
-                      fontFamily: 'bold',
-                      fontSize: scaleFont(15),
+                      fontFamily: 'Blinker-Bold',
+                      fontSize: scaleFont(14),
                     }}>
                     $120.00
                   </Text>
@@ -201,16 +242,16 @@ const Cart = ({navigation}) => {
                   <Text
                     style={{
                       color: '#0F0F0F',
-                      fontFamily: 'regular',
-                      fontSize: scaleFont(15),
+                      fontFamily: 'Blinker-Regular',
+                      fontSize: scaleFont(12),
                     }}>
                     Shipping:
                   </Text>
                   <Text
                     style={{
                       color: '#0F0F0F',
-                      fontFamily: 'bold',
-                      fontSize: scaleFont(15),
+                      fontFamily: 'Blinker-Bold',
+                      fontSize: scaleFont(14),
                     }}>
                     $120.00
                   </Text>
@@ -235,16 +276,16 @@ const Cart = ({navigation}) => {
                   <Text
                     style={{
                       color: '#0F0F0F',
-                      fontFamily: 'bold',
-                      fontSize: scaleFont(15),
+                      fontFamily: 'Blinker-SemiBold',
+                      fontSize: scaleFont(14),
                     }}>
                     Total (3 items):
                   </Text>
                   <Text
                     style={{
                       color: '#F3D743',
-                      fontFamily: 'bold',
-                      fontSize: scaleFont(15),
+                      fontFamily: 'Blinker-SemiBold',
+                      fontSize: scaleFont(14),
                     }}>
                     $120.00
                   </Text>
@@ -258,14 +299,16 @@ const Cart = ({navigation}) => {
                     padding: scaleSize(15),
                     alignItems: 'center',
                     borderRadius: scaleSize(30),
-                  }}>
+                  }}
+                  onPress={() => props.navigation.navigate('Checkout')}
+                  >
                   <Text
                     style={{
                       color: '#0F0F0F',
-                      fontFamily: 'regular',
-                      fontSize: scaleFont(16),
+                      fontFamily: 'Blinker-Regular',
+                      fontSize: scaleFont(14),
                     }}>
-                    Proceed To Ckeckout
+                    Proceed To Checkout
                   </Text>
                 </TouchableOpacity>
               </View>
