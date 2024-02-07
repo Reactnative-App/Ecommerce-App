@@ -8,7 +8,7 @@ import {
   SafeAreaView,
   ScrollView,StatusBar
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // import {StatusBar} from 'expo-status-bar';
 import Icons from 'react-native-vector-icons/Ionicons';
 import MIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -19,7 +19,10 @@ import moment from 'moment';
 import ARROW_SVG from '../../assets/svg/Arrow.svg';
 import {scaleFont, scaleSize} from '../../Constants/Mixins';
 import {COLORS} from '../../Constants/theme';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+
 const CreateProfile = ({navigation}) => {
+  const [imageUrl,setimageUrl] = useState(null);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [selectedDate, setSelectedDate] = useState();
   const showDatePicker = () => {
@@ -35,6 +38,18 @@ const CreateProfile = ({navigation}) => {
     setSelectedDate(moment(date).format('YYYY-MM-DD').split('T')[0]);
     hideDatePicker();
   };
+
+  const onPickImageFromImageLibrary = async() => {
+    const result = await launchImageLibrary();
+    setimageUrl(result.assets[0].uri)
+  }
+
+  useEffect(()=>{},[imageUrl])
+
+  // const onPickImageFromImageLibrary = () => {
+  //   console.log('image library is clicked')
+  // }
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar backgroundColor="#FFFCF3" barStyle={'dark-content'} />
@@ -79,37 +94,36 @@ const CreateProfile = ({navigation}) => {
               }}>
               <Pressable
                 style={{
-                  backgroundColor: '#F0F0F0',
-                  //use bordr radious to make background color
-                  // backgroundColor: "#F0F0F0",
-
-                  height: scaleSize(25),
-                  width: scaleSize(25),
-                  position: 'absolute',
-                  left: scaleSize(50),
+                  backgroundColor: '#ffffff',
+                  height: scaleSize(84),
+                  width: scaleSize(84),
+                  // position: 'absolute',
+                  // left: scaleSize(50),
                   borderRadius: scaleSize(40),
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}
-                onPress={() => console.log('Camera')}>
+                onPress= {onPickImageFromImageLibrary}>
                 <Icons
                   name="camera"
-                  size={scaleSize(14)}
-                  color={COLORS.white}
-                  // style={{ backgroundColor: "#FOFOFO" }}
+                  size={scaleSize(25)}
+                  color='#F3D743'
+                  style={{
+                    position:'absolute',
+                    top:5,
+                    right:-5,
+                    zIndex:1
+                }}
                 />
-              </Pressable>
               <View
                 style={{
                   justifyContent: 'center',
                   alignItems: 'center',
-                  marginTop: 20,
+                  // marginTop: 20,
                 }}>
-                <Image
-                  source={require('../../assets/profile_pic.png')}
-                  style={{height: scaleSize(32), width: scaleSize(32)}}
-                />
+                {imageUrl && <Image style={{height: scaleSize(84), width: scaleSize(84),borderRadius:scaleSize(100),zIndex:0}} source={{uri:imageUrl}}/>}
               </View>
+              </Pressable>
             </View>
           </View>
 
@@ -145,6 +159,8 @@ const CreateProfile = ({navigation}) => {
             </TouchableOpacity>
             <TextInput
         placeholder="Date of Birth"
+        value={selectedDate}
+        onChangeText={(text)=>setSelectedDate(text)}
         style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
         placeholderTextColor="gray"
       />
@@ -189,13 +205,15 @@ const CreateProfile = ({navigation}) => {
                 {width: 90, marginRight: 20, backgroundColor: '#fff', borderRadius:25},
               ]}
               onPress={() => {
-                navigation.navigate('ForgotPass');
+                navigation.navigate('HomeScreen');
               }}>
               <Text style={{color: '#000', fontFamily: 'Blinker-Regular', textAlign: 'center'}}>Skip</Text>
             </Pressable>
-            <Pressable style={[styles.btn, {width: 180, marginLeft: 120,borderRadius:25}]}>
+            <Pressable  style={[styles.btn, {width: 180, marginLeft: 120,borderRadius:25}]} onPress={() => {
+                navigation.navigate('Login');
+              }} >
               <Text style={{color: '#000', fontFamily: 'Blinker-Regular', textAlign: 'center'}}>
-                Go To Shopping
+                Go To Login
               </Text>
             </Pressable>
           </View>

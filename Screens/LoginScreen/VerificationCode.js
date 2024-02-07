@@ -56,14 +56,15 @@ const init=async()=>{
         style={{height: '100%', width: '100%'}}>
         <ARROW_SVG
           size={scaleSize(20)}
-          style={{marginTop: scaleSize(50), marginLeft: scaleSize(20), marginBottom: scaleSize(20)}}
-          onPress={() => navigation.goBack()}
+          style={{marginTop: scaleSize(50), marginLeft: scaleSize(20)}}
+          onPress={() => props.navigation.goBack()}
         />
         <Text
           style={{
             fontWeight: '300',
             fontSize: scaleFont(40),
             marginLeft: scaleSize(20),
+            marginTop: scaleSize(20),
             fontFamily: 'Blinker-Regular',
             color:'#000'
           }}>
@@ -80,9 +81,9 @@ const init=async()=>{
           </Text>
           <Text
             style={{
-              fontSize: scaleFont(14),
+              fontSize: scaleFont(16),
               color: '#2d2c2c',
-              //fontFamily: 'Blinker-Regular',
+              fontFamily: 'regular',
             }}>
             (700)749-0538
           </Text>
@@ -180,50 +181,52 @@ const init=async()=>{
         </Text>
 
         <View
-        style={{
-          position: 'absolute',
-          bottom: 20, // Adjust the bottom position as needed
-          left: 0,
-          right: 0,
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-        }}>
-        <Pressable
-          style={[
-            styles.btn,
-            {
-              backgroundColor: '#fff',
-              width: scaleSize(100),
-            },
-          ]}
-          onPress={() => {}}>
-          <Text
-            style={{
-              color: '#000',
-              fontSize: scaleSize(14),
-              textAlign: 'center',
-              fontFamily: 'regular',
-            }}>
-            Resend
-          </Text>
-        </Pressable>
-        <Pressable
-          style={[styles.btn, { width: scaleSize(150) }]}
-          onPress={() => props.navigation.navigate('NewPass')}>
-          <Text
-            style={{
-              color: '#000',
-              textAlign: 'center',
-              fontSize: scaleFont(14),
-              fontFamily: 'regular',
-            }}>
-            Confirm
-          </Text>
-        </Pressable>
-      </View>
-    </ImageBackground>
-  </SafeAreaView>
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            position: 'absolute',
+            bottom: 20,
+            left:0,
+            right:0
+          }}>
+          <Pressable
+            style={[
+              styles.btn,
+              {
+                marginRight: scaleSize(20),
+                backgroundColor: '#fff',
+                width: scaleSize(100),
+              },
+            ]}
+            onPress={() => {}}>
+            <Text
+              style={{
+                color: '#000',
+                fontSize: scaleSize(14),
+                textAlign: 'center',
+                fontFamily: 'regular',
+              }}>
+              Resend
+            </Text>
+          </Pressable>
+          <Pressable
+            style={[styles.btn, {width: scaleSize(150)}]}
+            onPress={() => props.navigation.navigate('NewPass')}>
+            <Text
+              style={{
+                color: '#000',
+                textAlign: 'center',
+                fontSize: scaleFont(14),
+                fontFamily: 'regular',
+              }}>
+              Confirm
+            </Text>
+          </Pressable>
+        </View>
+        
+      </ImageBackground>
+    </SafeAreaView>
   );
 };
 

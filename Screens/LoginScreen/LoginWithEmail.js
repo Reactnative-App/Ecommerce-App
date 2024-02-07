@@ -30,6 +30,7 @@ const LoginScreen = (props) => {
   const [email,setEmail] = useState(null) 
   const [password,setPassword] = useState(null)
   const [showotp, setshowotp] = useState(true);
+
   const loginData = async () => {
     console.log(email,password)
     if(email && password){
@@ -55,7 +56,7 @@ const LoginScreen = (props) => {
   };
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white_light}}>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{flex:1}}>
         <StatusBar backgroundColor="#F39184" barStyle={'dark-content'} />
         <ImageBackground
           source={HEADER_IMG}
@@ -74,6 +75,8 @@ const LoginScreen = (props) => {
             onPress={() => props.navigation.goBack()}
           />
         </ImageBackground>
+
+<View style={{flex:1}}>
 
         <Text
           style={{
@@ -94,7 +97,7 @@ const LoginScreen = (props) => {
           <TextInput
           value={email}
           onChangeText={(text)=>setEmail(text)}
-        placeholder="Email address"
+          placeholder="Email address"
         style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
         placeholderTextColor="gray"
       />
@@ -150,7 +153,7 @@ const LoginScreen = (props) => {
                   props.navigation.navigate('ForgotPass')
                 }>
 
-        <Text
+        <Text 
           style={{
             alignSelf: 'flex-end',
             marginTop: scaleSize(20),
@@ -185,7 +188,7 @@ const LoginScreen = (props) => {
               Sign Up
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity style={styles.btn} onPress={()=>props.navigation.navigate('HomeScreen')}>
             <Text
               style={{
                 color: COLORS.black,
@@ -197,7 +200,8 @@ const LoginScreen = (props) => {
             </Text>
           </TouchableOpacity>
         </View>
-        <View
+
+        {/* <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
@@ -217,9 +221,9 @@ const LoginScreen = (props) => {
             </Text>
           </View>
           <View style={styles.right} />
-        </View>
+        </View> */}
 
-        <View style={{elevation: 1}}>
+        {/* <View style={{elevation: 1}}>
           <Pressable style={styles.socialBtn}>
             <Image
               source={require('../../assets/google.png')}
@@ -239,9 +243,9 @@ const LoginScreen = (props) => {
               Sign In With Google
             </Text>
           </Pressable>
-        </View>
-
-        <View style={{marginTop: scaleSize(15)}}>
+        </View> */}
+</View>
+        <View style={{justifyContent:'flex-end',flex:1,marginBottom:scaleSize(10)}}>
           <Text
             style={{
               fontSize: scaleFont(12),

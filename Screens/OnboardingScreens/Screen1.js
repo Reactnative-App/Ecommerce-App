@@ -9,7 +9,7 @@ const Screen1 = ({ navigation }) => {
        <StatusBar
           barStyle={'light-content'}
           translucent
-          backgroundColor="#1F2120"
+          // backgroundColor="#1F2120"
         />
       <View style={styles.topContainer}>
         <ImageBackground

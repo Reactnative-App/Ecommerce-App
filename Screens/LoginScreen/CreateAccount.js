@@ -76,7 +76,7 @@ const LoginScreen = (props) => {
       return false
     }
     // console.warn("next")
-    props.navigation.navigate('ForgotPass')
+    props.navigation.navigate('HomeScreen')
   }
 
   const toggleCheckbox = () => {
