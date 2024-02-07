@@ -6,14 +6,13 @@ const styles = StyleSheet.create({
     main: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#fffdf6',
-        
+        backgroundColor: '#fffdf6'
     },
     wishListHeader: {
         width: '100%',
         flexDirection: 'row',
         paddingTop:50,
-        paddingHorizontal: 20,
+        marginHorizontal:scaleSize(20),
         justifyContent: 'space-between',
     },
     details:{
@@ -119,20 +118,19 @@ const styles = StyleSheet.create({
         fontFamily:'regular',
         color: '#000',
     },
-    // sizeTop:{
-    //     marginTop:22,
-    //     marginHorizontal:22
-    // },
+    sizeTop:{
+        marginTop:22,
+        // marginHorizontal:22
+    },
     sizeDirection:{
         flexDirection: "row", 
         alignItems: "center" 
     },
     horizontal:{
         marginTop:22,
-        // width:"100%",
+        width:"100%",
         borderBottomColor: COLORS.lightgrey,
         borderBottomWidth: 1,
-        marginHorizontal:20
     },
     descTab:{
         flex: 1,
@@ -140,7 +138,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         marginTop: scaleSize(20),
-        marginHorizontal:20
     },
     descTxt:{
         marginRight:scaleSize(10),

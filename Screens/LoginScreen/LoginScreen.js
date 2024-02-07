@@ -67,7 +67,7 @@ const LoginScreen = (props) => {
   };
   const otpLogin=()=>{
     if(phoneNumber){
-    navigation.navigate('VerifyCode',{phoneNumber:phoneNumber});}
+    props.navigation.navigate('VerifyCode',{phoneNumber:phoneNumber});}
     else{
       Alert.alert("Please enter number")
     }
