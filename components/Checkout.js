@@ -3,9 +3,12 @@ import {
   Text,
   SafeAreaView,
   Image,
-  TouchableOpacity,StatusBar
+  TouchableOpacity,StatusBar,
+  TouchableHighlight, 
+  pressed, 
 } from "react-native";
-import React from "react";
+//import React from "react";
+import React, { useState } from 'react';
 // import { StatusBar } from "expo-status-bar";
 import { COLORS } from "../Constants/theme";
 import { FlatList } from "react-native";
@@ -17,6 +20,8 @@ import PRODUCT_3 from "../assets/Products/Product3.png";
 import PRODUCT_4 from "../assets/Products/Product4.png";
 import MAP from "../assets/Map.png";
 import NAVI_ARRW_SVG from "../assets/svg/navigateArrw.svg";
+import {useNavigation} from '@react-navigation/native';
+
 const data = [
   {
     image: PRODUCT_1,
@@ -40,10 +45,12 @@ const data = [
     price: "$40",
   },
 ];
+
 export default function Checkout() {
   const ListHeaderItem = () => {
+    // const [pressed, setPressed] = useState('');
     return (
-      <View style={{ marginTop: scaleSize(30) }}>
+      <View style={{ marginTop: scaleSize(30),  }}>
         <View
           style={{
             flexDirection: "row",
@@ -76,11 +83,11 @@ export default function Checkout() {
               <Text
                 style={{
                   color: COLORS.white,
-                  fontFamily: "regular",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
                 }}
               >
-                ADD A REVIEW
+                CHECKOUT
               </Text>
             </View>
           </View>
@@ -92,6 +99,7 @@ export default function Checkout() {
             marginTop: scaleSize(30),
             flexDirection: "row",
             justifyContent: "center",
+            
           }}
         >
           <Image
@@ -108,8 +116,8 @@ export default function Checkout() {
             <Text
               style={{
                 color: "#F3D743",
-                fontFamily: "regular",
-                fontSize: scaleFont(15),
+                fontFamily: "Blinker-SemiBold",
+                fontSize: scaleFont(14),
               }}
             >
               My Home
@@ -117,8 +125,8 @@ export default function Checkout() {
             <Text
               style={{
                 color: "#717171",
-                fontFamily: "regular",
-                fontSize: scaleFont(11),
+                fontFamily: "Blinker-egular",
+                fontSize: scaleFont(12),
                 marginTop: scaleSize(10),
               }}
             >
@@ -127,8 +135,8 @@ export default function Checkout() {
             <Text
               style={{
                 color: "#717171",
-                fontFamily: "regular",
-                fontSize: scaleFont(11),
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(12),
                 marginTop: scaleSize(10),
               }}
             >
@@ -159,6 +167,7 @@ export default function Checkout() {
           marginTop: scaleSize(30),
           flexDirection: "row",
           justifyContent: "center",
+          
         }}
       >
         <Image
@@ -205,13 +214,15 @@ export default function Checkout() {
             {item.price}
           </Text>
         </View>
-        <View style={{ justifyContent: "center" }}>
-          <Text>{item.qty}</Text>
+        <View style={{ justifyContent: "center",  }}>
+          <Text style={{color:'#000'}}>{item.qty}</Text>
         </View>
       </View>
     );
   };
   const ListFooterComponent = () => {
+    const [pressed, setPressed] = useState(false);
+    const navigation = useNavigation();
     return (
       <View>
         <View
@@ -226,11 +237,12 @@ export default function Checkout() {
           style={{
             marginTop: scaleSize(20),
             flexDirection: "row",
-            justifyContent: "space-between",
+           justifyContent: "space-between",
             marginHorizontal: scaleSize(25),
           }}
         >
-          <Text>MASTER CARD</Text>
+          
+          <Text style={{color:'#000', fontSize: scaleSize(12), }}>  <Image source={require('../assets/Icons/Mcard.png')} /> &nbsp; Master Card Ending*****23</Text>
           <View style={{ alignItems: "center", justifyContent: "center" }}>
             <NAVI_ARRW_SVG height={scaleSize(16)} width={scaleSize(16)} />
           </View>
@@ -241,20 +253,57 @@ export default function Checkout() {
             backgroundColor: "#FFF8DD",
             borderTopRightRadius: 20,
             borderTopLeftRadius: 20,
-            flex: 1,
+            //flex: 1,
             // padding: scaleSize(20),
             marginTop: scaleSize(20),
             marginBottom: scaleSize(10),
+           // flexDirection: "row",
+            justifyContent: "space-between",
           }}
         >
+          <View style={{flexDirection: "row",
+           justifyContent: "space-between",
+           marginHorizontal: scaleSize(15), }}>
           <Text
             style={{
               marginHorizontal: scaleSize(25),
               marginVertical: scaleSize(20),
+              color:'#000',
+              fontSize: scaleSize(14)
             }}
           >
-            Voucher
+           <Image source={require('../assets/Icons/Ticket.png')} /> &nbsp; 
+           1 Voucher Used
           </Text>
+          <TouchableHighlight
+      style={{
+         marginHorizontal: scaleSize(25),
+        marginTop: scaleSize(10),
+        marginBottom: scaleSize(10),
+        backgroundColor:  pressed ? '#2FD07A' :'#FFF8DD' ,
+        padding: scaleSize(15),
+        alignItems: 'center',
+        borderRadius: scaleSize(30),
+        borderWidth: scaleSize(1),
+        borderColor: '#2FD07A',
+        // height: scaleSize(16),
+        // width: scaleSize(74)
+      }}
+      onPress={() => setPressed(!pressed)}
+      underlayColor="#2FD07A"
+    >
+      <Text
+        style={{
+          color: pressed ? '#FFF8DD' : '#2FD07A',
+          //color:'#000',
+          fontFamily: 'Blinker-Regular',
+          fontSize: scaleFont(8),
+        }}
+      >
+        Discount 10%
+      </Text>
+    </TouchableHighlight>
+            </View>
           <View
             style={{
               backgroundColor: COLORS.white,
@@ -277,8 +326,8 @@ export default function Checkout() {
               <Text
                 style={{
                   color: "#0F0F0F",
-                  fontFamily: "reguler",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Reguler",
+                  fontSize: scaleFont(12),
                 }}
               >
                 Subtotal:
@@ -286,8 +335,8 @@ export default function Checkout() {
               <Text
                 style={{
                   color: "#0F0F0F",
-                  fontFamily: "bold",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-SemiBold",
+                  fontSize: scaleFont(14),
                 }}
               >
                 $120.00
@@ -304,8 +353,8 @@ export default function Checkout() {
               <Text
                 style={{
                   color: "#0F0F0F",
-                  fontFamily: "reguler",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Reguler",
+                  fontSize: scaleFont(12),
                 }}
               >
                 Shipping:
@@ -313,7 +362,7 @@ export default function Checkout() {
               <Text
                 style={{
                   color: "#0F0F0F",
-                  fontFamily: "bold",
+                  fontFamily: "Blinker-SemiBold",
                   fontSize: scaleFont(15),
                 }}
               >
@@ -331,8 +380,8 @@ export default function Checkout() {
               <Text
                 style={{
                   color: "#0F0F0F",
-                  fontFamily: "reguler",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Reguler",
+                  fontSize: scaleFont(12),
                 }}
               >
                 Voucher:
@@ -340,8 +389,8 @@ export default function Checkout() {
               <Text
                 style={{
                   color: "#EB001B",
-                  fontFamily: "bold",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-SemiBold",
+                  fontSize: scaleFont(14),
                 }}
               >
                 -$120.00
@@ -368,17 +417,27 @@ export default function Checkout() {
               <Text
                 style={{
                   color: "#0F0F0F",
-                  fontFamily: "bold",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-SemiBold",
+                  fontSize: scaleFont(14),
                 }}
               >
-                Total (3 items):
+                Total 
+              
+              <Text
+                style={{
+                  color: "gray",
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
+                }}
+              >
+               (3 items):
+              </Text>
               </Text>
               <Text
                 style={{
                   color: "#F3D743",
-                  fontFamily: "bold",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Bliker-SemiBold",
+                  fontSize: scaleFont(14),
                 }}
               >
                 $120.00
@@ -394,12 +453,15 @@ export default function Checkout() {
                 alignItems: "center",
                 borderRadius: scaleSize(30),
               }}
+              onPress={() => {
+                navigation.navigate('Address');
+              }}
             >
               <Text
                 style={{
                   color: "#0F0F0F",
-                  fontFamily: "regular",
-                  fontSize: scaleFont(16),
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(14),
                 }}
               >
                 Order Now

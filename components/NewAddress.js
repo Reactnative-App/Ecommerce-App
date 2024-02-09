@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text,Switch } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native";
 // import { StatusBar } from "expo-status-bar";
@@ -15,9 +15,14 @@ import MAIL_SVG from "../assets/svg/Mail.svg";
 import { TextInput } from "react-native";
 import MAP from "../assets/Map.png";
 import { Image } from "react-native";
-import { Switch } from "react-native";
+// import { Switch } from "react-native";
 import { TouchableOpacity } from "react-native";
+import { color } from "react-native-elements/dist/helpers";
+import { useState } from "react";
 export default function NewAddress({ navigation }) {
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
@@ -54,8 +59,8 @@ export default function NewAddress({ navigation }) {
               <Text
                 style={{
                   color: COLORS.white,
-                  fontFamily: "regular",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
                 }}
               >
                 NEW ADDRESS
@@ -82,8 +87,9 @@ export default function NewAddress({ navigation }) {
             style={{ marginLeft: scaleSize(15) }}
           />
           <TextInput
-            placeholder="Title"
-            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 }}
+            placeholder="Type_Address title"
+            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 , color:'gray'}}
+            placeholderTextColor='gray'
           />
         </View>
 
@@ -100,8 +106,8 @@ export default function NewAddress({ navigation }) {
           <Text
             style={{
               color: "#0F0F0F",
-              fontFamily: "bold",
-              fontSize: scaleFont(15),
+              fontFamily: "Blinker-SemiBold",
+              fontSize: scaleFont(14),
               flex: 1,
               marginLeft: scaleSize(5),
             }}
@@ -143,7 +149,8 @@ export default function NewAddress({ navigation }) {
           />
           <TextInput
             placeholder="Full name"
-            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 }}
+            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1, fontSize: scaleSize(14)}}
+            placeholderTextColor='gray'
           />
         </View>
 
@@ -167,7 +174,8 @@ export default function NewAddress({ navigation }) {
           />
           <TextInput
             placeholder="Country/Region"
-            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 }}
+            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1,fontSize: scaleSize(14) }}
+            placeholderTextColor='gray'
           />
         </View>
 
@@ -191,7 +199,8 @@ export default function NewAddress({ navigation }) {
           />
           <TextInput
             placeholder="Street address"
-            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 }}
+            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1,fontSize: scaleSize(14) }}
+            placeholderTextColor='gray'
           />
         </View>
 
@@ -215,7 +224,8 @@ export default function NewAddress({ navigation }) {
           />
           <TextInput
             placeholder="Town/City"
-            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 }}
+            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1, fontSize: scaleSize(14) }}
+            placeholderTextColor='gray'
           />
         </View>
 
@@ -240,12 +250,12 @@ export default function NewAddress({ navigation }) {
           <Text
             style={{
               color: "#717171",
-              fontFamily: "regular",
-              fontSize: scaleFont(15),
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(14),
               marginLeft: scaleSize(10),
             }}
           >
-            +1
+            +91
           </Text>
           <View
             style={{
@@ -253,11 +263,14 @@ export default function NewAddress({ navigation }) {
               width: 1,
               backgroundColor: "#BDBDBD",
               marginLeft: scaleSize(5),
+              fontSize: scaleSize(14)
             }}
           />
           <TextInput
             placeholder="Phone Number"
-            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 }}
+            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1,  fontFamily: "Blinker-Regular",
+            fontSize: scaleFont(14), }}
+            placeholderTextColor='gray'
           />
         </View>
 
@@ -281,7 +294,9 @@ export default function NewAddress({ navigation }) {
           />
           <TextInput
             placeholder="Email address"
-            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1 }}
+            style={{ margin: 0, padding: 0, marginLeft: scaleSize(5), flex: 1,  fontFamily: "Blinker-Regular",
+            fontSize: scaleFont(14), }}
+            placeholderTextColor='gray'
           />
         </View>
 
@@ -296,16 +311,25 @@ export default function NewAddress({ navigation }) {
         >
           <Text
             style={{
-              color: "#0F0F0F",
-              fontFamily: "bold",
-              fontSize: scaleFont(15),
+              color: "#F3D743",
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(12),
               flex: 1,
               marginLeft: scaleSize(5),
             }}
           >
             Set Default Address
           </Text>
-          <Switch />
+
+          <Switch
+        trackColor={{false: '#F3D743', true: '#F3D743'}}
+        thumbColor={isEnabled ? '#fff' : '#fff'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
+
+          {/* <Switch style={{backgroundColor:'#000'}} /> */}
         </View>
 
         <TouchableOpacity
@@ -318,12 +342,13 @@ export default function NewAddress({ navigation }) {
             alignItems: "center",
             borderRadius: scaleSize(30),
           }}
+          
         >
           <Text
             style={{
               color: "#0F0F0F",
-              fontFamily: "regular",
-              fontSize: scaleFont(16),
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(14),
             }}
           >
             Save Address

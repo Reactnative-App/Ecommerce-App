@@ -1,14 +1,15 @@
 import { StyleSheet } from "react-native";
+import { scaleSize, scaleFont } from "../Constants/Mixins";
 
 // import { COLORS, SIZES } from "../Constants/theme";
 
 const styles = StyleSheet.create({
     appWrapper:{
-        marginHorizontal:10,
-        marginTop:15,
+        marginHorizontal: scaleSize(10),
+        marginTop:scaleSize(15),
     },
-    appBar:{marginLeft:12,
-      marginRight:15,
+    appBar:{marginLeft:scaleSize(12),
+      marginRight:scaleSize(15),
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
@@ -18,18 +19,18 @@ const styles = StyleSheet.create({
         gap:10,
     },
     txt:{
-      fontSize:24,
+      fontSize:scaleFont(24),
       fontFamily:"Blinker-Regular",
-      fontSize: 24,
+      fontSize: scaleFont(24),
       color:'#000'
     },
     centerTxt: {
-      marginTop:10,
-      fontSize: 16,
-      fontFamily: 'regular',
+      marginTop:scaleSize(10),
+      fontSize: scaleSize(16),
+      fontFamily: 'Blinker-Regular',
       paddingVertical: 16 / 2,
-      paddingHorizontal: 16,
-      borderRadius: 16,
+      paddingHorizontal: scaleSize(16),
+      borderRadius: scaleSize(16),
       backgroundColor: '#000',
       color: '#ffffff',
       justifyContent:"center",
@@ -37,14 +38,14 @@ const styles = StyleSheet.create({
   },
   btn:{
       backgroundColor:"#000",
-      height:40,
-      width:325,
-      marginTop:20,
+      height:scaleSize(40),
+      width:scaleSize(325),
+      marginTop:scaleSize(20),
       alignSelf:'center',
-      borderRadius:25,
+      borderRadius:scaleSize(25),
       justifyContent:"center",
       alignItems:"center",
-      marginBottom:20
+      marginBottom:scaleSize(20)
   },
   verticalLine:{
     width:1,
@@ -52,14 +53,14 @@ const styles = StyleSheet.create({
     color:"black"
   },
   homeFooter:{
-     marginTop:20,
+     marginTop:scaleSize(20),
     flexDirection: "row", 
     alignItems:'center',
     backgroundColor:'#f1f1f1',
-    height:40,
-    borderRadius:10,
-    padding:5,
-     marginBottom:80
+    height:scaleSize(40),
+    borderRadius:scaleSize(10),
+    padding:scaleSize(5),
+     marginBottom:scaleSize(80)
   },
   imgSizes:{
     flexDirection: "row", 
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
   },
   verticleLine:{
     height: '100%',
-    width: 1,
+    width:scaleSize(1),
     backgroundColor: '#000',
    },
   //  container: {
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
  // Other styles
 
  cashOnDeliveryText: {
-    fontSize: 18,
+    fontSize: scaleFont(18),
     fontWeight: 'bold',
     color: '#fff',
  },

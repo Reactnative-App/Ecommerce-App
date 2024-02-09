@@ -50,8 +50,8 @@ export default function SetAddress({navigation}) {
                 <Text
                   style={{
                     color: COLORS.white,
-                    fontFamily: 'regular',
-                    fontSize: scaleFont(15),
+                    fontFamily: 'Blinker-Regular',
+                    fontSize: scaleFont(12),
                   }}>
                   SET LOCATION
                 </Text>
@@ -73,8 +73,8 @@ export default function SetAddress({navigation}) {
           <Text
             style={{
               color: '#0F0F0F',
-              fontFamily: 'bold',
-              fontSize: scaleFont(15),
+              fontFamily: 'Blinker-SemiBold',
+              fontSize: scaleFont(14),
               flex: 1,
               marginHorizontal: scaleSize(25),
               marginVertical: scaleSize(20),
@@ -106,12 +106,16 @@ export default function SetAddress({navigation}) {
                 padding: 0,
                 marginLeft: scaleSize(5),
                 flex: 1,
+                fontFamily: 'Blinker-Regular',
+                fontSize: scaleFont(14),
+
               }}
+              placeholderTextColor='gray'
             />
           </View>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate('SetAddress')}
+            onPress={() => navigation.navigate('PaymentMethod')}
             style={{
               marginHorizontal: scaleSize(25),
               marginTop: scaleSize(50),
@@ -123,9 +127,10 @@ export default function SetAddress({navigation}) {
             <Text
               style={{
                 color: '#0F0F0F',
-                fontFamily: 'regular',
-                fontSize: scaleFont(16),
+                fontFamily: 'Blinker-Regular',
+                fontSize: scaleFont(14),
               }}>
+            
               Confirm Location
             </Text>
           </TouchableOpacity>

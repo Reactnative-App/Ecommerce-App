@@ -300,8 +300,12 @@ const Cart = (props) => {
                     alignItems: 'center',
                     borderRadius: scaleSize(30),
                   }}
-                  onPress={() => props.navigation.navigate('Checkout')}
+                  // onPress={() => props.navigation.navigate('Checkout')}/
+                  onPress={() => {
+                    props.navigation.navigate('LoginWithEmail');
+                  }}
                   >
+                    
                   <Text
                     style={{
                       color: '#0F0F0F',

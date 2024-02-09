@@ -65,8 +65,8 @@ export default function Address({navigation}) {
               <Text
                 style={{
                   color: COLORS.white,
-                  fontFamily: 'regular',
-                  fontSize: scaleFont(15),
+                  fontFamily: 'Blinker-Regular',
+                  fontSize: scaleFont(12),
                 }}>
                 ADDRESS
               </Text>
@@ -76,12 +76,12 @@ export default function Address({navigation}) {
 
         <View
           style={{
-            marginTop: scaleSize(20),
+           marginTop: scaleSize(20),
             marginHorizontal: scaleSize(25),
             borderRadius: scaleSize(30),
             elevation: 3,
             backgroundColor: COLORS.white,
-            paddingVertical: scaleSize(15),
+           // paddingVertical: scaleSize(15),
             justifyContent: 'center',
             flexDirection: 'row',
             alignItems: 'center',
@@ -91,11 +91,14 @@ export default function Address({navigation}) {
             width={scaleSize(20)}
             style={{marginHorizontal: scaleSize(10)}}
           />
-          <TextInput placeholder="Find an address..." style={{flex: 1}} />
-
+           <TextInput
+        placeholder="Find an address..."
+        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
+        placeholderTextColor="gray"
+      />
           <View
             style={{
-              height: '100%',
+              height: '60%',
               width: 1,
               backgroundColor: '#BDBDBD',
               marginLeft: scaleSize(5),
@@ -136,7 +139,7 @@ export default function Address({navigation}) {
           <Text
             style={{
               color: '#F3D743',
-              fontFamily: 'regular',
+              fontFamily: 'Blinker-Regular',
               fontSize: scaleFont(15),
             }}>
             {item.tutle}
@@ -144,7 +147,7 @@ export default function Address({navigation}) {
           <Text
             style={{
               color: '#717171',
-              fontFamily: 'regular',
+              fontFamily: 'Blinker-Regular',
               fontSize: scaleFont(11),
               marginTop: scaleSize(10),
             }}>
@@ -153,7 +156,7 @@ export default function Address({navigation}) {
           <Text
             style={{
               color: '#717171',
-              fontFamily: 'regular',
+              fontFamily: 'Blinker-Regular',
               fontSize: scaleFont(11),
               marginTop: scaleSize(10),
             }}>
@@ -215,8 +218,8 @@ export default function Address({navigation}) {
           <Text
             style={{
               color: '#0F0F0F',
-              fontFamily: 'regular',
-              fontSize: scaleFont(16),
+              fontFamily: 'Blinker-Regular',
+              fontSize: scaleFont(14),
             }}>
             + Add New Address
           </Text>
