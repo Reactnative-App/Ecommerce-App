@@ -44,7 +44,7 @@ const HomeScreen = () => {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Notification');
+                navigation.navigate('Checkout');
               }}>
               <Image
                 source={require('../assets/Icons/notification_Icon.png')}

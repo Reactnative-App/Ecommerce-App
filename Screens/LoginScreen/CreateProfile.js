@@ -141,7 +141,7 @@ const CreateProfile = ({navigation}) => {
           <View style={styles.input}>
             <Image
               source={require('../../assets/Icons/man.png')}
-              style={{marginTop: 15, marginLeft: 15, marginRight: 15}}
+              style={{marginTop: scaleSize(15), marginLeft: scaleSize(15), marginRight: scaleSize(15)}}
             />
             <TextInput
        placeholder="Full Name"
@@ -154,7 +154,7 @@ const CreateProfile = ({navigation}) => {
             <TouchableOpacity onPress={() => setDatePickerVisibility(true)}>
               <Image
                 source={require('../../assets/Icons/cal.png')}
-                style={{marginTop: 15, marginLeft: 15, marginRight: 15}}
+                style={{marginTop:scaleSize(15), marginLeft: scaleSize(15), marginRight: scaleSize(15)}}
               />
             </TouchableOpacity>
             <TextInput
@@ -168,7 +168,7 @@ const CreateProfile = ({navigation}) => {
           <View style={styles.input}>
             <Image
               source={require('../../assets/Icons/loc.png')}
-              style={{marginTop: 15, marginLeft: 15, marginRight: 15}}
+              style={{marginTop: scaleSize(15), marginLeft: scaleSize(15), marginRight:scaleSize(15)}}
             />
             <TextInput
        placeholder="Region"
@@ -179,7 +179,7 @@ const CreateProfile = ({navigation}) => {
           <View style={styles.input}>
             <Image
               source={require('../../assets/Icons/Gen.png')}
-              style={{marginTop: 15, marginLeft: 15, marginRight: 15}}
+              style={{marginTop:scaleSize(15), marginLeft: scaleSize(15), marginRight: scaleSize(15)}}
             />
             <TextInput
        placeholder="Gender"
@@ -188,7 +188,7 @@ const CreateProfile = ({navigation}) => {
       />
             <Image
               source={require('../../assets/Icons/pen.png')}
-              style={{alignItems:'flex-end',marginTop: 15, marginLeft: 15,marginRight: 15}}
+              style={{alignItems:'flex-end',marginTop: scaleSize(15), marginLeft: scaleSize(15),marginRight: scaleSize(15)}}
             />
           </View>
 
@@ -197,23 +197,23 @@ const CreateProfile = ({navigation}) => {
               flexDirection: 'row',
               justifyContent: 'space-around',
               alignItems: 'center',
-              marginTop: 130,
+              marginTop: scaleSize(130),
             }}>
             <Pressable
               style={[
                 styles.btn,
-                {width: 90, marginRight: 20, backgroundColor: '#fff', borderRadius:25},
+                {width:scaleSize(90), marginRight:scaleSize(20), backgroundColor: '#fff', borderRadius:scaleSize(25)},
               ]}
               onPress={() => {
                 navigation.navigate('HomeScreen');
               }}>
               <Text style={{color: '#000', fontFamily: 'Blinker-Regular', textAlign: 'center'}}>Skip</Text>
             </Pressable>
-            <Pressable  style={[styles.btn, {width: 180, marginLeft: 120,borderRadius:25}]} onPress={() => {
+            <Pressable  style={[styles.btn, {width: scaleSize(180), marginLeft: scaleSize(120),borderRadius:scaleSize(25)}]} onPress={() => {
                 navigation.navigate('Login');
               }} >
               <Text style={{color: '#000', fontFamily: 'Blinker-Regular', textAlign: 'center'}}>
-                Go To Login
+                Go To Shopping
               </Text>
             </Pressable>
           </View>
@@ -233,19 +233,19 @@ export default CreateProfile;
 
 const styles = StyleSheet.create({
   input: {
-    marginTop: 30,
+    marginTop: scaleSize(30),
     alignSelf: 'center',
     flexDirection: 'row',
     // backgroundColor: "#e9edf2,#FEFCF6",
     backgroundColor: 'white',
-    height: 50,
-    width: 325,
-    borderRadius: 40,
+    height: scaleSize(50),
+    width: scaleSize(325),
+    borderRadius: scaleSize(40),
     elevation: 4,
   },
   btn: {
-    padding: 15,
+    padding: scaleSize(15),
     backgroundColor: '#F3D743',
-    borderRadius: 20,
+    borderRadius:scaleSize(20),
   },
 });

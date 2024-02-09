@@ -34,7 +34,7 @@ const DATA_ITEM = [
     icon: <WALLET_SVG height={scaleSize(20)} width={scaleSize(20)} />,
   },
 ];
-export default function PaymentMethod() {
+export default function PaymentMethod({navigation}) {
   const ListHeaderComponet = () => {
     return (
       <View style={{marginVertical: scaleSize(30)}}>
@@ -67,10 +67,10 @@ export default function PaymentMethod() {
               <Text
                 style={{
                   color: COLORS.white,
-                  fontFamily: 'regular',
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(12),
                 }}>
-                SET LOCATION
+                PAYMENT METHOD
               </Text>
             </View>
           </View>
@@ -96,8 +96,8 @@ export default function PaymentMethod() {
         <Text
           style={{
             color: '#0F0F0F',
-            fontFamily: 'regular',
-            fontSize: scaleFont(12),
+            fontFamily: "Blinker-Regular",
+            fontSize: scaleFont(14),
             flex: 1,
           }}>
           {item.title}
@@ -130,8 +130,8 @@ export default function PaymentMethod() {
         <Text
           style={{
             color: '#0F0F0F',
-            fontFamily: 'regular',
-            fontSize: scaleFont(15),
+            fontFamily: "Blinker-SemiBold",
+            fontSize: scaleFont(14),
           }}>
           + Add New Card
         </Text>
@@ -157,7 +157,7 @@ export default function PaymentMethod() {
       />
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('SetAddress')}
+        onPress={() => navigation.navigate('AddNewCard')}
         style={{
           marginHorizontal: scaleSize(25),
           marginBottom: scaleSize(30),
@@ -169,8 +169,8 @@ export default function PaymentMethod() {
         <Text
           style={{
             color: '#0F0F0F',
-            fontFamily: 'regular',
-            fontSize: scaleFont(16),
+            fontFamily: "Blinker-Regular",
+            fontSize: scaleFont(14),
           }}>
           Done
         </Text>

@@ -1,5 +1,5 @@
 import { View, Text, TextInput, Switch, StatusBar } from "react-native";
-import React from "react";
+import React, {useState} from "react";
 import { SafeAreaView } from "react-native";
 import { COLORS } from "../Constants/theme";
 // import { StatusBar } from "expo-status-bar";
@@ -16,7 +16,9 @@ import CALENDER_SVG from "../assets/svg/Calendar.svg";
 import { Pressable } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
-export default function AddNewCard() {
+export default function AddNewCard({navigation}) {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <StatusBar barStyle={'dark-content'} translucent/>
@@ -53,8 +55,8 @@ export default function AddNewCard() {
               <Text
                 style={{
                   color: COLORS.white,
-                  fontFamily: "regular",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
                 }}
               >
                 ADD NEW CARD
@@ -81,8 +83,8 @@ export default function AddNewCard() {
             <Text
               style={{
                 color: COLORS.black,
-                fontFamily: "regular",
-                fontSize: scaleFont(18),
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(16),
               }}
             >
               **** **** **** 6173
@@ -91,8 +93,9 @@ export default function AddNewCard() {
           <Text
             style={{
               color: COLORS.black,
-              fontFamily: "regular",
-              fontSize: scaleFont(14),
+              fontFamily: "Blinker-Regular",
+
+              fontSize: scaleFont(10),
               marginTop: scaleSize(30),
             }}
           >
@@ -101,7 +104,8 @@ export default function AddNewCard() {
           <Text
             style={{
               color: COLORS.black,
-              fontFamily: "regular",
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(24),  
               fontSize: scaleFont(18),
               // marginTop: scaleSize(20),
             }}
@@ -118,8 +122,8 @@ export default function AddNewCard() {
             <Text
               style={{
                 color: COLORS.black,
-                fontFamily: "regular",
-                fontSize: scaleFont(14),
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(12),
               }}
             >
               Change Name
@@ -127,8 +131,8 @@ export default function AddNewCard() {
             <Text
               style={{
                 color: COLORS.black,
-                fontFamily: "regular",
-                fontSize: scaleFont(14),
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(12),
               }}
             >
               08/30
@@ -161,7 +165,11 @@ export default function AddNewCard() {
               padding: 0,
               marginLeft: scaleSize(5),
               flex: 1,
+              fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(14),
             }}
+            placeholderTextColor={'gray'}
+
           />
         </View>
 
@@ -190,7 +198,11 @@ export default function AddNewCard() {
               padding: 0,
               marginLeft: scaleSize(5),
               flex: 1,
+              fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(14),
             }}
+            placeholderTextColor={'gray'}
+
           />
         </View>
         <View
@@ -218,7 +230,11 @@ export default function AddNewCard() {
               padding: 0,
               marginLeft: scaleSize(5),
               flex: 1,
+              fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(14),
             }}
+            placeholderTextColor={'gray'}
+
           />
         </View>
         <View
@@ -246,7 +262,11 @@ export default function AddNewCard() {
               padding: 0,
               marginLeft: scaleSize(5),
               flex: 1,
+              fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(14),
             }}
+            placeholderTextColor={'gray'}
+
           />
         </View>
 
@@ -262,15 +282,21 @@ export default function AddNewCard() {
           <Text
             style={{
               color: "#0F0F0F",
-              fontFamily: "bold",
-              fontSize: scaleFont(15),
+              fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(12),
               flex: 1,
               marginLeft: scaleSize(5),
             }}
           >
             Set Default Address
           </Text>
-          <Switch />
+          <Switch
+        trackColor={{false: '#F3D743', true: '#F3D743'}}
+        thumbColor={isEnabled ? '#fff' : '#fff'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
         </View>
         <View
           style={{
@@ -294,9 +320,9 @@ export default function AddNewCard() {
           >
             <Text
               style={{
-                color: "#0F0F0F",
-                fontFamily: "regular",
-                fontSize: scaleFont(15),
+                color: 'gray',
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(14),
               }}
             >
               Cancel
@@ -312,12 +338,13 @@ export default function AddNewCard() {
               justifyContent: "center",
               borderRadius: scaleSize(40),
             }}
+            onPress={() => navigation.navigate("MyQRscan")}
           >
             <Text
               style={{
                 color: "#0F0F0F",
-                fontFamily: "regular",
-                fontSize: scaleFont(15),
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(14),
               }}
             >
               Add Card

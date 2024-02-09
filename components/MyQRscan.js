@@ -62,8 +62,8 @@ export default function MyQRscan(props) {
                 <Text
                   style={{
                     color: COLORS.white,
-                    fontFamily: "regular",
-                    fontSize: scaleFont(15),
+                    fontFamily: "Blinker-Regular",
+                    fontSize: scaleFont(12),
                   }}
                 >
                   MY QR CODE
@@ -97,8 +97,8 @@ export default function MyQRscan(props) {
             <Text
               style={{
                 color: COLORS.txtGray,
-                fontFamily: "regular",
-                fontSize: scaleFont(14),
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(12),
                 marginTop: scaleSize(20),
               }}
             >
@@ -116,8 +116,8 @@ export default function MyQRscan(props) {
             <Text
               style={{
                 color: COLORS.black,
-                fontFamily: "regular",
-                fontSize: scaleFont(20),
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(16),
                 marginTop: scaleSize(20),
               }}
             >
@@ -126,7 +126,7 @@ export default function MyQRscan(props) {
             <Text
               style={{
                 color: COLORS.yellow_shadow,
-                fontFamily: "regular",
+                fontFamily: "Blinker-Light",
                 fontSize: scaleFont(50),
                 marginTop: scaleSize(10),
               }}
@@ -156,8 +156,8 @@ export default function MyQRscan(props) {
               <Text
                 style={{
                   color: COLORS.black,
-                  fontFamily: "regular",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
                   marginTop: scaleSize(10),
                 }}
               >
@@ -170,6 +170,7 @@ export default function MyQRscan(props) {
                 flex: 0.4,
                 alignSelf: "center",
                 backgroundColor: "rgba(0, 0, 0, 0.06)",
+               
                 borderRadius: scaleSize(10),
                 padding: scaleSize(20),
                 alignItems: "center",
@@ -179,8 +180,8 @@ export default function MyQRscan(props) {
               <Text
                 style={{
                   color: COLORS.txtGray,
-                  fontFamily: "regular",
-                  fontSize: scaleFont(15),
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
                   marginTop: scaleSize(10),
                 }}
               >
@@ -201,12 +202,13 @@ export default function MyQRscan(props) {
               marginBottom: scaleSize(20),
               marginHorizontal: scaleSize(25),
             }}
+           // onPress={() => navigation.navigate("SetAddress")}
           >
             <Text
               style={{
                 color: COLORS.txtGray,
-                fontFamily: "regular",
-                fontSize: scaleFont(15),
+                fontFamily: "Blinker-Regular",
+                fontSize: scaleFont(14),
               }}
             >
               Choose another card
