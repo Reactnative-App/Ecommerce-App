@@ -42,12 +42,7 @@ export default function OrderSucess() {
               alignItems: "center",
             }}
           >
-            <ARROW_SVG
-              height={scaleSize(20)}
-              width={scaleSize(20)}
-              style={{ marginLeft: scaleSize(20) }}
-              onPress={() => navigation.goBack()}
-            />
+            
             <View
               style={{
                 flex: 1,
@@ -55,24 +50,7 @@ export default function OrderSucess() {
                 marginRight: scaleSize(50),
               }}
             >
-              <View
-                style={{
-                  backgroundColor: "#0F0F0F",
-                  paddingHorizontal: scaleSize(20),
-                  paddingVertical: scaleSize(5),
-                  borderRadius: 15,
-                }}
-              >
-                <Text
-                  style={{
-                    color: COLORS.white,
-                    fontFamily: "regular",
-                    fontSize: scaleFont(15),
-                  }}
-                >
-                  MY QR CODE
-                </Text>
-              </View>
+              
             </View>
           </View>
           <View style={{ alignSelf: "center" }}>
@@ -81,8 +59,8 @@ export default function OrderSucess() {
           <Text
             style={{
               color: COLORS.black,
-              fontFamily: "regular",
-              fontSize: scaleFont(30),
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(24),
               textAlign: "center",
               //   marginTop: scaleSize(20),
             }}
@@ -92,8 +70,8 @@ export default function OrderSucess() {
           <Text
             style={{
               color: COLORS.txtGray,
-              fontFamily: "regular",
-              fontSize: scaleFont(15),
+              fontFamily: "Blinker-Regular",
+              fontSize: scaleFont(12),
               textAlign: "center",
               marginHorizontal: scaleSize(25),
               marginTop: scaleSize(20),
@@ -114,7 +92,7 @@ export default function OrderSucess() {
                 marginTop: scaleSize(20),
               }}
             >
-              <Text>Order Detail</Text>
+              <Text style={{color:'#000', fontSize: scaleFont(12)}}>Order Detail</Text>
               <View
                 style={{
                   flex: 1,
@@ -132,8 +110,8 @@ export default function OrderSucess() {
                   marginTop: scaleSize(20),
                 }}
               >
-                <Text>Order Number:</Text>
-                <Text>#1234567</Text>
+                <Text style={{color:'gray', fontSize: scaleFont(12)}}>Order Number:</Text>
+                <Text style={{color:'#000', fontSize: scaleFont(12)}}>#1234567</Text>
               </View>
               <View
                 style={{
@@ -142,10 +120,17 @@ export default function OrderSucess() {
                   marginTop: scaleSize(10),
                 }}
               >
-                <Text>Amount Paid:</Text>
-                <Text>$123.00</Text>
+                <Text style={{color:'gray', fontSize: scaleFont(12)}}>Amount Paid:</Text>
+                <Text style={{color:'#F3D743', fontSize: scaleFont(12)}} >$123.00</Text>
               </View>
             </View>
+
+
+
+
+
+
+            
             <TouchableOpacity
               onPress={() => navigation.navigate("SetAddress")}
               style={{
@@ -161,8 +146,8 @@ export default function OrderSucess() {
               <Text
                 style={{
                   color: "#0F0F0F",
-                  fontFamily: "regular",
-                  fontSize: scaleFont(16),
+                  fontFamily: "Blinker-Regular",
+                  fontSize: scaleFont(12),
                 }}
               >
                 Continue Shopping

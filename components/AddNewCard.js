@@ -340,6 +340,7 @@ export default function AddNewCard({navigation}) {
             }}
             onPress={() => navigation.navigate("MyQRscan")}
           >
+
             <Text
               style={{
                 color: "#0F0F0F",

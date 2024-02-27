@@ -33,7 +33,9 @@ const Screen1 = ({ navigation }) => {
         <Text style={styles.smallText}>
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
         </Text>
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Login')}>
+         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('HomeScreen')}>  
+
+         
           <Text style={styles.btnText}>Get Started</Text>
         </TouchableOpacity>
       </LinearGradient>

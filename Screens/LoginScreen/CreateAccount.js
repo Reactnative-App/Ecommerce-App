@@ -8,13 +8,14 @@ import {
   Pressable,
   ScrollView,
   ImageBackground,
-  SafeAreaView,StatusBar
+  SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import React, {useState} from 'react';
 // import {StatusBar} from 'expo-status-bar';
 // import Icons from 'react-native-vector-icons/Ionicons';
- import Ionicons from 'react-native-vector-icons/Ionicons';
- import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import HEADER_IMG from '../../assets/Header.png';
 import ARROW_SVG from '../../assets/svg/Arrow.svg';
@@ -29,62 +30,58 @@ import CALL_SVG from '../../assets/svg/Call.svg';
 import {COLORS} from '../../Constants/theme';
 import PhoneInput from 'react-native-phone-number-input';
 
-const LoginScreen = (props) => {
+const LoginScreen = props => {
+  console.log(props);
 
-  console.log(props)
-
-  const [email,setEmail] = useState(props.route.params.mail) 
-  const [password,setPassword] = useState('')
+  const [email, setEmail] = useState(props.route.params.mail);
+  const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [checked, setChecked] = useState(false);
 
-  const [emailError,setEmailError] = useState(false) 
-  const [passwordError,setPasswordError] = useState(false)
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const [phoneNumberError, setPhoneNumberError] = useState(false);
-  const [disableBtn,setdisableBtn] = useState(true)
-  const isValidEmail = (str) => {
-    if (str == null || str == undefined || str == "") return false;
+  const [disableBtn, setdisableBtn] = useState(true);
+  const isValidEmail = str => {
+    if (str == null || str == undefined || str == '') return false;
     else {
       const re =
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(str);
     }
-  }
+  };
 
-  const saveData = async()=>{
-    if(!isValidEmail(email)){
-      setEmailError(true)
+  const saveData = async () => {
+    if (!isValidEmail(email)) {
+      setEmailError(true);
       // console.log(isValidEmail(email),'1')
+    } else {
+      setEmailError(false);
+      // console.log(isValidEmail(email),'2')
     }
-    else{
-      setEmailError(false)
-      // console.log(isValidEmail(email),'2') 
+    if (!password) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
     }
-    if(!password){
-      setPasswordError(true)
+    if (!phoneNumber) {
+      setPhoneNumberError(true);
+    } else {
+      setPhoneNumberError(false);
     }
-    else{
-      setPasswordError(false) 
-    }
-    if(!phoneNumber){
-      setPhoneNumberError(true)
-    }
-    else{
-      setPhoneNumberError(false) 
-    }
-    if(!isValidEmail(email) || !password ||!phoneNumber){
-      return false
+    if (!isValidEmail(email) || !password || !phoneNumber) {
+      return false;
     }
     // console.warn("next")
-    props.navigation.navigate('HomeScreen')
-  }
+    props.navigation.navigate('HomeScreen');
+  };
 
   const toggleCheckbox = () => {
-     setChecked(!checked);
+    setChecked(!checked);
   };
   const [isSelected, setSelection] = useState(false);
   const [showotp, setshowotp] = useState(true);
-  
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white_light}}>
       <ScrollView>
@@ -114,8 +111,8 @@ const LoginScreen = (props) => {
             fontWeight: '400',
             marginHorizontal: scaleSize(20),
             fontFamily: 'Blinker-Light',
-            color:'#000',
-            marginLeft: scaleSize(20)
+            color: '#000',
+            marginLeft: scaleSize(20),
           }}>
           Create Your Account
         </Text>
@@ -125,42 +122,45 @@ const LoginScreen = (props) => {
             <MAIL_SVG size={scaleSize(20)} />
           </View>
           <TextInput
-                    value={email}
-                    onChangeText={(text)=>setEmail(text)}
-        placeholder="Email address"
-        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
-        placeholderTextColor="gray"
-      />
+            value={email}
+            onChangeText={text => setEmail(text)}
+            placeholder="Email address"
+            style={{flex: 1, fontFamily: 'Blinker-Regular', color: 'gray'}}
+            placeholderTextColor="gray"
+          />
         </View>
-        {emailError ? <Text style={styles.errorText}>Please enter valid email id</Text> : null}
+        {emailError ? (
+          <Text style={styles.errorText}>Please enter valid email id</Text>
+        ) : null}
         <View style={styles.inputBoxStyle}>
           <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
             <CALL_SVG size={scaleSize(20)} />
           </View>
           <TextInput
-                              value={phoneNumber}
-                              onChangeText={(text)=>setPhoneNumber(text)}
-        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'black' }}
-        placeholderTextColor={'gray'}
-        placeholder=" Phone number"
-        keyboardType="phone-pad"
-
-        maxLength={10}
-      />
+            value={phoneNumber}
+            onChangeText={text => setPhoneNumber(text)}
+            style={{flex: 1, fontFamily: 'Blinker-Regular', color: 'black'}}
+            placeholderTextColor={'gray'}
+            placeholder=" Phone number"
+            keyboardType="phone-pad"
+            maxLength={10}
+          />
         </View>
-        {phoneNumberError ? <Text style={styles.errorText}>Please enter valid phone number</Text> : null}
+        {phoneNumberError ? (
+          <Text style={styles.errorText}>Please enter valid phone number</Text>
+        ) : null}
         <View style={styles.inputBoxStyle}>
           <View style={{alignSelf: 'center', margin: scaleSize(15)}}>
             <LOCK_SVG size={scaleSize(20)} />
           </View>
           <TextInput
-                                      value={password}
-                                      onChangeText={(text)=>setPassword(text)}
-        placeholder=" Password"
-        style={{ flex: 1, fontFamily: 'Blinker-Regular', color: 'gray' }}
-        placeholderTextColor="gray"
-        secureTextEntry={showotp}
-      />
+            value={password}
+            onChangeText={text => setPassword(text)}
+            placeholder=" Password"
+            style={{flex: 1, fontFamily: 'Blinker-Regular', color: 'gray'}}
+            placeholderTextColor="gray"
+            secureTextEntry={showotp}
+          />
           <View style={{marginTop: scaleSize(10)}}>
             <Pressable
               onPress={() => {
@@ -172,23 +172,17 @@ const LoginScreen = (props) => {
                   marginRight: scaleSize(15),
                 }}>
                 {showotp ? (
-              <Ionicons
-                name="eye-off"
-                size={scaleSize(20)}
-                color="#000"
-              />
-            ) : (
-              <Ionicons
-                name="eye"
-                size={scaleSize(20)}
-                color="#000"
-              />
-            )}
+                  <Ionicons name="eye-off" size={scaleSize(20)} color="#000" />
+                ) : (
+                  <Ionicons name="eye" size={scaleSize(20)} color="#000" />
+                )}
               </View>
             </Pressable>
           </View>
         </View>
-        {passwordError ? <Text style={styles.errorText}>Please enter valid password</Text> : null}
+        {passwordError ? (
+          <Text style={styles.errorText}>Please enter valid password</Text>
+        ) : null}
 
         <View
           style={{
@@ -199,24 +193,29 @@ const LoginScreen = (props) => {
             alignItems: 'center',
           }}>
 
-
-
-<TouchableOpacity  onPress={toggleCheckbox}>
-  {checked ?
- 
-<MaterialIcons name="check-circle" size={scaleSize(18)} color="#F3D743" /> :
-
-<MaterialIcons name="radio-button-unchecked" size={scaleSize(16)} color="#F3D743" />
-}
-    </TouchableOpacity>
-
+            
+          <TouchableOpacity onPress={toggleCheckbox}>
+            {checked ? (
+              <MaterialIcons
+                name="check-circle"
+                size={scaleSize(18)}
+                color="#F3D743"
+              />
+            ) : (
+              <MaterialIcons
+                name="radio-button-unchecked"
+                size={scaleSize(16)}
+                color="#F3D743"
+              />
+            )}
+          </TouchableOpacity>
 
           <Text
             style={{
               marginLeft: scaleSize(10),
               fontSize: scaleFont(12),
               fontFamily: 'regular',
-              color:'#000'
+              color: '#000',
             }}>
             I agree with{' '}
             <Text
@@ -259,10 +258,20 @@ const LoginScreen = (props) => {
               Sign Up
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity 
-          disabled={isValidEmail(email) && password && phoneNumber && checked ? false : true}
-            style={{...styles.btn,backgroundColor: isValidEmail(email) && password && phoneNumber && checked  ? '#F3D743':'#FAF3D0',}}
-            onPress={()=>saveData()}>
+          <TouchableOpacity
+            disabled={
+              isValidEmail(email) && password && phoneNumber && checked
+                ? false
+                : true
+            }
+            style={{
+              ...styles.btn,
+              backgroundColor:
+                isValidEmail(email) && password && phoneNumber && checked
+                  ? '#F3D743'
+                  : '#FAF3D0',
+            }}
+            onPress={() => saveData()}>
             <Text
               style={{
                 color: COLORS.black,
@@ -291,7 +300,6 @@ const LoginScreen = (props) => {
               fontWeight: '600',
               color: '#737171',
               textAlign: 'center',
-              
             }}>
             Terms & Conditions
             <Text style={{fontSize: scaleFont(12), alignSelf: 'center'}}>
@@ -329,13 +337,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 5,
   },
-  errorText:{
+  errorText: {
     flexDirection: 'row',
     marginTop: scaleSize(5),
     marginHorizontal: scaleSize(28),
-    fontSize:scaleFont(12),
-    fontFamily:'Blinker-Regular',
-    color:'red'
+    fontSize: scaleFont(12),
+    fontFamily: 'Blinker-Regular',
+    color: 'red',
   },
   btn: {
     height: 40,
@@ -377,10 +385,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   checkboxContainer: {
-   // width: 12,
+    // width: 12,
     //height: 12,
     //borderRadius: 8,
-    borderWidth:1,
+    borderWidth: 1,
     // borderColor: 'gray',
     alignItems: 'center',
     // justifyContent: 'center',
@@ -389,18 +397,18 @@ const styles = StyleSheet.create({
     // borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',
- },
- unchecked: {
+  },
+  unchecked: {
     width: 12,
     height: 12,
     borderRadius: 6,
     backgroundColor: '#ffffff',
- },
- checked: {
-  width: 12,
-  height: 12,
-  borderRadius: 6,
-  borderWidth:8,
-  backgroundColor: '#F3D743',
- },
+  },
+  checked: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    borderWidth: 8,
+    backgroundColor: '#F3D743',
+  },
 });
