@@ -7,12 +7,16 @@ import {
   FlatList,
   Pressable,
   Dimensions,
+  Alert,
+  TouchableHighlight,
+  pressed,
+    Modal ,
+
 } from 'react-native';
 import React, {useState} from 'react';
 import styles from './ProductDetails.style';
 //import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-
 
 import {
   widthPercentageToDP as wp,
@@ -28,8 +32,7 @@ import * as Progress from 'react-native-progress';
 import ProductCartView from './ProductCartView';
 import BUY_SVG from '../assets/svg/Buy.svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-const {height,width} = Dimensions.get('window')
-
+const {height, width} = Dimensions.get('window');
 const image1 = require('../assets/Products/Product1.png');
 const image2 = require('../assets/Products/Product2.png');
 const image3 = require('../assets/Products/Product3.png');
@@ -37,52 +40,34 @@ const image4 = require('../assets/Products/Product4.png');
 const image5 = require('../assets/Products/Product1.png');
 const image6 = require('../assets/Products/Product4.png');
 
-
-
 const ProductDetails = ({navigation}) => {
-
- 
-
+  const [cartItems, setCartItems] = useState([]);
+  const Colors = ['#08609C', '#AD63C2', '#DEAD3D', '#CD3B3B', '#FFE0D5'];
   const SIZES = ['S', 'M', 'L', 'XL'];
-  const products = [1, 2, 3, 4,5];
-
   const [size, setSize] = useState(SIZES[0]);
   const [count, setCount] = useState(1);
+  const [selectedSize, setSelectedSize] = useState(null);
 
-
-
-  const [data, setData] = useState([
-    {
-      items: [
-        image1,
-        image2,
-        image3,
-        image4,
-        image5,
-        image6,
-      ]
+  // Function to handle adding item to cart
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      // If size is not selected, show a warning
+      Alert.alert('Warning', 'Please select your size');
+    } else {
+      // If size is selected, add item to cart
+      const newItem = {
+        size: selectedSize,
+        count: count,
+        // You might want to include more details about the product here
+      };
+      setCartItems([...cartItems, newItem]);
+      // Navigate to cart page and pass the cart items as route params
+      navigation.navigate('Cart', {cartItems: [...cartItems, newItem]});
     }
-  ])
-//   const data = [
-//   { id: '1', image: require('../assets/Products/Product1.png') },
-//   { id: '2', image: require('../assets/Products/Product1.png') },
-//   { id: '3', image: require('../assets/Products/Product1.png') },
-//   { id: '4', image: require('../assets/Products/Product1.png') },
-//   { id: '5', image: require('../assets/Products/Product1.png') },
-// ];
-
-  // const renderItem = ({ item }) => (
-  //   <Image source={item.image} style={{ marginRight: 5, height:85, width:80, }} />
-  // );
-
-
-
-
- // const { width: screenWidth } = Dimensions.get('window');
-// const containerWidth = 325;
-// const containerHeight = 222;
-const [selectedIndex, setSelectedIndex] = useState(0);
-
+  };
+  const [pressed, setPressed] = useState(false);
+  const [showSizeChart, setShowSizeChart] = useState(false);
+  //const [showSizeChart, setShowSizeChart] = useState(false);
   return (
     <View style={styles.main}>
       <ScrollView>
@@ -102,8 +87,6 @@ const [selectedIndex, setSelectedIndex] = useState(0);
           </TouchableOpacity>
         </View>
 
-
-          
         {/* <View style={{height:200, marginTop: scaleSize(30),  marginLeft: scaleSize(10),  marginRight: scaleSize(10)}}>
         <FlatList
         pagingEnabled
@@ -124,15 +107,12 @@ const [selectedIndex, setSelectedIndex] = useState(0);
 
         </View> */}
 
-
-        
-
         <View style={styles.headerContainer}>
-      <Image
-        source={require('../assets/Products/Product1.png')}
-        style={styles.image}
-      />
-    </View>
+          <Image
+            source={require('../assets/Products/Product1.png')}
+            style={styles.image}
+          />
+        </View>
 
         {/* <View style={{ flexDirection: 'row', gap: 5, marginLeft:15}}>
       <FlatList
@@ -157,7 +137,6 @@ const [selectedIndex, setSelectedIndex] = useState(0);
           <View style={styles.ratingRow}>
             <View style={styles.rating}>
               <Text style={styles.txt}>Linen slim-fit t-shirt</Text>
-              
             </View>
 
             <View style={styles.rating}>
@@ -167,14 +146,22 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                     setCount(count - 1);
                   }
                 }}>
-                <SimpleLineIcons name="minus" size={20} style={{color:'#000'}} />
+                <SimpleLineIcons
+                  name="minus"
+                  size={20}
+                  style={{color: '#000'}}
+                />
               </TouchableOpacity>
-              <Text style={{color:'#000'}}>{count}</Text>
+              <Text style={{color: '#000'}}>{count}</Text>
               <TouchableOpacity
                 onPress={() => {
                   setCount(count + 1);
                 }}>
-                <SimpleLineIcons name="plus" size={20} style={{color:'#000'}} />
+                <SimpleLineIcons
+                  name="plus"
+                  size={20}
+                  style={{color: '#000'}}
+                />
               </TouchableOpacity>
             </View>
           </View>
@@ -196,28 +183,29 @@ const [selectedIndex, setSelectedIndex] = useState(0);
           <View style={styles.sizeDirection}>
             <Text style={styles.customSizes}>Color :</Text>
           </View>
-
           <View style={styles.sizesRow}>
-            {SIZES.map((s, i) => (
+            {Colors.map((color, i) => (
               <TouchableOpacity
                 key={i}
-                onPress={() => setSize(s)}
+                onPress={() => setSelectedSize(color)}
                 style={{
                   width: 24,
                   height: 24,
                   alignItems: 'center',
                   justifyContent: 'center',
-                  borderWidth: 1,
-                  backgroundColor: '#000',
-                  borderRadius: 44,
-                }}></TouchableOpacity>
+                  backgroundColor: color,
+                  borderRadius: scaleSize(44),
+                  marginRight: scaleSize(10),
+                }}
+              />
             ))}
           </View>
-
 
           <View style={styles.sizeDirection}>
             <Text style={styles.customSizes}>Size :</Text>
           </View>
+
+<View style={{flexDirection:'row',justifyContent:'space-between'}}>
 
           <View style={styles.sizesRow}>
             {SIZES.map((s, i) => (
@@ -231,19 +219,54 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                   justifyContent: 'center',
                   borderWidth: 1,
                   borderColor: s === size ? '#bdbdbd' : '',
-                  borderRadius: 44,
+                  borderRadius: scaleSize(44),
                 }}>
                 <Text
                   style={{
                     color: s === size ? '#000' : '#bdbdbd',
                     fontFamily: 'regular',
-                    fontSize: 10,
+                    fontSize: scaleSize(10),
                   }}>
                   {s}
                 </Text>
               </TouchableOpacity>
             ))}
           </View>
+
+          </View>        
+
+  {/* <View style={styles.sizesRow}>
+    {SIZES.map((s, i) => (
+      <TouchableOpacity
+        key={i}
+        onPress={() => setSelectedSize(s)}
+        style={{
+          width: 24,
+          height: 24,
+          alignItems: 'center',
+          justifyContent: 'center',.
+          borderWidth: 1,
+          borderColor: s === size ? '#000' : '',
+          backgroundColor: selectedSize === s ? 'green' : '',
+          borderRadius: 44,
+        }}>
+        <Text
+          style={{
+            color: s === size ? '#000' : '#bdbdbd',
+            fontFamily: 'regular',
+            fontSize: 10,
+          }}>
+          {s}
+        </Text>
+      </TouchableOpacity>
+    ))}
+  </View> */}
+
+
+
+
+
+          {!size && <Text style={{color: 'red'}}>Please select your size</Text>}
 
           <View style={styles.horizontal}></View>
 
@@ -292,7 +315,7 @@ const [selectedIndex, setSelectedIndex] = useState(0);
               padding: scaleSize(20),
               elevation: 1,
               marginTop: scaleSize(30),
-              borderRadius: 10,
+              borderRadius: scaleSize(10),
             }}>
             <View
               style={{
@@ -399,7 +422,7 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                 <Text
                   style={{
                     color: '#717171',
-                    fontFamily: 'regular',
+                    fontFamily: 'Blinker-Regular',
                     fontSize: scaleFont(14),
                   }}>
                   3
@@ -425,7 +448,7 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                 <Text
                   style={{
                     color: '#717171',
-                    fontFamily: 'regular',
+                    fontFamily: 'Blinker-Regular',
                     fontSize: scaleFont(14),
                   }}>
                   2
@@ -451,7 +474,7 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                 <Text
                   style={{
                     color: '#717171',
-                    fontFamily: 'regular',
+                    fontFamily: 'Blinker-Regular',
                     fontSize: scaleFont(14),
                   }}>
                   1
@@ -487,14 +510,14 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                 style={{
                   width: 65,
                   height: 65,
-                  borderRadius: 100 / 2,
+                  borderRadius: scaleSize(100 / 2),
                   backgroundColor: COLORS.white,
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
                 <Text
                   style={{
-                    fontFamily: 'bold',
+                    fontFamily: 'Blinker-SemiBold',
                     fontSize: scaleFont(10),
                     color: COLORS.txtGray,
                   }}>
@@ -502,7 +525,7 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                 </Text>
                 <Text
                   style={{
-                    fontFamily: 'bold',
+                    fontFamily: 'Blinker-SemiBold',
                     fontSize: scaleFont(10),
                     color: COLORS.txtGray,
                   }}>
@@ -523,7 +546,7 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                     style={{
                       width: 8,
                       height: 8,
-                      borderRadius: 16 / 2,
+                      borderRadius: scaleSize(16 / 2),
                       backgroundColor: 'green',
                       position: 'absolute',
                       left: 0,
@@ -532,7 +555,7 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                   <Text
                     style={{
                       color: '#BDBDBD',
-                      fontFamily: 'regular',
+                      fontFamily: 'Blinker-Regular',
                       fontSize: scaleFont(8),
                       marginLeft: scaleSize(12),
                     }}>
@@ -543,23 +566,27 @@ const [selectedIndex, setSelectedIndex] = useState(0);
             </View>
           </View>
 
-
           <FlatList
-              data={[1, 2, 3, 4]}
-              renderItem={({ item }) => <ProductCartView />}
-              horizontal={false}
-              numColumns={2}
-              style={{marginHorizontal:scaleSize(10),marginVertical:scaleSize(20)}}
-              />
+            data={[1, 2, 3, 4]}
+            renderItem={({item}) => <ProductCartView />}
+            horizontal={false}
+            numColumns={2}
+            style={
+              {
+                //  marginHorizontal: scaleSize(10),
+                // marginVertical: scaleSize(20),
+              }
+            }
+          />
 
-            <View
+          {/* <View
               style={{
                 height: scaleSize(75),
                 width: WIDTH,
                 backgroundColor: '#FFFFFF',
                 // borderRadius: 40,
-                borderTopLeftRadius: 40,
-                borderTopRightRadius: 40,
+                borderTopLeftRadius: scaleSize(40),
+                borderTopRightRadius: scaleSize(40),
                 alignSelf: 'center',
                 alignItems: 'center',
                 flexDirection: 'row',
@@ -569,7 +596,7 @@ const [selectedIndex, setSelectedIndex] = useState(0);
               <Text
                 style={{
                   marginHorizontal: scaleSize(20),
-                  fontFamily: 'regular',
+                  fontFamily: 'Blinker-Regular',
                   fontSize: scaleFont(8),
                   color: COLORS.txtGray,
                   marginBottom: scaleSize(10),
@@ -579,10 +606,11 @@ const [selectedIndex, setSelectedIndex] = useState(0);
               <Text
                 style={{
                   marginHorizontal: scaleSize(20),
-                  fontFamily: 'light',
+                  fontFamily: 'Blinker-Light',
                   fontSize: scaleFont(26),
                   position: 'absolute',
                   top: 35,
+                  color: COLORS.txtGray,
                 }}>
                 $ 40.00
               </Text>
@@ -596,9 +624,10 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                   alignSelf: 'center',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginHorizontal: scaleSize(20),
-                  
-                }}>
+                  marginHorizontal: scaleSize(20),    
+            }}
+            onPress={()=>navigation.navigate("Cart")}
+            >
                 <Text
                   style={{
                     fontSize: scaleFont(14),
@@ -614,13 +643,134 @@ const [selectedIndex, setSelectedIndex] = useState(0);
                       marginLeft: scaleSize(30),
                     }}
                   />
-                  Add To Cart
+                 &nbsp;  Add To Cart
                 </Text>
               </Pressable>
-            </View>
+            </View> */}
+          {/* <View
+            style={{
+              height: scaleSize(75),
+              width: WIDTH,
+              backgroundColor: '#FFFFFF',
+              borderTopLeftRadius: scaleSize(40),
+              borderTopRightRadius: scaleSize(40),
+              alignSelf: 'center',
+              alignItems: 'center',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: scaleSize(50),
+            }}>
+            <Text
+              style={{
+                marginHorizontal: scaleSize(20),
+                fontFamily: 'Blinker-Regular',
+                fontSize: scaleFont(8),
+                color: COLORS.txtGray,
+                marginBottom: scaleSize(10),
+              }}>
+              Total Price :
+            </Text>
 
+            <Text
+              style={{
+                marginHorizontal: scaleSize(20),
+                fontFamily: 'Blinker-Light',
+                fontSize: scaleFont(26),
+                position: 'absolute',
+                top: 35,
+                color: COLORS.txtGray,
+              }}>
+              $ 40.00
+            </Text>
+            <Pressable
+              style={{
+                height: scaleSize(40),
+                width: WIDTH - scaleSize(190),
+                backgroundColor: '#F3D743',
+                borderRadius: 40,
+                alignSelf: 'center',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginHorizontal: scaleSize(20),
+              }}
+              onPress={handleAddToCart}>
+              <Text
+                style={{
+                  fontSize: scaleFont(14),
+                  textAlign: 'center',
+                  fontFamily: 'Blinker-Regular',
+                  color: '#000',
+                }}>
+                <BUY_SVG
+                  size={scaleSize(40)}
+                  style={{marginTop: scaleSize(30), marginLeft: scaleSize(30)}}
+                />{' '}
+                &nbsp; Add To Cart
+              </Text>
+            </Pressable>
+          </View> */}
+          <View
+            style={{
+              height: scaleSize(75),
+              width: WIDTH,
+              backgroundColor: '#FFFFFF',
+              borderTopLeftRadius: scaleSize(40),
+              borderTopRightRadius: scaleSize(40),
+              alignSelf: 'center',
+              alignItems: 'center',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: scaleSize(50),
+            }}>
+            <Text
+              style={{
+                marginHorizontal: scaleSize(20),
+                fontFamily: 'Blinker-Regular',
+                fontSize: scaleFont(8),
+                color: COLORS.txtGray,
+                marginBottom: scaleSize(10),
+              }}>
+              Total Price :
+            </Text>
+            <Text
+              style={{
+                marginHorizontal: scaleSize(20),
+                fontFamily: 'Blinker-Light',
+                fontSize: scaleFont(26),
+                position: 'absolute',
+                top: 35,
+                color: COLORS.txtGray,
+              }}>
+              $ 40.00
+            </Text>
+            <Pressable
+              style={{
+                height: scaleSize(40),
+                width: WIDTH - scaleSize(190),
+                backgroundColor: '#F3D743',
+                borderRadius: 40,
+                alignSelf: 'center',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginHorizontal: scaleSize(20),
+              }}
+              onPress={handleAddToCart}>
+              <Text
+                style={{
+                  fontSize: scaleFont(14),
+                  textAlign: 'center',
+                  fontFamily: 'Blinker-Regular',
+                  color: '#000',
+                }}>
+                <BUY_SVG
+                  size={scaleSize(40)}
+                  style={{marginTop: scaleSize(30), marginLeft: scaleSize(30)}}
+                />{' '}
+                &nbsp; Add To Cart
+              </Text>
+            </Pressable>
+          </View>
         </View>
-
       </ScrollView>
     </View>
   );

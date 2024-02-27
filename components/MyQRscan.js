@@ -17,7 +17,7 @@ import { Pressable } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity,StatusBar } from "react-native";
 // import { LinearGradient } from "expo-linear-gradient";
-export default function MyQRscan(props) {
+export default function MyQRscan(navigation) {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
       <StatusBar
@@ -42,8 +42,9 @@ export default function MyQRscan(props) {
               height={scaleSize(20)}
               width={scaleSize(20)}
               style={{ marginLeft: scaleSize(20) }}
-              onPress={() => navigation.goBack()}
+               onPress={() => navigation.goBack()}
             />
+            
             <View
               style={{
                 flex: 1,
@@ -202,7 +203,7 @@ export default function MyQRscan(props) {
               marginBottom: scaleSize(20),
               marginHorizontal: scaleSize(25),
             }}
-           // onPress={() => navigation.navigate("SetAddress")}
+            onPress={() => props.navigation.navigate("OrderSucess")}
           >
             <Text
               style={{
@@ -219,3 +220,4 @@ export default function MyQRscan(props) {
     </SafeAreaView>
   );
 }
+

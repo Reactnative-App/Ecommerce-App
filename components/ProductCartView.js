@@ -32,6 +32,6 @@ import { useNavigation } from '@react-navigation/native';
         </View>
         </TouchableOpacity>
     )
-}
+}          
 
 export default ProductCartView
