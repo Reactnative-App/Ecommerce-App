@@ -38,6 +38,7 @@ import SearchScreen from "../components/SearchScreen";
 import Cart from "../Screens/OnboardingScreens/Cart";
 import WishList from "../Screens/OnboardingScreens/WishList";
 import EditProfile from "../components/EditProfile";
+import Map from "../Screens/Map";
 
 // import EditProfile from "../components/EditProfile";
 const Stack = createNativeStackNavigator();
@@ -238,7 +239,11 @@ const RootNavigator = () => {
             component={EditProfile}
             options={{ headerShown: false }}
           />
-           
+          <Stack.Screen
+            name="Map"
+            component={Map}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );

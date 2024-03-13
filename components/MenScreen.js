@@ -9,21 +9,39 @@ import LinearGradient from 'react-native-linear-gradient';
 import Modal from "react-native-modal";
 import {COLORS} from '../Constants/theme';
 import { Slider } from 'react-native-elements/dist/slider/Slider';
+import { FILTERS, PRODUCT_LIST } from '../db';
 const MenScreen = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [showSortModal, setShowSortModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [checked, setChecked] = useState(false); 
   const CATEGORY = ['All','Men', 'Women', 'Kids', 'Boys', 'Girls' ]
+
   const Colors = ['#08609C', '#AD63C2', '#DEAD3D', '#CD3B3B', '#FFE0D5'];
+  
   DISCOUNT = ['Discard', 'Apply']
+
   const SIZES = ['S', 'M', 'L', 'XL'];
+
+
   const [size, setSize] = useState(SIZES[0]);
   const [category, setCategory] = useState();
   const [discount, setDiscount] = useState();
   const [range, setRange] = useState('50%');
  const [sliding, setSliding] = useState();
   const products = [1, 2, 3, 4]; 
+
+// console.log(FILTERS)
+
+const onPressSize = (data) => {setSize(data)
+
+  const filteredObjects = FILTERS.filter(item => item.size.includes(data));
+
+console.log(filteredObjects);
+setFilterData(filteredObjects)
+}  
+
+const [filterData,setFilterData] = useState(FILTERS)
 
   const toggleCheckbox = () => {
     setChecked(!checked);
@@ -88,8 +106,9 @@ const MenScreen = () => {
 
       <View style={{ marginTop: scaleSize(20), marginHorizontal: scaleSize(10) }}>
         <FlatList
-          data={products}
-          renderItem={({ item }) => < ProductCartView />}
+          data={filterData}
+          renderItem={({ item }) => <ProductCartView 
+          item = {item} />}
           horizontal={false}
           numColumns={2}
           contentContainerStyle={{ columnGap: 16 }}
@@ -150,7 +169,8 @@ const MenScreen = () => {
         <View style={styles.customSlider} >
   
             <View>     
-            <Text style={{ color: '#000', fontWeight: 'bold',fontSize: scaleFont(15), alignSelf:'center' }} >{range}</Text>    
+            <Text style={{ color: '#000', fontWeight: 'bold',fontSize: scaleFont(15), alignSelf:'center' }} >{range}</Text>  
+
                <Slider
               
                style={{width: scaleSize(250), height: scaleSize(40), }}
@@ -236,7 +256,7 @@ const MenScreen = () => {
             {SIZES.map((s, i) => (
               <TouchableOpacity
                 key={i}
-                onPress={() => setSize(s)}
+                onPress={() => onPressSize(s)}
                 style={{
                   width: 54,
                   height: 34,

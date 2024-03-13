@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import styles from "./FeaturedProduct.style";
 import ProductCartView from "./ProductCartView";
+import { PRODUCT_LIST } from "../db";
 
 export const categories = [
   {
@@ -53,8 +54,8 @@ const FeaturedProduct = () => {
 
       <View style={{ marginTop: 20 }}>
         <FlatList
-          data={products}
-          renderItem={({ item }) => <ProductCartView product={item} />} // Pass product to ProductCartView
+          data={PRODUCT_LIST}
+          renderItem={({ item }) => <ProductCartView item = {item} />} // Pass product to ProductCartView
           horizontal={false}
           numColumns={2}
           contentContainerStyle={{ columnGap: 16 }}

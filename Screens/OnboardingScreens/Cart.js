@@ -17,6 +17,7 @@ import PRODUCT_3 from '../../assets/Products/Product3.png';
 import {COLORS, SIZES} from '../../Constants/theme';
 import NAVI_ARRW_SVG from '../../assets/svg/navigateArrw.svg';
 import TICKET_SVG from '../../assets/svg/Ticket.svg';
+import { PRODUCT_LIST } from '../../db';
 // import {StatusBar} from 'expo-status-bar';
 
 const Cart = (props) => {
@@ -124,7 +125,7 @@ const Cart = (props) => {
           </View>
           <View style={{marginTop: scaleSize(20), marginHorizontal: scaleSize(10)}}>
             <FlatList
-              data={products}
+              data={PRODUCT_LIST}
               renderItem={({item}) => <ProductCartView />}
               horizontal={false}
               numColumns={2}

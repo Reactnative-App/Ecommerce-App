@@ -8,7 +8,7 @@ import {
   FlatList,
   StatusBar
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 // import { StatusBar } from 'expo-status-bar'
 // import Icons from 'react-native-vector-icons/Ionicons';
 import CategoriesTypes from '../components/Categories';
@@ -25,8 +25,14 @@ import TopTabNavigation from '../Navigation/TopTabNavigation';
 import {useNavigation} from '@react-navigation/native';
 import ProductCartView from '../components/ProductCartView';
 import {scaleSize,} from '../Constants/Mixins';
+import { PRODUCT_LIST } from '../db';
 
 const HomeScreen = () => {
+
+  const [productList,setproductList] = useState(PRODUCT_LIST)
+
+  console.log(PRODUCT_LIST)
+
   const navigation = useNavigation();
   const ListHeader = () => {
     return (
@@ -146,8 +152,9 @@ const HomeScreen = () => {
               <TopTabNavigation /> */}
             {/* <ArrivalProducts /> */}
             <FlatList
-              data={[1, 2, 3, 4]}
-              renderItem={({ item }) => <ProductCartView />}
+              data={productList}
+              renderItem={({ item }) => <ProductCartView 
+              item = {item} />}
               horizontal={false}
               numColumns={2}
               // contentContainerStyle={{ columnGap: 16 }}

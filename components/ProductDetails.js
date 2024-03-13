@@ -32,7 +32,9 @@ import * as Progress from 'react-native-progress';
 import ProductCartView from './ProductCartView';
 import BUY_SVG from '../assets/svg/Buy.svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { PRODUCT_LIST, arrayOfImages } from '../db';
 const {height, width} = Dimensions.get('window');
+
 const image1 = require('../assets/Products/Product1.png');
 const image2 = require('../assets/Products/Product2.png');
 const image3 = require('../assets/Products/Product3.png');
@@ -113,6 +115,10 @@ const ProductDetails = ({navigation}) => {
             style={styles.image}
           />
         </View>
+
+<View style={{flexDirection:"row"}}>
+  {arrayOfImages.map((item)=>{return(<Image source={{uri:item}} style={{height:90,width:90}}/>)})}
+</View>
 
         {/* <View style={{ flexDirection: 'row', gap: 5, marginLeft:15}}>
       <FlatList
@@ -567,8 +573,9 @@ const ProductDetails = ({navigation}) => {
           </View>
 
           <FlatList
-            data={[1, 2, 3, 4]}
-            renderItem={({item}) => <ProductCartView />}
+            data={PRODUCT_LIST}
+            renderItem={({ item }) => <ProductCartView 
+            item = {item} />}
             horizontal={false}
             numColumns={2}
             style={

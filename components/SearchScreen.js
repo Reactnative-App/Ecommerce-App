@@ -19,6 +19,7 @@ import {TouchableOpacity} from 'react-native';
 import {FlatList} from 'react-native';
 import ProductCartView from './ProductCartView';
 import RBSheet from 'react-native-raw-bottom-sheet';
+import { PRODUCT_LIST } from '../db';
 const PRIVECY_DATA = [
   {
     title: 'Categories',
@@ -129,7 +130,7 @@ export default function SearchScreen(props) {
         </Text>
         <View style={{marginLeft: scaleSize(30), marginTop: scaleSize(20)}}>
           <FlatList
-            data={[1, 2, 3, 4]}
+            data={PRODUCT_LIST}
             renderItem={({item}) => <ProductCartView />}
             horizontal={false}
             numColumns={2}

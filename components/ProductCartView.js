@@ -3,14 +3,18 @@ import React from 'react';
 import styles from './ProductCartView.style';
 import { useNavigation } from '@react-navigation/native';
 
- const ProductCartView = () =>{
+ const ProductCartView = (item) =>{
+
+    console.log(item)
     const navigation = useNavigation();
     return(
         <TouchableOpacity onPress={() => navigation.navigate("ProductDetails")}>
         <View style={styles.container}>
         <View style={styles.imageContainer}>
         <Image 
-        source={require('../assets/Products/Product1.png')}
+        // source={require('../assets/Products/Product1.png')}
+        source={{uri:item.item.image}}
+        style={{flex:1}}
         resizeMode='contain'
          />
         </View>

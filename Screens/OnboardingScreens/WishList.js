@@ -6,6 +6,7 @@ import PRODUCT_1 from '../../assets/Products/Product1.png';
 import PRODUCT_2 from '../../assets/Products/Product2.png';
 import PRODUCT_3 from '../../assets/Products/Product3.png';
 import { scaleSize } from '../../Constants/Mixins';
+import { PRODUCT_LIST } from '../../db';
 // import ProductCartView from "../../components/ProductCartView";
 
 const WishList = ({ navigation }) => {
@@ -143,7 +144,7 @@ const WishList = ({ navigation }) => {
           </View>
           <View style={{marginTop: scaleSize( 20), marginHorizontal: scaleSize(10)}}>
             <FlatList
-              data={products}
+              data={PRODUCT_LIST}
               renderItem={({item}) => <ProductCartView />}
               horizontal={false}
               numColumns={2}
