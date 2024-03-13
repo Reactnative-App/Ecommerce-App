@@ -35,7 +35,7 @@ const Screen2 = ({navigation}) => {
                 <Text style={{fontSize:scaleFont (50), fontFamily: 'Blinker-Light', color:'#000'}}>By All</Text>
               </View>
 
-              <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('Login')}>
+              <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('ProductListing')}>
                     <Text style={{textAlign:"center", color:'#000'}}>Get Started</Text>
                    </TouchableOpacity>
         {/* </LinearGradient> */}

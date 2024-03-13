@@ -1,0 +1,146 @@
+
+{
+    "category":[
+        {
+            "name": "T-shirt",
+            "type": "Men",
+            "slang": "men's cotton T-shirt",
+            "price": 499,
+            "image": "https://overay.in/wp-content/uploads/2022/11/FEATURED-PICTURES-men-blue-tshirt.jpg",
+            "color": "blue",
+           "category": "c1",
+           "subcategory": "s1"
+        },
+        {
+            "name": "T-shirt",
+            "type": "Men",
+            "slang": "men's cotton T-shirt",
+            "price": 399,
+            "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg",
+            "color": "yellow",
+           "category": "c1",
+           "subcategory": "s2"
+        },
+        {
+            "name": "T-shirt",
+            "type": "Men",
+            "slang": "men's cotton T-shirt",
+            "price": 599,
+            "image": "https://overay.in/wp-content/uploads/2022/10/red.jpg",
+            "color": "red",
+           "category": "c1",
+           "subcategory": "s3"
+        },
+        {
+            "name": "T-shirt",
+            "type": "Women",
+            "slang": "Wommen's cotton T-shirt",
+            "price": 459,
+            "image": "https://overay.in/wp-content/uploads/2022/11/FEATURED-PICTURES-WOMN-RED-TSHIRTS.jpg",
+            "color": "red",
+           "category": "c2",
+           "subcategory": "s1"
+        },{
+            "name": "T-shirt",
+            "type": "Women",
+            "slang": "Women's cotton T-shirt",
+            "price": 599,
+            "image": "https://overay.in/wp-content/uploads/2022/11/FEATURED-PICTURES-MEN-WHITE-T-SHIRT.jpg",
+            "color": "white",
+           "category": "c2",
+           "subcategory": "s2"
+        },{
+            "name": "T-shirt",
+            "type": "Women",
+            "slang": "Women's cotton T-shirt",
+            "price": 439,
+            "image": "https://overay.in/wp-content/uploads/2022/11/YELLOW-WOMEN.jpg",
+            "color": "yellow",
+           "category": "c2",
+           "subcategory": "s3"
+        },{
+            "name": "T-shirt",
+            "type": "Women",
+            "slang": "Women's cotton T-shirt",
+            "price": 599,
+            "image": "https://overay.in/wp-content/uploads/2022/10/red.jpg",
+            "color": "red",
+           "category": "c2",
+           "subcategory": "s4"
+        },{
+            "name": "T-shirt",
+            "type": "Women",
+            "slang": "Women's cotton T-shirt",
+            "price": 459,
+            "image": "https://overay.in/wp-content/uploads/2022/11/BLACK.jpg",
+            "color": "blue",
+           "category": "c2",
+           "subcategory": "s5"
+        },{
+            "name": "T-shirt",
+            "type": "Girls",
+            "slang": "Girl's cotton T-shirt",
+            "price": 499,
+            "image": "https://overay.in/wp-content/uploads/2022/09/1-3.jpg",
+           "category": "c3",
+           "subcategory": "s1"
+        },{
+            "name": "T-shirt",
+            "type": "Girls",
+            "slang": "Girl's cotton T-shirt",
+            "price":399,
+            "image": "https://overay.in/wp-content/uploads/2022/09/3-3.jpg",
+           "category": "c3",
+           "subcategory": "s2"
+        },{
+            "name": "T-shirt",
+            "type": "Girls",
+            "slang": "Girl's cotton T-shirt",
+            "price":439,
+            "image": "https://overay.in/wp-content/uploads/2022/09/2-3.jpg",
+           "category": "c3",
+           "subcategory": "s3"
+        },{
+            "name": "T-shirt",
+            "type": "Girls",
+            "slang": "Girl's cotton T-shirt",
+            "price":459,
+            "image": "https://overay.in/wp-content/uploads/2022/09/4-3.jpg",
+           "category": "c3",
+           "subcategory": "s4"
+        },{
+            "name": "T-shirt",
+            "type": "Boys",
+            "slang": "Boy's cotton T-shirt",
+            "price":499,
+            "image": "https://overay.in/wp-content/uploads/2022/09/2-5.jpg",
+           "category": "c4",
+           "subcategory": "s1"
+        },{
+            "name": "T-shirt",
+            "type": "Boys",
+            "slang": "Boy's cotton T-shirt",
+            "price":599,
+            "image": "https://overay.in/wp-content/uploads/2022/09/1-5.jpg",
+           "category": "c4",
+           "subcategory": "s2"
+        },{
+            "name": "T-shirt",
+            "type": "Boys",
+            "slang": "Boy's cotton T-shirt",
+            "price":399,
+            "image": "https://overay.in/wp-content/uploads/2022/09/5-5.jpg",
+           "category": "c4",
+           "subcategory": "s3"
+        },{
+            "name": "T-shirt",
+            "type": "Boys",
+            "slang": "Boy's cotton T-shirt",
+            "price":499,
+            "image": "https://overay.in/wp-content/uploads/2022/09/7-3.jpg",
+           "category": "c4",
+           "subcategory": "s4"
+        }
+
+    ]
+}

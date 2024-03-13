@@ -32,9 +32,10 @@ import * as Progress from 'react-native-progress';
 import ProductCartView from './ProductCartView';
 import BUY_SVG from '../assets/svg/Buy.svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { PRODUCT_LIST, arrayOfImages } from '../db';
-const {height, width} = Dimensions.get('window');
+import TickSquare from '../assets/svg/TickSquare.svg';
 
+
+// const {height, width} = Dimensions.get('window');
 const image1 = require('../assets/Products/Product1.png');
 const image2 = require('../assets/Products/Product2.png');
 const image3 = require('../assets/Products/Product3.png');
@@ -72,7 +73,7 @@ const ProductDetails = ({navigation}) => {
   //const [showSizeChart, setShowSizeChart] = useState(false);
   return (
     <View style={styles.main}>
-      <ScrollView>
+    <ScrollView>
         <View style={styles.wishListHeader}>
           <TouchableOpacity>
             <Image
@@ -89,25 +90,7 @@ const ProductDetails = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        {/* <View style={{height:200, marginTop: scaleSize(30),  marginLeft: scaleSize(10),  marginRight: scaleSize(10)}}>
-        <FlatList
-        pagingEnabled
-  horizontal
-  onScroll={e => {
-    setSelectedIndex(
-      (e.nativeEvent.contentOffset.x / width).toFixed(0),
-    );
-  }}
-  data={data[0].items}
-  showsHorizontalScrollIndicator={false}
-  renderItem={({ item, index }) => {
-    return(
-     <Image source={item} style={{ width:WIDTH, height: 200}} />
-  )
-  }}
-  />
-
-        </View> */}
+        
 
         <View style={styles.headerContainer}>
           <Image
@@ -186,32 +169,81 @@ const ProductDetails = ({navigation}) => {
         </View>
 
         <View style={styles.sizeTop}>
-          <View style={styles.sizeDirection}>
-            <Text style={styles.customSizes}>Color :</Text>
-          </View>
-          <View style={styles.sizesRow}>
-            {Colors.map((color, i) => (
-              <TouchableOpacity
-                key={i}
-                onPress={() => setSelectedSize(color)}
-                style={{
-                  width: 24,
-                  height: 24,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: color,
-                  borderRadius: scaleSize(44),
-                  marginRight: scaleSize(10),
-                }}
-              />
-            ))}
-          </View>
+  <View style={styles.sizeDirection}>
+    <Text style={styles.customSizes}>Color :</Text>
+  </View>
+  <View style={styles.sizesRow}>
+    {Colors.map((color, i) => (
+      <TouchableOpacity
+        key={i}
+        onPress={() => setSelectedSize(color)}
+        style={{
+          width: 24,
+          height: 24,
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: color,
+          borderRadius: scaleSize(44),
+          marginRight: scaleSize(10),
+        }}
+      >
+        {selectedSize === color && (
+          < TickSquare
+
+            style={{
+              width: 15,
+              height: 15,
+              backgroundColor: 'white',
+              borderRadius: 6,
+              position: 'absolute',
+            }}
+          />
+        )}
+      </TouchableOpacity>
+    ))}
+  
+</View>
+          {/* <View style={styles.sizeTop}>
+  <View style={styles.sizeDirection}>
+    <Text style={styles.customSizes}>Color :</Text>
+  </View>
+  <View style={styles.sizesRow}>
+    {Colors.map((color, i) => (
+      <TouchableOpacity
+        key={i}
+        onPress={() => setSelectedSize(color)}
+        style={{
+          width: 24,
+          height: 24,
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: color,
+          borderRadius: scaleSize(44),
+          marginRight: scaleSize(10),
+        }}
+      >
+        {selectedSize === color && (
+          <View
+            style={{
+              width: 12,
+              height: 12,
+              backgroundColor: 'white',
+              borderRadius: 6,
+              position: 'absolute',
+            }}
+          />
+        )}
+      </TouchableOpacity>
+    ))}
+  </View>
+</View> */}
+
 
           <View style={styles.sizeDirection}>
             <Text style={styles.customSizes}>Size :</Text>
           </View>
 
-<View style={{flexDirection:'row',justifyContent:'space-between'}}>
+{/* <View style={{flexDirection:'row',justifyContent:'space-between'}}>
 
           <View style={styles.sizesRow}>
             {SIZES.map((s, i) => (
@@ -239,7 +271,39 @@ const ProductDetails = ({navigation}) => {
             ))}
           </View>
 
-          </View>        
+          </View>         */}
+<View style={{flexDirection:'row',justifyContent:'space-between'}}>
+
+<View style={styles.sizesRow}>
+  {SIZES.map((s, i) => (
+    <TouchableOpacity
+      key={i}
+      onPress={() => setSize(s)}
+      style={{
+        width: 24,
+        height: 24,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: s === size ? '' : '#F3D743',
+        borderRadius: scaleSize(44),
+        backgroundColor: s === size ? '#F3D743' : 'transparent', 
+      }}>
+
+        
+      <Text
+        style={{
+          color: s === size ? '#fff' : '#000',
+          fontFamily: 'Blinker-Regular',
+          fontSize: scaleSize(10),
+        }}>
+        {s}
+      </Text>
+    </TouchableOpacity>
+  ))}
+</View>
+
+</View>         
 
   {/* <View style={styles.sizesRow}>
     {SIZES.map((s, i) => (
@@ -778,8 +842,8 @@ const ProductDetails = ({navigation}) => {
             </Pressable>
           </View>
         </View>
-      </ScrollView>
-    </View>
+        </ScrollView>
+</View>
   );
 };
 
