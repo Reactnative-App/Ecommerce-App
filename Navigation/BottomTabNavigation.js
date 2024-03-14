@@ -40,7 +40,7 @@ export default function BottomTabNavigation() {
 
     switch (routeName) {
       case 'title1':
-        icon = <BOTTOM_1_SVG height={scaleSize(20)} width={scaleSize(20)} />;
+        icon = <BOTTOM_BAG_SVG height={scaleSize(20)} width={scaleSize(20)} />;
         break;
       case 'title2':
         icon = <BOTTOM_BAG_SVG height={scaleSize(20)} width={scaleSize(20)} />;

@@ -89,3 +89,164 @@ export const arrayOfImages = [
 
 
 ]
+
+export const CATEGORIES_TSHIRT = [
+
+  {
+    "id": 1,
+    "title":"Linen slim fit T-shirt",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 2,
+    "title":"Linen slim fit T-shirt",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 3,
+    "title":"Linen slim fit T-shirt",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 4,
+    "title":"Linen slim fit T-shirt",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  }
+]
+
+export const CATEGORIES_TRACKSUIT = [
+
+  {
+    "id": 1,
+    "title":"Linen slim fit tracksuit",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 2,
+    "title":"Linen slim fit tracksuit",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 3,
+    "title":"Linen slim fit tracksuit",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 4,
+    "title":"Linen slim fit tracksuit",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  }
+]
+
+export const CATEGORIES_BOXER = [
+
+  {
+    "id": 1,
+    "title":"Linen slim fit boxer",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 2,
+    "title":"Linen slim fit boxer",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 3,
+    "title":"Linen slim fit boxer",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 4,
+    "title":"Linen slim fit boxer",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  }
+]
+
+
+export const CATEGORIES_LOWERS = [
+
+  {
+    "id": 1,
+    "title":"Linen slim fit lowers",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 2,
+    "title":"Linen slim fit lowers",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 3,
+    "title":"Linen slim fit lowers",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  },
+  {
+    "id": 4,
+    "title":"Linen slim fit lowers",
+    "price": 109.95,
+    "category": "Girls",
+    "color":['Purple','Violet','Yellow','Red','Pink'],
+    "size":['S','M','L','XL'],
+    "image": "https://overay.in/wp-content/uploads/2022/10/YEELLOW.jpg"
+  }
+]

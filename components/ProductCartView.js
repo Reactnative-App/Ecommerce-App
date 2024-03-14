@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
  const ProductCartView = (item) =>{
 
     console.log(item)
+
     const navigation = useNavigation();
     return(
         <TouchableOpacity onPress={() => navigation.navigate("ProductDetails")}>
@@ -24,7 +25,7 @@ import { useNavigation } from '@react-navigation/native';
             Fashion
             </Text>
             <Text style={styles.supplier} numberOflines={1}>
-            Linen slim-fit t-shirt
+            {item?.item.title}
             </Text>
             <Text style={styles.price}>$2536</Text>
         </View>
