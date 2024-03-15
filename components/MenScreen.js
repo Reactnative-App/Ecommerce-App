@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable, FlatList, StatusBar, Button, Animated, } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable, FlatList, StatusBar, Button, Animated, ScrollView, } from 'react-native';
 import styles from './MenScreen.style';
 import ProductCartView from "./ProductCartView";
 import { scaleFont, scaleSize } from '../Constants/Mixins';
@@ -9,16 +9,18 @@ import LinearGradient from 'react-native-linear-gradient';
 import Modal from "react-native-modal";
 import { COLORS } from '../Constants/theme';
 import { Slider } from 'react-native-elements/dist/slider/Slider';
+import TickSquare from '../assets/svg/TickSquare.svg';
+
 import { CATEGORIES_BOXER, CATEGORIES_JOGGERS, CATEGORIES_LOWER, CATEGORIES_LOWERS, CATEGORIES_TRACKPANTS, CATEGORIES_TRACKSUIT, CATEGORIES_TSHIRT, FILTERS, PRODUCT_LIST } from '../db';
 const MenScreen = (props) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [showSortModal, setShowSortModal] = useState(false);
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [checked, setChecked] = useState(false);
-  const CATEGORY = ['All', 'Men', 'Women', 'Kids', 'Boys', 'Girls']
+  const CATEGORY = ['All', 'Men', 'Women', 'Boys', 'Girls']
 
   const Colors = ['#08609C', '#AD63C2', '#DEAD3D', '#CD3B3B', '#FFE0D5'];
-
+  const [selectedSize, setSelectedSize] = useState(null);
   DISCOUNT = ['Discard', 'Apply']
 
   const SIZES = ['S', 'M', 'L', 'XL'];
@@ -34,7 +36,7 @@ const MenScreen = (props) => {
   const { type } = props.route.params;
 
   useEffect(() => { 
-    if (type == "T-Shirt") { setFilterData(CATEGORIES_TSHIRT) } 
+    if (type == "All Product") { setFilterData(CATEGORIES_TSHIRT) } 
   
     else if(type == "TrackSuit") { setFilterData(CATEGORIES_TRACKSUIT) }
 
@@ -89,7 +91,7 @@ const MenScreen = (props) => {
       />
       <View style={styles.upperRow}>
         <TouchableOpacity>
-          <Image source={require('../assets/Icons/ArrowWht.png')} onPress={() => navigation.goBack()} />
+          <Image source={require('../assets/Icons/ArrowWht.png')} onPress={() => navigation.goBack()}/>
         </TouchableOpacity>
         <TouchableOpacity>
           <View style={{ flexDirection: 'row', gap: 20, display: "flex" }}>
@@ -117,7 +119,7 @@ const MenScreen = (props) => {
           </View>
         </TouchableOpacity>
       </View>
-
+  <ScrollView>
       <View style={{ marginTop: scaleSize(20), marginHorizontal: scaleSize(10) }}>
         <FlatList
           data={filterData}
@@ -128,7 +130,7 @@ const MenScreen = (props) => {
           contentContainerStyle={{ columnGap: 16 }}
         />
       </View>
-
+      </ScrollView>
       {/* Sort Modal */}
       <Modal
         animationType="slide"
@@ -243,22 +245,36 @@ const MenScreen = (props) => {
             <Text style={styles.customSizes}>Color</Text>
           </View>
           <View style={styles.sizesRow}>
-            {Colors.map((color, i) => (
-              <TouchableOpacity
-                key={i}
-                onPress={() => setSelectedSize(color)}
-                style={{
-                  width: 24,
-                  height: 24,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: color,
-                  borderRadius: scaleSize(44),
-                  marginRight: scaleSize(10),
-                }}
-              />
-            ))}
-          </View>
+    {Colors.map((color, i) => (
+      <TouchableOpacity
+        key={i}
+        onPress={() => setSelectedSize(color)}
+        style={{
+          width: 24,
+          height: 24,
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: color,
+          borderRadius: scaleSize(44),
+          marginRight: scaleSize(10),
+        }}
+      >
+        {selectedSize === color && (
+          < TickSquare
+
+            style={{
+              width: 15,
+              height: 15,
+              backgroundColor: 'white',
+              borderRadius: 6,
+              position: 'absolute',
+            }}
+          />
+        )}
+      </TouchableOpacity>
+    ))}
+  
+</View>
 
 
           <View style={styles.sizeDirection}>

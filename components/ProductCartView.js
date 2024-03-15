@@ -12,12 +12,17 @@ import { useNavigation } from '@react-navigation/native';
         <TouchableOpacity onPress={() => navigation.navigate("ProductDetails")}>
         <View style={styles.container}>
         <View style={styles.imageContainer}>
-        <Image 
+        {/* <Image 
         // source={require('../assets/Products/Product1.png')}
         source={{uri:item.item.image}}
         style={{flex:1}}
         resizeMode='contain'
-         />
+         /> */}
+         <Image source={{uri:item.item.image}} style={{ width: '100%', height: 200 }} />
+                    <Text style={{ color: '#000', fontSize: 18, textAlign: "center" }}>
+                        {item.price}
+                    </Text>
+
         </View>
 
         <View style={styles.details}>
@@ -27,7 +32,8 @@ import { useNavigation } from '@react-navigation/native';
             <Text style={styles.supplier} numberOflines={1}>
             {item?.item.title}
             </Text>
-            <Text style={styles.price}>$2536</Text>
+            {/* <Text style={styles.price}>$2536</Text> */}
+            <Text style={styles.price}>₹{item.item.price}</Text>
         </View>
 
         <TouchableOpacity >

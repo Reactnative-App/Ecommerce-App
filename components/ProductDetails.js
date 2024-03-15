@@ -33,6 +33,7 @@ import ProductCartView from './ProductCartView';
 import BUY_SVG from '../assets/svg/Buy.svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import TickSquare from '../assets/svg/TickSquare.svg';
+import { PRODUCT_LIST, arrayOfImages } from '../db';
 
 
 // const {height, width} = Dimensions.get('window');
@@ -78,7 +79,7 @@ const ProductDetails = ({navigation}) => {
           <TouchableOpacity>
             <Image
               source={require('../assets/Icons/Arrow.png')}
-              onPress={() => navigation.goBack()}
+              onPress={() => props.navigation.goBack()}
             />
           </TouchableOpacity>
           <TouchableOpacity>
@@ -100,7 +101,7 @@ const ProductDetails = ({navigation}) => {
         </View>
 
 <View style={{flexDirection:"row"}}>
-  {arrayOfImages.map((item)=>{return(<Image source={{uri:item}} style={{height:90,width:90}}/>)})}
+  {arrayOfImages.map((item)=>{return(<Image source={{uri:item.image}} style={{height:90,width:90}}/>)})}
 </View>
 
         {/* <View style={{ flexDirection: 'row', gap: 5, marginLeft:15}}>
@@ -203,75 +204,14 @@ const ProductDetails = ({navigation}) => {
     ))}
   
 </View>
-          {/* <View style={styles.sizeTop}>
-  <View style={styles.sizeDirection}>
-    <Text style={styles.customSizes}>Color :</Text>
-  </View>
-  <View style={styles.sizesRow}>
-    {Colors.map((color, i) => (
-      <TouchableOpacity
-        key={i}
-        onPress={() => setSelectedSize(color)}
-        style={{
-          width: 24,
-          height: 24,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: color,
-          borderRadius: scaleSize(44),
-          marginRight: scaleSize(10),
-        }}
-      >
-        {selectedSize === color && (
-          <View
-            style={{
-              width: 12,
-              height: 12,
-              backgroundColor: 'white',
-              borderRadius: 6,
-              position: 'absolute',
-            }}
-          />
-        )}
-      </TouchableOpacity>
-    ))}
-  </View>
-</View> */}
-
+         
 
           <View style={styles.sizeDirection}>
             <Text style={styles.customSizes}>Size :</Text>
           </View>
 
-{/* <View style={{flexDirection:'row',justifyContent:'space-between'}}>
 
-          <View style={styles.sizesRow}>
-            {SIZES.map((s, i) => (
-              <TouchableOpacity
-                key={i}
-                onPress={() => setSize(s)}
-                style={{
-                  width: 24,
-                  height: 24,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderWidth: 1,
-                  borderColor: s === size ? '#bdbdbd' : '',
-                  borderRadius: scaleSize(44),
-                }}>
-                <Text
-                  style={{
-                    color: s === size ? '#000' : '#bdbdbd',
-                    fontFamily: 'regular',
-                    fontSize: scaleSize(10),
-                  }}>
-                  {s}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
 
-          </View>         */}
 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
 
 <View style={styles.sizesRow}>
@@ -303,35 +243,7 @@ const ProductDetails = ({navigation}) => {
   ))}
 </View>
 
-</View>         
-
-  {/* <View style={styles.sizesRow}>
-    {SIZES.map((s, i) => (
-      <TouchableOpacity
-        key={i}
-        onPress={() => setSelectedSize(s)}
-        style={{
-          width: 24,
-          height: 24,
-          alignItems: 'center',
-          justifyContent: 'center',.
-          borderWidth: 1,
-          borderColor: s === size ? '#000' : '',
-          backgroundColor: selectedSize === s ? 'green' : '',
-          borderRadius: 44,
-        }}>
-        <Text
-          style={{
-            color: s === size ? '#000' : '#bdbdbd',
-            fontFamily: 'regular',
-            fontSize: 10,
-          }}>
-          {s}
-        </Text>
-      </TouchableOpacity>
-    ))}
-  </View> */}
-
+</View>     
 
 
 
@@ -644,8 +556,8 @@ const ProductDetails = ({navigation}) => {
             numColumns={2}
             style={
               {
-                //  marginHorizontal: scaleSize(10),
-                // marginVertical: scaleSize(20),
+                // marginHorizontal: scaleSize(5),
+                marginVertical: scaleSize(20),
               }
             }
           />
