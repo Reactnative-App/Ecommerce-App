@@ -248,7 +248,7 @@ const ProductDetails = ({navigation}) => {
 
 
 
-          {!size && <Text style={{color: 'red'}}>Please select your size</Text>}
+          {!size && <Text style={{color: 'red'}}>Please select your size and color</Text>}
 
           <View style={styles.horizontal}></View>
 

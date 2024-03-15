@@ -21,6 +21,7 @@ import HomeScreen from '../Screens/HomeScreen';
 import Account from '../components/Account';
 import Cart from '../Screens/OnboardingScreens/Cart';
 import WishList from '../Screens/OnboardingScreens/WishList';
+
 const Screen1 = () => {
   return <HomeScreen />;
 };

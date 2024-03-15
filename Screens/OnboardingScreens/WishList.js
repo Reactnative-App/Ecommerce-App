@@ -145,7 +145,8 @@ const WishList = ({ navigation }) => {
           <View style={{marginTop: scaleSize( 20), marginHorizontal: scaleSize(10)}}>
             <FlatList
               data={PRODUCT_LIST}
-              renderItem={({item}) => <ProductCartView />}
+              renderItem={({ item }) => <ProductCartView 
+              item = {item} />}
               horizontal={false}
               numColumns={2}
               contentContainerStyle={{columnGap: 16}}

@@ -36,7 +36,7 @@ const MenScreen = (props) => {
   const { type } = props.route.params;
 
   useEffect(() => { 
-    if (type == "All Product") { setFilterData(CATEGORIES_TSHIRT) } 
+    if (type == "T-Shirt") { setFilterData(CATEGORIES_TSHIRT) } 
   
     else if(type == "TrackSuit") { setFilterData(CATEGORIES_TRACKSUIT) }
 
