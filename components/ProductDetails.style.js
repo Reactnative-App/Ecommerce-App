@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     },
     sizeTop:{
         marginTop:scaleSize(22),
-        marginHorizontal: scaleSize(22)
+        marginHorizontal: scaleSize(12)
     },
     sizeDirection:{
         flexDirection: "row", 

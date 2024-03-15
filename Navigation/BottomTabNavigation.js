@@ -12,7 +12,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import LoginScreen from '../Screens/LoginScreen/LoginScreen';
 import ForgotPass from '../Screens/LoginScreen/ForgotPass';
 import BOTTOM_1_SVG from '../assets/svg/Bottom_1.svg';
-import BOTTOM_HOME_SVG from '../assets/svg/Bottom_Home.svg';
+import BOTTOM_HOME_SVG from '../assets/svg/Home.svg';
 import BOTTOM_BAG_SVG from '../assets/svg/Bottom_Bag.svg';
 import BOTTOM_PROFILE_SVG from '../assets/svg/Bottom_Profile.svg';
 import BOTTOM_BOOKMARK_SVG from '../assets/svg/Bottom_Bookmark.svg';
@@ -40,7 +40,7 @@ export default function BottomTabNavigation() {
 
     switch (routeName) {
       case 'title1':
-        icon = <BOTTOM_BAG_SVG height={scaleSize(20)} width={scaleSize(20)} />;
+        icon = <BOTTOM_HOME_SVG height={scaleSize(20)} width={scaleSize(20)} />;
         break;
       case 'title2':
         icon = <BOTTOM_BAG_SVG height={scaleSize(20)} width={scaleSize(20)} />;

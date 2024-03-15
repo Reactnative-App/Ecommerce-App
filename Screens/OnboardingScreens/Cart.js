@@ -18,9 +18,11 @@ import {COLORS, SIZES} from '../../Constants/theme';
 import NAVI_ARRW_SVG from '../../assets/svg/navigateArrw.svg';
 import TICKET_SVG from '../../assets/svg/Ticket.svg';
 import { PRODUCT_LIST } from '../../db';
+import { useNavigation } from '@react-navigation/native';
 // import {StatusBar} from 'expo-status-bar';
 
-const Cart = (props) => {
+const Cart = () => {
+  const navigation = useNavigation();
   const products = [1, 2, 3, 4];
   const data = [
     {
@@ -126,7 +128,8 @@ const Cart = (props) => {
           <View style={{marginTop: scaleSize(20), marginHorizontal: scaleSize(10)}}>
             <FlatList
               data={PRODUCT_LIST}
-              renderItem={({item}) => <ProductCartView />}
+              renderItem={({ item }) => <ProductCartView 
+              item = {item} />}
               horizontal={false}
               numColumns={2}
               contentContainerStyle={{columnGap: 16}}
@@ -301,10 +304,10 @@ const Cart = (props) => {
                     alignItems: 'center',
                     borderRadius: scaleSize(30),
                   }}
-                  // onPress={() => props.navigation.navigate('Checkout')}/
-                  onPress={() => {
-                    props.navigation.navigate('LoginWithEmail');
-                  }}
+                   onPress={() => navigation.navigate('Checkout')}
+                  // onPress={() => {
+                  //   props.navigation.navigate('LoginWithEmail');
+                  // }}
                   >
                     
                   <Text
