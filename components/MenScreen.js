@@ -26,9 +26,12 @@ import DISCOUNT_SVG from '../assets/svg/Discount.svg';
 
 import { CATEGORIES_BOXER, CATEGORIES_JOGGERS, CATEGORIES_LOWER, CATEGORIES_LOWERS, CATEGORIES_TRACKPANTS, CATEGORIES_TRACKSUIT, CATEGORIES_TSHIRT, FILTERS, PRODUCT_LIST } from '../db';
 import { useWindowDimensions } from 'react-native';
+import Filters from './filter';
 const MenScreen = (props) => {
 
   const refRBSheet = useRef();
+
+  const filterSheet = useRef();
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [showSortModal, setShowSortModal] = useState(false);
@@ -336,7 +339,12 @@ const MenScreen = (props) => {
         translucent
         backgroundColor="transparent"
       />
+
+<Filters refRBSheet={filterSheet} filter={data => console.log(data)} />
+
       <FilterPOPUP/>
+
+
       <View style={styles.upperRow}>
         <TouchableOpacity>
           <Image source={require('../assets/Icons/ArrowWht.png')} onPress={() => navigation.goBack()}/>
@@ -351,7 +359,7 @@ const MenScreen = (props) => {
       <Image source={require('../assets/MenFashion.png')} style={styles.image} />
 
       <View style={styles.btnSection}>
-        <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+        <TouchableOpacity onPress={() => filterSheet.current.open()}>
           <View style={styles.btnFilter}>
             <Text style={styles.btnText}>
               <Image source={require("../assets/Icons/Filter.png")} /> &nbsp; Filter
@@ -619,6 +627,7 @@ const MenScreen = (props) => {
 
     </View>
   )
+  
 }
 
 export default MenScreen;
